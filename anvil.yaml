@@ -3,7 +3,7 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: MainForm}
+startup: {type: form, module: Form1}
 package_name: Thumb_Cutter_Online
 allow_embedding: false
 name: Clone of Thumb_Cutter Online
@@ -25,5 +25,14 @@ db_schema:
       type: media
     - name: uploaded
       admin_ui: {order: 2, width: 200}
+      type: string
+    - name: price
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: weight
+      admin_ui: {order: 4, width: 200}
+      type: string
+    - name: time
+      admin_ui: {order: 5, width: 200}
       type: string
 renamed: true

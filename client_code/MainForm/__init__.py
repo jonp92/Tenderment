@@ -11,19 +11,35 @@ class MainForm(MainFormTemplate):
     # Set Form properties and Data Bindings.
     self.uploaded_file = None
     self.gcode = None
+    self.weight = None
+    self.price = None
+    self.time = None
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    self.png = anvil.server.call('find_png', file, file.name)
+    self.png, price, weight, time = anvil.server.call('find_png', file, file.name)
     #if file.name not in [r['name'] for r in app_tables.images.search()]:
       #self.png_table = app_tables.images.add_row(name=file.name, media_object=self.png)
     #self.png_table = app_tables.images.add_row(name=file.name + "-" + datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p") , media_object=self.png)
     self.image_1.source = self.png
+    if price == 'Not Found':
+      self.price = price
+    else:
+      self.price = f'${price}'
+    if weight == 'Not Found':
+      self.weight = weight
+    else:
+      self.weight = f'{weight} g'
+    if time == 'Not Found':
+      self.time = time
+    else:
+      self.time = f'{time}'
     self.filename = file.name
     self.uploaded_file = file.name
     self.refresh_data_bindings()
+    FileLoader().clear()
     
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""

@@ -24,9 +24,18 @@ def find_png(media_object, uploaded_file):
         thumbnail_data = sub(r'^; ', '', thumbnail_data, flags=MULTILINE)
         thumbnail_data = b64decode(thumbnail_data)
         return_media = anvil.BlobMedia(content_type="image/png", content=thumbnail_data)
+        match = search(r"\$(\d+\.\d+)-(\d+\.\d+)g-(.*).gcode", uploaded_file)
+        if match:
+          price = match.group(1)
+          weight = match.group(2)
+          time = match.group(3)
+        else:
+          price = 'Not Found'
+          weight = 'Not Found'
+          time = 'Not Found'
         if uploaded_file not in [r['name'] for r in app_tables.images.search()]:
-          png_table = app_tables.images.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string)
-    return return_media
+          png_table = app_tables.images.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string, price=price, weight=weight, time=time)
+    return return_media, price, weight, time
 
 @anvil.server.callable
 def find_png_gcode(data, filename):

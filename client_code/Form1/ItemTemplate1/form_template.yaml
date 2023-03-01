@@ -1,0 +1,53 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: GridPanel
+  properties: {}
+  name: grid_panel_1
+  layout_properties: {grid_position: 'HGGZNT,WDBLQP'}
+  components:
+  - type: Label
+    properties: {}
+    name: filename
+    layout_properties: {row: AZNOWU, width_xs: 3, col_xs: 0}
+    data_bindings: []
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'price
+
+        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: label_1
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 0, width: 42.484375}
+  - type: Label
+    properties: {}
+    name: price
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 2}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: weight, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label5
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 4, width: 90.328125}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '
+
+        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: weight
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 4, width: 90.328125}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: PrintTime, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_5
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 6, width: 90.328125}
+  - type: Label
+    properties: {}
+    name: time
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 10}
+is_package: true
