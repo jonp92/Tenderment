@@ -7,7 +7,7 @@ services:
   client_config: {allow_signup: false, enable_automatically: false, use_email: true,
     confirm_email: true, allow_remember_me: true, remember_me_days: 0.3333}
   server_config: {user_table: users}
-startup: {type: form, module: Login}
+startup: {type: form, module: Homepage}
 package_name: Thumb_Cutter_Online
 allow_embedding: false
 name: Tenderment v2

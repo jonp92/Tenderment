@@ -20,10 +20,15 @@ components:
       italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_1
     layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 0, width: 42.484375}
+    data_bindings: []
   - type: Label
-    properties: {}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
     name: price
-    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 2}
+    layout_properties: {row: HLWHRM, width_xs: 2, col_xs: 2, width: 70}
+    data_bindings: []
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: weight, font_size: null, font: '', spacing_above: small,
