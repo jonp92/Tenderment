@@ -13,8 +13,7 @@ components:
       visible: true, spacing_above: small, spacing_below: small, item_template: Homepage.PrintSummary,
       background: ''}
     name: repeating_panel_1
-    layout_properties: {grid_position: 'JGUXRN,DJHMAF'}
-    data_bindings: []
+    layout_properties: {grid_position: 'RKHCOG,HKCTJV'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

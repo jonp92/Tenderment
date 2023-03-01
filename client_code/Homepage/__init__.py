@@ -5,13 +5,15 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from . import PrintSummary
+from .PrintSummary import PrintSummary
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
-    for row in app_tables.images.search():
-      self.print = {'name': row['name'], 'uploaded': row['uploaded'], 'weight': row['weight'], 'time': row['time'], 'price': row['price']}
-    self.repeating_panel_1.items = self.print
+    self.repeating_panel_1.item_template = PrintSummary
+    self.repeating_panel = RepeatingPanel()
+    self.repeating_panel.items = app_tables.images.search()
+    print(f"self.item = {self.item}")
+
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
