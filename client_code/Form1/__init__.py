@@ -9,5 +9,10 @@ class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    RepeatingPanel().items = app_tables.images.search()    
+  
     # Any code you write here will run before the form opens.
+class Form1(ItemTemplate1):
+  def __init__(self, **properties):
+    self.init_components(**properties)
+    RepeatingPanel().items = app_tables.images.search()  
+    print(f"self.item = {self.item}")
