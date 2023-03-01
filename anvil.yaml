@@ -1,0 +1,29 @@
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: MainForm}
+package_name: Thumb_Cutter_Online
+allow_embedding: false
+name: Clone of Thumb_Cutter Online
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+metadata: {title: Thumb_Cutter Online, description: Online version of thumb_cutter,
+  logo_img: 'asset:tcicon.png'}
+startup_form: null
+db_schema:
+  images:
+    title: Images
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 463}
+      type: string
+    - name: media_object
+      admin_ui: {width: 200}
+      type: media
+    - name: uploaded
+      admin_ui: {order: 2, width: 200}
+      type: string
+renamed: true

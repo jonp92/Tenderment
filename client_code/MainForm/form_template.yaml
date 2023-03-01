@@ -1,0 +1,107 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+  data_bindings:
+  - {property: tag, code: self.uploaded_file}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {grid_position: 'HIUSEE,RKEYKB'}
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: File Cut, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: true, icon: ''}
+      name: label_1
+      layout_properties: {row: KSASRT, width_xs: 4, col_xs: 4, width: 89.65625}
+      data_bindings:
+      - {property: text, code: self.uploaded_file}
+    - type: Image
+      properties: {role: null, vertical_align: center, height: '500', tooltip: '',
+        border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+        source: '', spacing_below: small, background: '', horizontal_align: center}
+      name: image_1
+      layout_properties: {grid_position: 'XXNHQQ,YKLDUQ', row: XZWBYK, width_xs: 12,
+        col_xs: 0, width: 933}
+    - type: CheckBox
+      properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', allow_indeterminate: false, visible: true, text: Input .gcode,
+        font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+        background: '', bold: false, checked: false, underline: false}
+      name: check_box_1
+      layout_properties: {row: DXLMRG, width_xs: 2, col_xs: 1, width: 50.234375}
+      event_bindings: {change: check_box_1_change}
+    - type: FileLoader
+      properties:
+        role: filled-button
+        show_state: true
+        align: center
+        tooltip: Select a .gcode file to upload for thumbnail cutting.
+        border: ''
+        file_types: null
+        enabled: true
+        files: []
+        foreground: ''
+        visible: true
+        text: Upload .gcode
+        font_size: null
+        font: ''
+        spacing_above: small
+        icon_align: left
+        spacing_below: small
+        italic: false
+        file: null
+        background: ''
+        bold: false
+        underline: false
+        multiple: false
+        icon: fa:upload
+      name: file_loader_1
+      layout_properties: {grid_position: 'OYVGZP,QQHDHY', row: DXLMRG, width_xs: 3,
+        col_xs: 0, width: 212.25}
+      event_bindings: {change: file_loader_1_change}
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Download .png, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:download'}
+      name: button_1
+      layout_properties: {row: DXLMRG, width_xs: 3, col_xs: 6, width: 212.25}
+      data_bindings: []
+      event_bindings: {click: button_1_click}
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: false, text: Cut Thumb, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:scissors'}
+      name: cut_thumb
+      layout_properties: {row: DXLMRG, width_xs: 3, col_xs: 5, width: 210.75}
+      event_bindings: {click: cut_thumb_click}
+  - type: TextArea
+    properties: {role: null, align: left, height: 474, tooltip: '', placeholder: Copy and Paste .gcode here,
+      border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
+      auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: text_area_1
+    layout_properties: {grid_position: 'TXJUXJ,WQPNSB'}
+    data_bindings:
+    - {property: text, code: self.gcode, writeback: true}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: Thumb_Cutter Online,
+    font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+    format: plain_text}
+  name: rich_text_1
+  layout_properties: {slot: title}
