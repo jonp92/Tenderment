@@ -6,10 +6,9 @@ services:
 startup: {type: form, module: Form1}
 package_name: Thumb_Cutter_Online
 allow_embedding: false
-name: Clone of Thumb_Cutter Online
+name: Tenderment v2
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Thumb_Cutter Online, description: Online version of thumb_cutter,
-  logo_img: 'asset:tcicon.png'}
+metadata: {title: Tenderment v2, description: Print Management System, logo_img: 'asset:tcicon.png'}
 startup_form: null
 db_schema:
   images:

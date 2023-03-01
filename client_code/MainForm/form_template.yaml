@@ -51,7 +51,7 @@ components:
         files: []
         foreground: ''
         visible: true
-        text: Upload .gcode
+        text: Pick .gcode
         font_size: null
         font: ''
         spacing_above: small
@@ -66,7 +66,7 @@ components:
         icon: fa:upload
       name: file_loader_1
       layout_properties: {grid_position: 'OYVGZP,QQHDHY', row: DXLMRG, width_xs: 3,
-        col_xs: 0, width: 212.25}
+        col_xs: 0, width: 109.046875}
       event_bindings: {change: file_loader_1_change}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
