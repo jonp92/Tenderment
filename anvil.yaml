@@ -3,7 +3,11 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: Form1}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: false, enable_automatically: false, use_email: true,
+    confirm_email: true, allow_remember_me: true, remember_me_days: 0.3333}
+  server_config: {user_table: users}
+startup: {type: form, module: Login}
 package_name: Thumb_Cutter_Online
 allow_embedding: false
 name: Tenderment v2
@@ -34,4 +38,24 @@ db_schema:
     - name: time
       admin_ui: {order: 5, width: 200}
       type: string
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      type: string
+      admin_ui: {order: 0, width: 200}
+    - name: enabled
+      type: bool
+      admin_ui: {order: 1, width: 200}
+    - name: last_login
+      type: datetime
+      admin_ui: {order: 2, width: 200}
+    - name: password_hash
+      type: string
+      admin_ui: {order: 3, width: 200}
+    - name: n_password_failures
+      type: number
+      admin_ui: {order: 4, width: 200}
+    title: Users
 renamed: true

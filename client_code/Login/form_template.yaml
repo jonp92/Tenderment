@@ -1,0 +1,38 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: LinearPanel
+    properties: {}
+    name: linear_panel_1
+    layout_properties: {grid_position: 'TCPELI,JESGEE'}
+    components:
+    - type: Label
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: Welcome to Tenderment, font_size: 32, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_1
+    layout_properties: {grid_position: 'HTHVYC,XFXTPV'}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Log In, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:check-circle-o'}
+    name: login_button
+    layout_properties: {grid_position: 'LYFOWG,RRUBGS'}
+    event_bindings: {click: login_button_click}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
