@@ -10,14 +10,9 @@ from .PrintSummary import PrintSummary
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     user = anvil.users.login_with_form()
-    authenticated = anvil.server.call('is_authenticated')
+    self.authenticated = anvil.server.call('is_authenticated')
     self.user = anvil.users.get_user()
-    if authenticated is True:
-      self.repeating_panel_1.item_template = PrintSummary
-      self.repeating_panel = RepeatingPanel()
-      self.repeating_panel_1.items = app_tables.images.search()
-    else:
-      pass
+
 
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -25,9 +20,15 @@ class Homepage(HomepageTemplate):
     # Any code you write here will run before the form opens.
   
   def open_prints(self):
-    self.ticket_form_open = True
-    self.current_form = ItemTemplate1
-    self.add_component(self.current_form, slot="default")
+    if self.authenticated is True:
+      self.repeating_panel_1.item_template = PrintSummary
+      self.repeating_panel = RepeatingPanel()
+      self.repeating_panel_1.items = app_tables.images.search()
+      self.current_form = PrintSummary()
+      self.add_component(self.current_form, slot="default")
+    else:
+      pass
+
     
 
   def link_1_click(self, **event_args):
