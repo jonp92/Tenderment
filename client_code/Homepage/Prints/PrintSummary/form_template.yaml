@@ -6,11 +6,16 @@ components:
   layout_properties: {column: AYCFIN}
   data_bindings:
   - {property: source, code: 'self.item[''media_object'']'}
-- type: Button
-  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: small,
-    icon_align: right, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:angle-down'}
-  name: button_1
-  layout_properties: {column: AYCFIN}
+- type: GridPanel
+  properties: {}
+  name: grid_panel_1
+  layout_properties: {column: null}
+  components:
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: small,
+      icon_align: right, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:angle-down'}
+    name: button_1
+    layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10}
 is_package: true
