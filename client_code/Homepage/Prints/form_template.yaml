@@ -39,7 +39,7 @@ components:
         bold: false
         underline: false
         include_placeholder: false
-      name: drop_down_1
+      name: drop_down_status
       layout_properties: {row: QWZHAN, width_xs: 2, col_xs: 1, width: 136.65625}
       data_bindings:
       - {property: selected_value, code: self.selected_status, writeback: true}
@@ -71,7 +71,7 @@ components:
         bold: false
         underline: false
         include_placeholder: false
-      name: drop_down_2
+      name: drop_down_sort
       layout_properties: {row: QWZHAN, width_xs: 2, col_xs: 4, width: 136.65625}
       data_bindings:
       - {property: selected_value, code: self.selected_sort, writeback: true}
@@ -95,7 +95,7 @@ components:
       tooltip: ''
       border: ''
       foreground: ''
-      rows_per_page: 20
+      rows_per_page: 5
       visible: true
       wrap_on: mobile
       show_page_controls: true
@@ -111,4 +111,43 @@ components:
         background: ''}
       name: repeating_panel_1
       layout_properties: {}
+    - type: GridPanel
+      properties: {}
+      name: grid_panel_2
+      layout_properties: {slot: footer}
+      components:
+      - type: Label
+        properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+          visible: true, text: Items per page, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_row_number
+        layout_properties: {row: RPDFSN, width_xs: 2, col_xs: 0, width: 112.5625}
+      - type: DropDown
+        properties:
+          role: null
+          align: full
+          tooltip: ''
+          placeholder: ''
+          border: ''
+          enabled: true
+          foreground: ''
+          items: ['4', '10', '15', '20', '50', '100', '250', '500']
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: false
+        name: drop_down_rows
+        layout_properties: {row: RPDFSN, width_xs: 2, col_xs: 2, width: 112.5625}
+        data_bindings:
+        - {property: selected_value, code: self.number_rows, writeback: true}
+        event_bindings: {change: drop_down_rows_change}
+    data_bindings:
+    - {property: rows_per_page, code: self.number_rows}
 is_package: true

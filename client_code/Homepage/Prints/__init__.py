@@ -12,6 +12,7 @@ class Prints(PrintsTemplate):
   def __init__(self, **properties):
     self.selected_status = 'All'
     self.selected_sort = 'None'
+    self.number_rows = '4'
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.repeating_panel_1.items = app_tables.prints.search()
@@ -25,5 +26,10 @@ class Prints(PrintsTemplate):
   def drop_down_2_change(self, **event_args):
     """This method is called when an item is selected"""
     print(self.selected_sort)
+
+  def drop_down_rows_change(self, **event_args):
+    """This method is called when an item is selected"""
+    self.refresh_data_bindings()
+
 
 
