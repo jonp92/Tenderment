@@ -18,10 +18,10 @@ class Prints(PrintsTemplate):
     self.repeating_panel_1.items = app_tables.prints.search()
 
     # Any code you write here will run before the form opens.
-
+  
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
-    print(self.selected_status)
+    self.change_status_filter(self.selected_status)
 
   def drop_down_2_change(self, **event_args):
     """This method is called when an item is selected"""
@@ -31,5 +31,11 @@ class Prints(PrintsTemplate):
     """This method is called when an item is selected"""
     self.refresh_data_bindings()
 
+  def change_status_filter(self, status):
+    if status == 'All':
+      self.repeating_panel_1.items = app_tables.prints.search()
+    else:
+      self.repeating_panel_1.items = app_tables.prints.search(status=status)
+      
 
 
