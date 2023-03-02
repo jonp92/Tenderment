@@ -31,4 +31,5 @@ components:
       background: ''}
     name: repeating_panel_1
     layout_properties: {}
+    data_bindings: []
 is_package: true

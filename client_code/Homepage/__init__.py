@@ -6,15 +6,13 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .Prints import Prints
-from .Prints import PrintSummary
+from .Prints.PrintSummary import PrintSummary
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     user = anvil.users.login_with_form()
     self.authenticated = anvil.server.call('is_authenticated')
     self.user = anvil.users.get_user()
-
-
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.remove_from_parent()
@@ -24,17 +22,8 @@ class Homepage(HomepageTemplate):
     if self.authenticated is True:
       get_open_form().column_panel_2.clear()
       self.add_component(Prints())
-      Prints.add_component(PrintSummary)
-      #self.repeating_panel_1.item_template = PrintSummary
-      #self.repeating_panel = RepeatingPanel()
-      #self.repeating_panel_1.items = app_tables.images.search()
-      #self.current_form = PrintSummary()
-      #self.add_component(self.data_grid_1, slot="default")
-      #self.add_component(self.current_form, slot="default")
     else:
       pass
-
-    
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -54,6 +43,10 @@ class Homepage(HomepageTemplate):
     """This method is called when the link is clicked"""
     anvil.users.logout()
     anvil.users.login_with_form()
+
+  def link_home_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Homepage')
 
 
 
