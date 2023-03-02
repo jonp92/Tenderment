@@ -7,8 +7,8 @@ components:
   data_bindings:
   - {property: source, code: 'self.item[''media_object'']'}
 - type: Button
-  properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: Details, font_size: null, font: '', spacing_above: small,
+  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: small,
     icon_align: right, spacing_below: small, italic: false, background: '', bold: false,
     underline: false, icon: 'fa:angle-down'}
   name: button_1
