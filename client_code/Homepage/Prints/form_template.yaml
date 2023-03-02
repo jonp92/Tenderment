@@ -6,9 +6,10 @@ components:
   properties:
     role: tonal-data-grid
     columns:
-    - {id: BTAVUH, title: Name, data_key: name, $$hashKey: 'object:2318', expand: true}
+    - {id: BTAVUH, title: Name, data_key: name, $$hashKey: 'object:2318', expand: true,
+      width: '100'}
     - {id: VXECRC, title: Uploaded, data_key: uploaded, $$hashKey: 'object:18504',
-      expand: true}
+      expand: false}
     - {id: NRIKQL, title: Price, data_key: price, $$hashKey: 'object:2321'}
     - {id: IEMBTJ, title: Weight, data_key: weight, $$hashKey: 'object:2322'}
     - {id: EPVGTC, title: Time, data_key: time, $$hashKey: 'object:2323'}
