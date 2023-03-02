@@ -5,7 +5,8 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .PrintSummary import PrintSummary
+from .Prints import Prints
+from .Prints import PrintSummary
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -16,16 +17,20 @@ class Homepage(HomepageTemplate):
 
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    self.remove_from_parent()
     # Any code you write here will run before the form opens.
   
   def open_prints(self):
     if self.authenticated is True:
-      self.repeating_panel_1.item_template = PrintSummary
-      self.repeating_panel = RepeatingPanel()
-      self.repeating_panel_1.items = app_tables.images.search()
-      self.current_form = PrintSummary()
-      self.add_component(self.current_form, slot="default")
+      get_open_form().column_panel_2.clear()
+      self.add_component(Prints())
+      Prints.add_component(PrintSummary)
+      #self.repeating_panel_1.item_template = PrintSummary
+      #self.repeating_panel = RepeatingPanel()
+      #self.repeating_panel_1.items = app_tables.images.search()
+      #self.current_form = PrintSummary()
+      #self.add_component(self.data_grid_1, slot="default")
+      #self.add_component(self.current_form, slot="default")
     else:
       pass
 
