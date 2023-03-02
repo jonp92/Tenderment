@@ -1,5 +1,6 @@
 from ._anvil_designer import HomepageTemplate
 from anvil import *
+import plotly.graph_objects as go
 import anvil.users
 import anvil.server
 import anvil.tables as tables
@@ -15,17 +16,17 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.remove_from_parent()
     # Any code you write here will run before the form opens.
   
   def open_prints(self):
     if self.authenticated is True:
       get_open_form().label_1.visible = False
+      get_open_form().plot_1.visible = False
       self.add_component(Prints())
     else:
       pass
 
-  def link_1_click(self, **event_args):
+  def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
     pass
