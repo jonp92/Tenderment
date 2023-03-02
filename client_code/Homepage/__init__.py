@@ -8,6 +8,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from .Prints import Prints
 from .Prints.PrintSummary import PrintSummary
+from .Upload import Upload
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -29,8 +30,7 @@ class Homepage(HomepageTemplate):
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
-    pass
-
+    
   def link_prints_click(self, **event_args):
     """This method is called when the link is clicked"""
     self.open_prints()
@@ -48,6 +48,18 @@ class Homepage(HomepageTemplate):
   def link_home_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Homepage')
+
+  def link_upload_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    if self.authenticated is True:
+      get_open_form().label_1.visible = False
+      get_open_form().plot_1.visible = False
+      self.add_component(Upload())
+    else:
+      pass
+
+
+
 
 
 

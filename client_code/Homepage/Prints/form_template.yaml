@@ -78,7 +78,7 @@ components:
       event_bindings: {change: drop_down_2_change}
   - type: DataGrid
     properties:
-      role: null
+      role: tonal-data-grid
       columns:
       - {id: POWQVU, title: Name, data_key: name, $$hashKey: 'object:110163', expand: false,
         width: 188}
@@ -96,7 +96,7 @@ components:
       foreground: ''
       rows_per_page: 20
       visible: true
-      wrap_on: never
+      wrap_on: mobile
       show_page_controls: true
       spacing_above: small
       spacing_below: small
@@ -105,7 +105,7 @@ components:
     layout_properties: {grid_position: 'ZUOHAA,NWVEND'}
     components:
     - type: RepeatingPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      properties: {role: tonal-card, tooltip: '', border: '', foreground: '', items: null,
         visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Prints.PrintSummary,
         background: ''}
       name: repeating_panel_1

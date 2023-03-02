@@ -7,7 +7,7 @@ from anvil.tables import app_tables
 import anvil.media
 from re import search, DOTALL, sub, MULTILINE
 from base64 import b64decode
-from .MainForm import MainForm
+from .Homepage import Homepage
 import datetime
 now = datetime.datetime.now()
 date_string = now.strftime("%m_%d_%Y-%H:%M:%S")
@@ -34,9 +34,9 @@ def find_png(media_object, uploaded_file):
           price = 'Not Found'
           weight = 'Not Found'
           time = 'Not Found'
-        if uploaded_file not in [r['name'] for r in app_tables.images.search()]:
-          png_table = app_tables.images.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string, price=price, weight=weight, time=time)
-    return return_media, price, weight, time
+        if uploaded_file not in [r['name'] for r in app_tables.prints.search()]:
+          png_table = app_tables.prints.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string, price=price, weight=weight, time=time)
+    return return_media
 
 @anvil.server.callable
 def find_png_gcode(data, filename):
@@ -49,7 +49,7 @@ def find_png_gcode(data, filename):
         thumbnail_data = sub(r'^; ', '', thumbnail_data, flags=MULTILINE)
         thumbnail_data = b64decode(thumbnail_data)
         return_media_gcode = anvil.BlobMedia(content_type="image/png", content=thumbnail_data)
-        if filename not in [r['name'] for r in app_tables.images.search()]:
-          new_row = app_tables.images.add_row(name=filename, media_object=return_media_gcode, uploaded=date_string)
+        if filename not in [r['name'] for r in app_tables.prints.search()]:
+          new_row = app_tables.prints.add_row(name=filename, media_object=return_media_gcode, uploaded=date_string)
     return return_media_gcode
     
