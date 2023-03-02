@@ -47,7 +47,7 @@ components:
   properties:
     role: null
     columns:
-    - {id: UEMFDI, title: Name, data_key: name, $$hashKey: 'object:63550'}
+    - {id: UEMFDI, title: Name, data_key: name, $$hashKey: 'object:63550', expand: true}
     - {id: RGQLNZ, title: Uploaded, data_key: uploaded, $$hashKey: 'object:63552'}
     - {id: AQSWVV, title: Price, data_key: price, $$hashKey: 'object:63553'}
     - {id: AVDWRE, title: Weight, data_key: weight, $$hashKey: 'object:63554'}
