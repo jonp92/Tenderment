@@ -4,13 +4,15 @@ container:
 components:
 - type: DataGrid
   properties:
-    role: null
+    role: tonal-data-grid
     columns:
-    - {id: BTAVUH, title: Name, data_key: name, $$hashKey: 'object:2318'}
-    - {id: MUIMHV, title: Uploaded, data_key: uploaded, $$hashKey: 'object:2320'}
+    - {id: BTAVUH, title: Name, data_key: name, $$hashKey: 'object:2318', expand: true}
+    - {id: VXECRC, title: Uploaded, data_key: uploaded, $$hashKey: 'object:18504',
+      expand: true}
     - {id: NRIKQL, title: Price, data_key: price, $$hashKey: 'object:2321'}
     - {id: IEMBTJ, title: Weight, data_key: weight, $$hashKey: 'object:2322'}
     - {id: EPVGTC, title: Time, data_key: time, $$hashKey: 'object:2323'}
+    - {id: FDXLAT, title: Thumbnail, data_key: thumbnail, $$hashKey: 'object:17899'}
     auto_header: true
     tooltip: ''
     border: ''
@@ -23,7 +25,7 @@ components:
     spacing_below: small
     background: ''
   name: data_grid_1
-  layout_properties: {grid_position: 'OFDJWJ,OLNFKQ'}
+  layout_properties: {grid_position: 'OHBMPV,KKZVGX'}
   components:
   - type: RepeatingPanel
     properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
@@ -32,4 +34,8 @@ components:
     name: repeating_panel_1
     layout_properties: {}
     data_bindings: []
+  - type: Image
+    properties: {}
+    name: image_1
+    layout_properties: {}
 is_package: true
