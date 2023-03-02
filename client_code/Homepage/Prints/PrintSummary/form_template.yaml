@@ -1,21 +1,34 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
+    visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false}
 components:
 - type: Image
-  properties: {height: 123}
+  properties: {role: null, vertical_align: center, height: 123, tooltip: '', border: 10px,
+    foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+    source: '', spacing_below: small, background: '', horizontal_align: center}
   name: image_1
   layout_properties: {column: AYCFIN}
   data_bindings:
   - {property: source, code: 'self.item[''media_object'']'}
 - type: GridPanel
-  properties: {}
+  properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+    border: thin dashed, visible: true, role: null, tooltip: ''}
   name: grid_panel_1
   layout_properties: {column: null}
   components:
   - type: Button
     properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: small,
-      icon_align: right, spacing_below: small, italic: false, background: '', bold: false,
+      foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: medium,
+      icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:angle-down'}
     name: button_1
-    layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10}
+    layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.828125}
+- type: DropDown
+  properties: {}
+  name: drop_down_1
+  layout_properties: {column: YAODAG}
+  data_bindings:
+  - {property: items, code: 'self.item['''']'}
 is_package: true
