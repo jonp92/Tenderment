@@ -20,7 +20,7 @@ class Homepage(HomepageTemplate):
   
   def open_prints(self):
     if self.authenticated is True:
-      get_open_form().label_1.visable = False
+      get_open_form().label_1.visible = False
       self.add_component(Prints())
     else:
       pass
