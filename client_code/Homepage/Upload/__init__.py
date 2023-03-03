@@ -20,7 +20,11 @@ class Upload(UploadTemplate):
     """This method is called when a new file is loaded into this FileLoader"""
     self.png, uploaded_file = anvil.server.call('find_png', file, file.name)
     self.image_1.source = self.png
-    self.filename = uploaded_file
-    self.uploaded_file = file.name
+    self.uploaded_file = uploaded_file
+    if self.uploaded_file == "File Already Exist":
+      Notification(uploaded_file).show()
+    else:
+      Notification(uploaded_file, title="File Uploaded Successfully").show()
     self.refresh_data_bindings()
+    self.file_loader_1.clear()
 
