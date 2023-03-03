@@ -1,0 +1,33 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: ZTAFTV, title: ID, data_key: variantID, $$hashKey: 'object:1031'}
+    - {id: KWBLPW, title: SKU, data_key: sku, $$hashKey: 'object:1032'}
+    - {id: XDMCKE, title: Description, data_key: descriptor, $$hashKey: 'object:1033'}
+    - {id: ZOJBFS, title: Qty, data_key: quantity, $$hashKey: 'object:1072'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_1
+  layout_properties: {grid_position: 'EOINUF,DASZEG'}
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: Homepage.Orders.RowTemplate1}
+    name: repeating_panel_1
+    layout_properties: {}
+    data_bindings:
+    - {property: items, code: self.inventory}
+is_package: true

@@ -9,6 +9,7 @@ from anvil.tables import app_tables
 from .Prints import Prints
 from .Prints.PrintSummary import PrintSummary
 from .Upload import Upload
+from .Orders import Orders
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -17,7 +18,6 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    anvil.server.call('get_inventory')
     # Any code you write here will run before the form opens.
   
   def link_current_user_click(self, **event_args):
@@ -53,6 +53,15 @@ class Homepage(HomepageTemplate):
       self.column_panel_2.add_component(Upload())
     else:
       pass
+
+  def link_orders_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    if self.authenticated is True:
+      get_open_form().column_panel_2.clear()
+      self.column_panel_2.add_component(Orders())
+    else:
+      pass
+
 
 
 

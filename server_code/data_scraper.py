@@ -7,20 +7,18 @@ import anvil.server
 import anvil.http
 import anvil.secrets
 
-class sqspace:
-  User_Agent = 'Tenderment'
-  API_KEY = anvil.secrets.get_secret('sqspace')
-  API_URL = f"https://api.squarespace.com/"
-  API_VER = f"1.0"
-  def _init_(self, API_URL, API_VER):
-    self.API_URL = API_URL
-    self.API_VER = API_VER
-     
-  @anvil.server.callable
-  def get_inventory(self):
-    INV_URL = self.API_URL+self.API_VER+f"commerce/inventory"
-    print(INV_URL)
-    response = anvil.http.request(INV_URL, method="GET", json=True, headers={'Authorization': f'Bearer {self.API_KEY}', 'User-Agent': f'{self.User_Agent}'})
-    return response
+User_Agent = 'Tenderment'
+API_KEY = anvil.secrets.get_secret('sqspace')
+API_URL = f"https://api.squarespace.com/"
+API_VER = f"1.0"
 
-print(sqspace().get_inventory())
+@anvil.server.callable
+def get_inventory():
+  INV_URL = API_URL+API_VER+f"/commerce/inventory"
+  response = anvil.http.request(INV_URL, method="GET", json=True, headers={'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}'})
+  return response
+  
+def get_orders():
+  ORD_URL = API_URL+API_VER+f"/commerce/orders"
+  response = anvil.http.request(ORD_URL, method="GET", json=True, headers={'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}'})
+  return response
