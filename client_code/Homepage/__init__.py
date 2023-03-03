@@ -17,6 +17,7 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    anvil.server.call('get_inventory')
     # Any code you write here will run before the form opens.
   
   def link_current_user_click(self, **event_args):
@@ -52,7 +53,6 @@ class Homepage(HomepageTemplate):
       self.column_panel_2.add_component(Upload())
     else:
       pass
-
 
 
 

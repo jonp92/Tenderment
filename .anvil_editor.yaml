@@ -6,6 +6,7 @@ unique_ids:
     Homepage.Upload: '1677780771823505990341348.18353'
   modules: {}
   server_modules:
+    data_scraper: '167784893527481695735712.44392'
     png_processor: '1677450026084821253185313.2098'
     user_check: '1677695622569339058553216.9056'
   assets:
