@@ -15,6 +15,32 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-full,
 metadata: {title: Tenderment v2, description: Print Management System, logo_img: 'asset:tcicon.png'}
 startup_form: null
 db_schema:
+  prints:
+    title: Prints
+    client: full
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 463}
+      type: string
+    - name: media_object
+      admin_ui: {width: 200}
+      type: media
+    - name: uploaded
+      admin_ui: {width: 200}
+      type: string
+    - name: time
+      admin_ui: {width: 200}
+      type: number
+    - name: cost
+      admin_ui: {width: 200}
+      type: number
+    - name: status
+      admin_ui: {width: 200}
+      type: string
+    - name: weight
+      admin_ui: {width: 200}
+      type: number
   users:
     title: Users
     client: none
@@ -47,30 +73,4 @@ db_schema:
     - name: remembered_logins
       admin_ui: {width: 200}
       type: simpleObject
-  prints:
-    title: Prints
-    client: full
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 463}
-      type: string
-    - name: media_object
-      admin_ui: {width: 200}
-      type: media
-    - name: uploaded
-      admin_ui: {width: 200}
-      type: string
-    - name: price
-      admin_ui: {width: 200}
-      type: string
-    - name: time
-      admin_ui: {width: 200}
-      type: string
-    - name: status
-      admin_ui: {order: 6, width: 200}
-      type: string
-    - name: weight
-      admin_ui: {order: 6, width: 200}
-      type: number
 renamed: true

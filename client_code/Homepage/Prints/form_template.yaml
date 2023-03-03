@@ -60,7 +60,7 @@ components:
         border: ''
         enabled: true
         foreground: ''
-        items: [None, name, uploaded, price, weight, time, status]
+        items: [None, name, uploaded, cost, weight, time, status]
         visible: true
         font_size: null
         font: ''
@@ -72,7 +72,7 @@ components:
         underline: false
         include_placeholder: false
       name: drop_down_sort
-      layout_properties: {row: QWZHAN, width_xs: 2, col_xs: 4, width: 136.65625}
+      layout_properties: {row: QWZHAN, width_xs: 2, col_xs: 4, width: 99.984375}
       data_bindings:
       - {property: selected_value, code: self.selected_sort, writeback: true}
       event_bindings: {change: drop_down_2_change}
@@ -84,7 +84,7 @@ components:
         width: 230}
       - {id: UNBRPG, title: Uploaded, data_key: uploaded, $$hashKey: 'object:110165',
         expand: true}
-      - {id: KJEUIY, title: Price, data_key: price, $$hashKey: 'object:110166', expand: false,
+      - {id: KJEUIY, title: Cost, data_key: cost, $$hashKey: 'object:110166', expand: false,
         width: 90}
       - {id: ABEGHY, title: Weight, data_key: weight, $$hashKey: 'object:110167',
         expand: false, width: 90}
