@@ -26,9 +26,27 @@ components:
     name: button_1
     layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.828125}
 - type: DropDown
-  properties: {}
+  properties:
+    role: outlined
+    align: full
+    tooltip: ''
+    placeholder: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    items: [New, None, Printed, Not Printed, Shipped]
+    visible: true
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: ''
+    bold: false
+    underline: false
+    include_placeholder: false
   name: drop_down_1
   layout_properties: {column: YAODAG}
   data_bindings:
-  - {property: items, code: 'self.item['''']'}
+  - {property: selected_value, code: 'self.item[''status'']', writeback: true}
 is_package: true

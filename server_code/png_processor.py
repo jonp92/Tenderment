@@ -9,6 +9,7 @@ from re import search, DOTALL, sub, MULTILINE
 from base64 import b64decode
 from .Homepage import Homepage
 import datetime
+from decimal import Decimal
 now = datetime.datetime.now()
 date_string = now.strftime("%m_%d_%Y-%H:%M:%S")
 @anvil.server.callable
@@ -28,14 +29,14 @@ def find_png(media_object, uploaded_file):
         match = search(r"\$(\d+\.\d+)-(\d+\.\d+)g-(.*).gcode", uploaded_file)
         if match:
           price = match.group(1)
-          weight = match.group(2)
+          weight = float(match.group(2))
           time = match.group(3)
         else:
           price = 'Not Found'
           weight = 'Not Found'
           time = 'Not Found'
         if uploaded_file not in [r['name'] for r in app_tables.prints.search()]:
-          png_table = app_tables.prints.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string, price=price, weight=weight, time=time)
+          png_table = app_tables.prints.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string, price=price, weight=weight, time=time, status='New')
     return return_media
 
 @anvil.server.callable
