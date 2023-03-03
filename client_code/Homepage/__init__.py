@@ -10,6 +10,7 @@ from .Prints import Prints
 from .Prints.PrintSummary import PrintSummary
 from .Upload import Upload
 from .Orders import Orders
+from .Inventory import Inventory
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -59,6 +60,14 @@ class Homepage(HomepageTemplate):
     if self.authenticated is True:
       get_open_form().column_panel_2.clear()
       self.column_panel_2.add_component(Orders())
+    else:
+      pass
+
+  def link_inventory_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    if self.authenticated is True:
+      get_open_form().column_panel_2.clear()
+      self.column_panel_2.add_component(Inventory())
     else:
       pass
 

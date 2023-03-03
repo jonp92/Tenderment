@@ -29,5 +29,5 @@ components:
     name: repeating_panel_1
     layout_properties: {}
     data_bindings:
-    - {property: items, code: 'self.order[''orders'']'}
+    - {property: items, code: 'self.inventory[''inventory'']'}
 is_package: true

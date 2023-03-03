@@ -1,4 +1,4 @@
-from ._anvil_designer import OrdersTemplate
+from ._anvil_designer import InventoryTemplate
 from anvil import *
 import anvil.server
 import anvil.users
@@ -6,9 +6,9 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Orders(OrdersTemplate):
+class Inventory(InventoryTemplate):
   def __init__(self, **properties):
-    self.order = anvil.server.call('get_orders')
+    self.inventory = anvil.server.call('get_inventory')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
