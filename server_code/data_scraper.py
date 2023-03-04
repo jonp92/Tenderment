@@ -29,16 +29,22 @@ def get_sqdata(url):
 def edit_sqqty(variantId, qty):
   SQ_URL_COMPLETE = SQ_URL+f"/commerce/inventory/adjustments"
   print(headers)
+  print({
+	"setFiniteOperations": [{
+		"variantId": f"{variantId}",
+		"quantity": qty
+	}]
+})
   anvil.http.request(SQ_URL_COMPLETE,
                      method="POST",
                      json=True,
                      headers=headers,
                      data= 
-                     {
-                       "setFiniteOperations": [{
-                        "variantId": f"{variantId}",
-                         "quantity": f"{qty}",
-                      }]
-                     }
-                    )
-  
+{
+	"setFiniteOperations": [{
+		"variantId": f"{variantId}",
+		"quantity": qty
+	}]
+}
+)
+
