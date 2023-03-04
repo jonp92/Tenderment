@@ -6,7 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..PrintDetail import PrintDetail
-from . import Prints
+from .. import Prints
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -24,7 +24,6 @@ class PrintSummary(PrintSummaryTemplate):
     save_clicked = alert(PrintDetail(item=print_data), large=True,
                         buttons=[("Save", True), ("Cancel", False)])
     if save_clicked:
-      self.refresh_prints()
-    
+      Prints.refresh_prints()
 
 

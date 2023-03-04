@@ -16,9 +16,12 @@ class Prints(PrintsTemplate):
     self.number_rows = '4'
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.repeating_panel_1.items = app_tables.prints.search()
+    self.refresh_prints()
     # Any code you write here will run before the form opens.
-  
+
+  def refresh_prints(self):
+    self.repeating_panel_1.items = anvil.server.call('get_prints')
+    
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
     self.change_status_filter(self.selected_status)
@@ -44,7 +47,5 @@ class Prints(PrintsTemplate):
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
 
-  def refresh_prints(self):
-    self.refresh_data_bindings()
 
 

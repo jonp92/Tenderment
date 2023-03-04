@@ -6,6 +6,10 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
+def get_prints():
+  return app_tables.prints.search()
+
+@anvil.server.callable
 def get_print_by_id(id):
   return app_tables.prints.get_by_id(id)
 
