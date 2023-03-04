@@ -8,7 +8,8 @@ from anvil.tables import app_tables
 
 class Inventory(InventoryTemplate):
   def __init__(self, **properties):
-    self.inventory = anvil.server.call('get_inventory')
+    url = f"/commerce/inventory"
+    self.inventory = anvil.server.call('get_sqdata', url)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 

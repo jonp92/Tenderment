@@ -11,9 +11,14 @@ from base64 import b64decode
 from .Homepage import Homepage
 from .Homepage import Upload
 import datetime
+import shortuuid
 now = datetime.datetime.now()
 date_string = now.strftime("%m_%d_%Y-%H:%M:%S")
 no_save = anvil.server.get_app_origin() + "/_/theme/no_save.png"
+
+@anvil.server.callable
+def get_print_by_id(id):
+  return app_tables.prints.get_by_id(id)
 
 @anvil.server.callable
 def find_png(media_object, uploaded_file):
@@ -39,7 +44,7 @@ def find_png(media_object, uploaded_file):
             cost = 0
             weight = 0
             time = 0
-          png_table = app_tables.prints.add_row(name=uploaded_file, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New')      
+          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=uploaded_file, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New')      
     return return_media, uploaded_file
   else:
     return no_save, "File Already Exist"

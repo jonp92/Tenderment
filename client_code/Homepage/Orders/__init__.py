@@ -8,7 +8,8 @@ from anvil.tables import app_tables
 
 class Orders(OrdersTemplate):
   def __init__(self, **properties):
-    self.order = anvil.server.call('get_orders')
+    url = f"/commerce/orders"
+    self.order = anvil.server.call('get_sqdata', url)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 

@@ -8,19 +8,15 @@ import anvil.http
 import anvil.secrets
 import json
 
-User_Agent = 'Tenderment'
+User_Agent = 'Tenderment v0.5'
 API_KEY = anvil.secrets.get_secret('sqspace')
 API_URL = f"https://api.squarespace.com/"
 API_VER = f"1.0"
+SQ_URL = API_URL+API_VER
 
 @anvil.server.callable
-def get_inventory():
-  INV_URL = API_URL+API_VER+f"/commerce/inventory"
-  response = anvil.http.request(INV_URL, method="GET", json=True, headers={'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}'})
+def get_sqdata(url):
+  SQ_URL_COMPLETE = SQ_URL+url
+  response = anvil.http.request(SQ_URL_COMPLETE, method="GET", json=True, headers={'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}'})
   return response
 
-@anvil.server.callable
-def get_orders():
-  ORD_URL = API_URL+API_VER+f"/commerce/orders"
-  response = anvil.http.request(ORD_URL, method="GET", json=True, headers={'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}'})
-  return response

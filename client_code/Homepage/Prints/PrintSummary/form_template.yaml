@@ -25,6 +25,7 @@ components:
       underline: false, icon: 'fa:angle-down'}
     name: button_1
     layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.828125}
+    event_bindings: {click: button_1_click}
 - type: DropDown
   properties:
     role: outlined
