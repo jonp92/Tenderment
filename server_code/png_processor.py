@@ -17,10 +17,6 @@ date_string = now.strftime("%m_%d_%Y-%H:%M:%S")
 no_save = anvil.server.get_app_origin() + "/_/theme/no_save.png"
 
 @anvil.server.callable
-def get_print_by_id(id):
-  return app_tables.prints.get_by_id(id)
-
-@anvil.server.callable
 def find_png(media_object, uploaded_file):
   if uploaded_file not in [r['name'] for r in app_tables.prints.search()]:
     with anvil.media.TempFile(media_object) as filename:

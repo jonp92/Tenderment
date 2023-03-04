@@ -23,9 +23,9 @@ components:
       foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: medium,
       icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:angle-down'}
-    name: button_1
+    name: button_details
     layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.828125}
-    event_bindings: {click: button_1_click}
+    event_bindings: {click: button_details_click}
 - type: DropDown
   properties:
     role: outlined

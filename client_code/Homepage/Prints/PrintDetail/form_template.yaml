@@ -1,0 +1,102 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_1
+  layout_properties: {grid_position: 'VYOEDW,KBIOIC'}
+  components:
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {grid_position: 'ZZPSBT,DIAXNT'}
+    components:
+    - type: Image
+      properties: {height: 214}
+      name: image_1
+      layout_properties: {row: PCHHDK, width_xs: 3, col_xs: 0}
+    - type: GridPanel
+      properties: {}
+      name: grid_panel_2
+      layout_properties: {row: PCHHDK, width_xs: 9, col_xs: 3}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'Name:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_name
+        layout_properties: {row: YMUJJC, width_xs: 2, col_xs: 0, width: 32.5}
+      - type: TextBox
+        properties: {}
+        name: text_box_1
+        layout_properties: {row: YMUJJC, width_xs: 3, col_xs: 2}
+        data_bindings:
+        - {property: text, code: 'self.item[''name'']', writeback: true}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Weight, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_weight
+        layout_properties: {row: YMUJJC, width_xs: 2, col_xs: 5, width: 95}
+      - type: TextBox
+        properties: {}
+        name: text_box_4
+        layout_properties: {row: YMUJJC, width_xs: 3, col_xs: 7}
+        data_bindings:
+        - {property: text, code: 'self.item[''weight'']', writeback: true}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'Uploaded:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_upload
+        layout_properties: {row: SYLILC, width_xs: 2, col_xs: 0, width: 95}
+      - type: TextBox
+        properties: {}
+        name: text_box_2
+        layout_properties: {row: SYLILC, width_xs: 3, col_xs: 2}
+        data_bindings:
+        - {property: text, code: 'self.item[''uploaded'']', writeback: true}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Time, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_time
+        layout_properties: {row: SYLILC, width_xs: 2, col_xs: 5, width: 95}
+      - type: TextBox
+        properties: {}
+        name: text_box_5
+        layout_properties: {row: SYLILC, width_xs: 3, col_xs: 7}
+        data_bindings:
+        - {property: text, code: 'self.item[''time'']', writeback: true}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Cost, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_cost
+        layout_properties: {row: KVGDQP, width_xs: 2, col_xs: 0, width: 95}
+      - type: TextBox
+        properties: {}
+        name: text_box_3
+        layout_properties: {row: KVGDQP, width_xs: 3, col_xs: 2}
+        data_bindings:
+        - {property: text, code: 'self.item[''cost'']', writeback: true}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Status, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_status
+        layout_properties: {row: KVGDQP, width_xs: 2, col_xs: 5, width: 95}
+      - type: TextBox
+        properties: {}
+        name: text_box_6
+        layout_properties: {row: KVGDQP, width_xs: 3, col_xs: 7}
+        data_bindings:
+        - {property: text, code: 'self.item[''status'']', writeback: true}
+is_package: true

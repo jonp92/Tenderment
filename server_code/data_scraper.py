@@ -40,11 +40,11 @@ def edit_sqqty(variantId, qty):
                      json=True,
                      headers=headers,
                      data=
-'{
+{
 	"setFiniteOperations": [{
 		"variantId": f"{variantId}",
 		"quantity": qty
 	}]
-}'
+}
 )
 
