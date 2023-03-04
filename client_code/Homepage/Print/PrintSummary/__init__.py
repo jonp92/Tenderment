@@ -24,6 +24,6 @@ class PrintSummary(PrintSummaryTemplate):
     save_clicked = alert(PrintDetail(item=print_data), large=True,
                         buttons=[("Save", True), ("Cancel", False)])
     if save_clicked:
-      Prints.refresh_prints()
+     Print().refresh_prints()
 
 

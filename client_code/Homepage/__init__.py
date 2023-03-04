@@ -6,8 +6,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .Print import Print
-from .Prints.PrintSummary import PrintSummary
+from .Print import Print, PrintDetail, PrintSummary
 from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
@@ -29,7 +28,7 @@ class Homepage(HomepageTemplate):
     """This method is called when the link is clicked"""
     if self.authenticated is True:
       self.column_panel_2.clear()
-      self.column_panel_2.add_component(Prints())
+      self.column_panel_2.add_component(Print())
     else:
       anvil.alert(title='Not Authorized') 
 
