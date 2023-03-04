@@ -110,7 +110,7 @@ components:
     components:
     - type: RepeatingPanel
       properties: {role: tonal-card, tooltip: '', border: '', foreground: '', items: null,
-        visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Prints.PrintSummary,
+        visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Print.PrintSummary,
         background: ''}
       name: repeating_panel_1
       layout_properties: {}

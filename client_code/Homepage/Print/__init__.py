@@ -1,4 +1,4 @@
-from ._anvil_designer import PrintsTemplate
+from ._anvil_designer import PrintTemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
@@ -9,7 +9,7 @@ from anvil.tables import app_tables
 from . import PrintSummary
 from ... import Homepage
 
-class Prints(PrintsTemplate):
+class Print(PrintTemplate):
   def __init__(self, **properties):
     self.selected_status = 'All'
     self.selected_sort = 'None'
