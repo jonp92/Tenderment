@@ -43,6 +43,8 @@ class Prints(PrintsTemplate):
       self.repeating_panel_1.items = app_tables.prints.search()
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
-      
+
+  def refresh_prints(self):
+    self.refresh_data_bindings()
 
 
