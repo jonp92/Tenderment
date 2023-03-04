@@ -15,7 +15,7 @@ API_URL = f"https://api.squarespace.com/"
 API_VER = f"1.0"
 SQ_URL = API_URL+API_VER
 uuidsq = uuid.uuid4()
-headers = {'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}', 'Idempotency-Key': f'{uuidsq}'}
+headers = {'Authorization': f'Bearer {API_KEY}', 'User-Agent': f'{User_Agent}', 'Idempotency-Key': f'{uuidsq}', 'Content-Type': 'application/json'}
 @anvil.server.callable
 def get_sqdata(url):
   SQ_URL_COMPLETE = SQ_URL+url
@@ -39,12 +39,12 @@ def edit_sqqty(variantId, qty):
                      method="POST",
                      json=True,
                      headers=headers,
-                     data= 
-{
+                     data=
+'{
 	"setFiniteOperations": [{
 		"variantId": f"{variantId}",
 		"quantity": qty
 	}]
-}
+}'
 )
 
