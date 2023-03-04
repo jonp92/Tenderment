@@ -25,7 +25,7 @@ components:
   layout_properties: {grid_position: 'LWQTZS,AQISRF'}
   components:
   - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: Homepage.Orders.RowTemplate1}
+    properties: {spacing_above: none, spacing_below: none, item_template: Homepage.Inventory.RowTemplate1}
     name: repeating_panel_1
     layout_properties: {}
     data_bindings:

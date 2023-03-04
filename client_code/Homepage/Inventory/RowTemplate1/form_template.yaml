@@ -1,0 +1,10 @@
+container: {type: DataRowPanel}
+components:
+- type: TextBox
+  properties: {}
+  name: text_box_1
+  layout_properties: {column: ZOJBFS}
+  data_bindings:
+  - {property: text, code: 'self.item[''quantity'']', writeback: true}
+  event_bindings: {change: text_box_1_change}
+is_package: true
