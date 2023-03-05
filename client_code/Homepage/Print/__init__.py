@@ -45,10 +45,8 @@ class Print(PrintTemplate):
       self.repeating_panel_1.items = self.refresh_prints()
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
+      
 
-  def hide_data(self):
-    self.data_grid_1.clear()
-    self.column_panel_1.add_component(PrintSummary_Edit)
 
 
 
