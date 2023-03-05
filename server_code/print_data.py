@@ -22,4 +22,4 @@ def update_print_data(print_data):
   cost = print_data['cost']
   weight = print_data['weight']
   status = print_data['status'] 
-  update_row.update(name=name, uploaded=uploaded, time=time, cost=cost, weight=weight, status=status)
+  update_row.update(name=name, uploaded=uploaded, time=float(time), cost=float(cost), weight=float(weight), status=status)

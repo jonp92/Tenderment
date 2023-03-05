@@ -6,7 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.media
-from re import search, DOTALL, sub, MULTILINE
+from re import search, DOTALL, sub, MULTILINE, compile
 from base64 import b64decode
 from .Homepage import Homepage
 from .Homepage import Upload
@@ -40,8 +40,14 @@ def find_png(media_object, uploaded_file):
             cost = 0
             weight = 0
             time = 0
-          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=uploaded_file, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New')      
-    return return_media, uploaded_file
+          name_pattern = compile(r'^.*?(?=-\$)')
+          name_match = name_pattern.search(uploaded_file)
+          if name_match:
+            name = name_match.group()
+          else:
+            name = filename
+          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New')      
+    return return_media, name
   else:
     return no_save, "File Already Exist"
   

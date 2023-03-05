@@ -20,7 +20,7 @@ startup_form: null
 db_schema:
   prints:
     title: Prints
-    client: full
+    client: none
     server: full
     columns:
     - name: name
