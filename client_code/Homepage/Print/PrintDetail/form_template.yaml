@@ -34,6 +34,7 @@ components:
         layout_properties: {row: YMUJJC, width_xs: 3, col_xs: 2}
         data_bindings:
         - {property: text, code: 'self.item[''name'']', writeback: true}
+        - {property: text, code: 'self.print_data[''name'']', writeback: false}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Weight, font_size: null, font: '', spacing_above: small,
@@ -47,6 +48,7 @@ components:
         layout_properties: {row: YMUJJC, width_xs: 3, col_xs: 7}
         data_bindings:
         - {property: text, code: 'self.item[''weight'']', writeback: true}
+        - {property: text, code: 'self.print_data[''weight'']', writeback: false}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: 'Uploaded:', font_size: null, font: '', spacing_above: small,
@@ -60,6 +62,7 @@ components:
         layout_properties: {row: SYLILC, width_xs: 3, col_xs: 2}
         data_bindings:
         - {property: text, code: 'self.item[''uploaded'']', writeback: true}
+        - {property: text, code: 'self.print_data[''uploaded'']', writeback: false}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Time, font_size: null, font: '', spacing_above: small,
@@ -73,6 +76,7 @@ components:
         layout_properties: {row: SYLILC, width_xs: 3, col_xs: 7}
         data_bindings:
         - {property: text, code: 'self.item[''time'']', writeback: true}
+        - {property: text, code: 'self.print_data[''time'']', writeback: false}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Cost, font_size: null, font: '', spacing_above: small,
@@ -86,6 +90,7 @@ components:
         layout_properties: {row: KVGDQP, width_xs: 3, col_xs: 2}
         data_bindings:
         - {property: text, code: 'self.item[''cost'']', writeback: true}
+        - {property: text, code: 'self.print_data[''cost'']', writeback: true}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Status, font_size: null, font: '', spacing_above: small,
@@ -99,4 +104,5 @@ components:
         layout_properties: {row: KVGDQP, width_xs: 3, col_xs: 7}
         data_bindings:
         - {property: text, code: 'self.item[''status'']', writeback: true}
+        - {property: text, code: 'self.print_data[''status'']', writeback: false}
 is_package: true

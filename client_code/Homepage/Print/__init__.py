@@ -28,7 +28,7 @@ class Print(PrintTemplate):
   def drop_down_2_change(self, **event_args):
     """This method is called when an item is selected"""
     if self.selected_sort == 'None':
-      self.repeating_panel_1.items = app_tables.prints.search()
+      self.repeating_panel_1.items = self.refresh_prints()
     else:
       self.repeating_panel_1.items = sorted([r for r in self.repeating_panel_1.items], key = lambda x: x[self.selected_sort])
 
@@ -42,7 +42,7 @@ class Print(PrintTemplate):
 
   def change_status_filter(self, status):
     if status == 'All':
-      self.repeating_panel_1.items = app_tables.prints.search()
+      self.repeating_panel_1.items = self.refresh_prints()
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
 
