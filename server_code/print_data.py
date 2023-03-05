@@ -23,4 +23,3 @@ def update_print_data(print_data):
   weight = print_data['weight']
   status = print_data['status'] 
   update_row.update(name=name, uploaded=uploaded, time=time, cost=cost, weight=weight, status=status)
-  print(print_data)
