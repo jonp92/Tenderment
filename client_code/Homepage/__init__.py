@@ -77,4 +77,3 @@ class Homepage(HomepageTemplate):
 
 
 
-

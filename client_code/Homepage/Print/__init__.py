@@ -45,6 +45,9 @@ class Print(PrintTemplate):
       self.repeating_panel_1.items = self.refresh_prints()
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
+
+  def load_printsummary_edit(self):
+    self.repeating_panel_1.item_template = PrintSummary_Edit
       
 
 
