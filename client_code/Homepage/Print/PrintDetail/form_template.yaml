@@ -35,8 +35,8 @@ components:
         name: text_box_1
         layout_properties: {row: YMUJJC, width_xs: 5, col_xs: 1}
         data_bindings:
-        - {property: text, code: 'self.item[''name'']', writeback: true}
-        - {property: text, code: 'self.print_data[''name'']', writeback: false}
+        - {property: text, code: 'self.item[''name'']', writeback: false}
+        event_bindings: {lost_focus: text_box_1_lost_focus}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Weight, font_size: null, font: '', spacing_above: small,

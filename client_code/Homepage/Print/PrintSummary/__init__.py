@@ -19,10 +19,12 @@ class PrintSummary(PrintSummaryTemplate):
 
   def button_details_click(self, **event_args):
     """This method is called when the button is clicked"""
-    save_clicked = alert(PrintDetail(self.item.get_id()), large=True,
+    save_clicked = alert(PrintDetail(self.item['id']), large=True,
                         buttons=[("Save", True), ("Cancel", False)])
     if save_clicked:
-      anvil.server.call('update_print_data', PrintDetail(self.item.get_id()).print_data)
+      print_data = PrintDetail(self.item['id'])
+      anvil.server.call('update_print_data', self.item['id'], self.item['name'], self.item['uploaded'], self.item['cost'], self.item['time'], self.item['weight'], self.item['status'])
+      print(PrintDetail(self.item['id']).item)
       #Print().refresh_prints()
       self.refresh_data_bindings()
       
