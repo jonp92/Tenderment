@@ -36,6 +36,7 @@ components:
         layout_properties: {row: YMUJJC, width_xs: 5, col_xs: 1}
         data_bindings:
         - {property: text, code: 'self.item[''name'']', writeback: true}
+        - {property: text, code: 'self.print_data[''name'']', writeback: false}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Weight, font_size: null, font: '', spacing_above: small,

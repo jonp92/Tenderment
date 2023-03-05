@@ -22,7 +22,7 @@ class PrintSummary(PrintSummaryTemplate):
     save_clicked = alert(PrintDetail(self.item.get_id()), large=True,
                         buttons=[("Save", True), ("Cancel", False)])
     if save_clicked:
-      anvil.server.call('update_print_data', PrintDetail(self.item.get_id()).item)
+      anvil.server.call('update_print_data', PrintDetail(self.item.get_id()).print_data)
       #Print().refresh_prints()
       self.refresh_data_bindings()
       
