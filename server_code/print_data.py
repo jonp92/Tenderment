@@ -11,7 +11,7 @@ def get_prints():
 
 @anvil.server.callable
 def get_print_by_id(id):
-  return app_tables.prints.get(id=id)
+  return app_tables.prints.get_by_id(id)
 
 @anvil.server.callable
 def update_print_data(id, name, uploaded, time, cost, weight, status):

@@ -6,7 +6,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ... import Homepage
+from . import PrintSummary_Edit
 
 class Print(PrintTemplate):
   def __init__(self, **properties):
@@ -45,6 +45,10 @@ class Print(PrintTemplate):
       self.repeating_panel_1.items = self.refresh_prints()
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
+
+  def hide_data(self):
+    self.data_grid_1.clear()
+    self.column_panel_1.add_component(PrintSummary_Edit)
 
 
 

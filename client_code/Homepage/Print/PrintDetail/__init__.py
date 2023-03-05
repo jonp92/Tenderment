@@ -16,6 +16,10 @@ class PrintDetail(PrintDetailTemplate):
   def update_print_data(self):
     anvil.server.call('update_print_data', self.item['id'], self.item['name'], self.item['uploaded'], self.item['time'], self.item['cost'], self.item['weight'], self.item['status'])
 
+  def detail_button_click(self):
+      self.update_print_data()
+      #Print().refresh_prints()
+      self.refresh_data_bindings()
 
 
 
