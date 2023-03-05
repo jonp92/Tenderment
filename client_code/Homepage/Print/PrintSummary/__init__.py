@@ -20,9 +20,8 @@ class PrintSummary(PrintSummaryTemplate):
 
   def button_details_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.remove_from_parent()
-    PrintSummary_Edit = Print().repeating_panel_1.item_template()
-    get_open_form().column_panel_2.add_component(PrintSummary_Edit())
+    Print().repeating_panel_1.item_template = PrintSummary_Edit
+    #get_open_form().column_panel_2.add_component(PrintSummary_Edit())
 
 
     
