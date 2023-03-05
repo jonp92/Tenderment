@@ -3,6 +3,7 @@ container:
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: false,
     visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none,
     italic: false, background: '', bold: false, underline: false}
+  data_bindings: []
 components:
 - type: DataRowPanel
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
@@ -77,8 +78,9 @@ components:
         foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: medium,
         icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:save'}
-      name: button_1
+      name: button_save
       layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 10, width: 130.65625}
+      event_bindings: {click: button_save_click}
   - type: Image
     properties: {height: 109}
     name: image_2
@@ -112,7 +114,9 @@ components:
     name: text_box_1
     layout_properties: {column: POWQVU}
     data_bindings:
-    - {property: text, code: 'self.item[''name'']', writeback: true}
+    - {property: text, code: self.print_name, writeback: true}
+    - {property: text, code: 'self.item[''name'']', writeback: false}
+    event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: TextBox
     properties: {}
     name: text_box_2
