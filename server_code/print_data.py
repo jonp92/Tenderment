@@ -16,10 +16,4 @@ def get_print_by_id(id):
 @anvil.server.callable
 def update_print_data(id, name, uploaded, time, cost, weight, status):
   update_row = app_tables.prints.get(id=id)
-  #name = print_data['name']
-  #uploaded = print_data['uploaded']
-  #time = print_data['time']
-  #cost = print_data['cost']
-  #weight = print_data['weight']
-  #status = print_data['status'] 
-  update_row.update(name=name, uploaded=uploaded, time=float(time), cost=float(cost), weight=float(weight), status=status)
+  update_row.update(name=name, uploaded=uploaded, time=time, cost=cost, weight=weight, status=status)

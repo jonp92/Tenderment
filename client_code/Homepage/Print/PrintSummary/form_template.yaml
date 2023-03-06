@@ -20,6 +20,66 @@ components:
     layout_properties: {column: AYCFIN}
     data_bindings:
     - {property: source, code: 'self.item[''media_object'']'}
+  - type: GridPanel
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: thin dashed, visible: true, role: null, tooltip: ''}
+    name: grid_panel_1
+    layout_properties: {column: null}
+    components:
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Edit, font_size: null, font: '', spacing_above: medium,
+        icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:edit'}
+      name: button_details
+      layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.65625}
+      event_bindings: {click: button_details_click}
+  data_bindings:
+  - {property: item, code: self.item}
+- type: DataRowPanel
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
+    visible: false, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false}
+  name: data_row_panel_edit
+  layout_properties: {column: null}
+  components:
+  - type: GridPanel
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: thin dashed, visible: true, role: null, tooltip: ''}
+    name: grid_panel_2
+    layout_properties: {column: null}
+    components:
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Delete, font_size: null, font: '', spacing_above: medium,
+        icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:trash'}
+      name: button_2
+      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 0, width: 130.65625}
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: medium,
+        icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:save'}
+      name: button_save
+      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 8, width: 130.65625}
+      event_bindings: {click: button_save_click}
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Cancel, font_size: null, font: '', spacing_above: medium,
+        icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:times-circle'}
+      name: button_cancel
+      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 10, width: 130.65625}
+      event_bindings: {click: button_cancel_click}
+  - type: Image
+    properties: {role: null, vertical_align: center, height: '123', tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+      source: '', spacing_below: small, background: '', horizontal_align: center}
+    name: image_2
+    layout_properties: {column: AYCFIN}
+    data_bindings:
+    - {property: source, code: 'self.item[''media_object'']'}
   - type: DropDown
     properties:
       role: outlined
@@ -40,104 +100,40 @@ components:
       bold: false
       underline: false
       include_placeholder: false
-    name: drop_down_1
+    name: drop_down_status_edit
     layout_properties: {column: YAODAG}
     data_bindings:
-    - {property: selected_value, code: 'self.item[''status'']', writeback: true}
-  - type: GridPanel
-    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: thin dashed, visible: true, role: null, tooltip: ''}
-    name: grid_panel_1
-    layout_properties: {column: null}
-    components:
-    - type: Button
-      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: Details, font_size: 11, font: '', spacing_above: medium,
-        icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
-        underline: false, icon: 'fa:angle-down'}
-      name: button_details
-      layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.828125}
-      event_bindings: {click: button_details_click}
-  data_bindings:
-  - {property: item, code: self.item}
-- type: DataRowPanel
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
-    visible: false, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
-    italic: false, background: '', bold: false, underline: false}
-  name: data_row_panel_edit
-  layout_properties: {column: null}
-  components:
-  - type: GridPanel
-    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: thin dashed, visible: true, role: null, tooltip: ''}
-    name: grid_panel_2
-    layout_properties: {column: null}
-    components:
-    - type: Button
-      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: medium,
-        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
-        underline: false, icon: 'fa:save'}
-      name: button_save
-      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 10, width: 130.65625}
-      event_bindings: {click: button_save_click}
-  - type: Image
-    properties: {height: 109}
-    name: image_2
-    layout_properties: {column: AYCFIN}
-  - type: DropDown
-    properties:
-      role: null
-      align: full
-      tooltip: ''
-      placeholder: ''
-      border: ''
-      enabled: true
-      foreground: ''
-      items: [New, None, Printed, Not Printed, Shipped]
-      visible: true
-      font_size: null
-      font: ''
-      spacing_above: small
-      spacing_below: small
-      italic: false
-      background: ''
-      bold: false
-      underline: false
-      include_placeholder: false
-    name: drop_down_2
-    layout_properties: {column: YAODAG}
-    data_bindings:
-    - {property: selected_value, code: 'self.item[''status'']', writeback: true}
+    - {property: selected_value, code: 'self.item[''status'']', writeback: false}
+    event_bindings: {change: drop_down_status_edit_change}
   - type: TextBox
     properties: {}
-    name: text_box_1
+    name: text_box_name
     layout_properties: {column: POWQVU}
     data_bindings:
     - {property: text, code: 'self.item[''name'']', writeback: false}
     event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: TextBox
     properties: {}
-    name: text_box_2
+    name: text_box_uploaded
     layout_properties: {column: UNBRPG}
     data_bindings:
-    - {property: text, code: 'self.item[''uploaded'']', writeback: true}
+    - {property: text, code: 'self.item[''uploaded'']', writeback: false}
   - type: TextBox
     properties: {}
-    name: text_box_3
+    name: text_box_cost
     layout_properties: {column: KJEUIY}
     data_bindings:
-    - {property: text, code: 'self.item[''cost'']', writeback: true}
+    - {property: text, code: 'self.item[''cost'']', writeback: false}
   - type: TextBox
     properties: {}
-    name: text_box_4
+    name: text_box_weight
     layout_properties: {column: ABEGHY}
     data_bindings:
-    - {property: text, code: 'self.item[''weight'']', writeback: true}
+    - {property: text, code: 'self.item[''weight'']', writeback: false}
   - type: TextBox
     properties: {}
-    name: text_box_5
+    name: text_box_time
     layout_properties: {column: IDAVJE}
     data_bindings:
-    - {property: text, code: 'self.item[''time'']', writeback: true}
+    - {property: text, code: 'self.item[''time'']', writeback: false}
 is_package: true
