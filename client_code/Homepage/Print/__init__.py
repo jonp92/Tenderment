@@ -5,6 +5,7 @@ import anvil.server
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
+import anvil.media
 from anvil.tables import app_tables
 
 class Print(PrintTemplate):
@@ -18,7 +19,7 @@ class Print(PrintTemplate):
     # Any code you write here will run before the form opens.
 
   def refresh_prints(self):
-    self.repeating_panel_1.items = anvil.server.call('get_prints')
+    self.repeating_panel_1.items = anvil.server.call('get_prints', 'No', "")
     self.refresh_data_bindings()
     
   def drop_down_1_change(self, **event_args):
@@ -28,7 +29,7 @@ class Print(PrintTemplate):
   def drop_down_2_change(self, **event_args):
     """This method is called when an item is selected"""
     if self.selected_sort == 'None':
-      self.repeating_panel_1.items = self.refresh_prints()
+      self.repeating_panel_1.items = anvil.server.call('get_prints', 'No', status="")
     else:
       self.repeating_panel_1.items = sorted([r for r in self.repeating_panel_1.items], key = lambda x: x[self.selected_sort])
 
@@ -42,9 +43,9 @@ class Print(PrintTemplate):
 
   def change_status_filter(self, status):
     if status == 'All':
-      self.repeating_panel_1.items = self.refresh_prints()
+      self.repeating_panel_1.items = anvil.server.call('get_prints', 'No', status="")
     else:
-      self.repeating_panel_1.items = app_tables.prints.search(status=status)
+      self.repeating_panel_1.items = anvil.server.call('get_prints', 'Yes', status=status)
       
 
 

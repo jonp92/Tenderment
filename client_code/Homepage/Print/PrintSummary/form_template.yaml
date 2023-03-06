@@ -7,7 +7,7 @@ container:
 components:
 - type: DataRowPanel
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
-    visible: true, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    visible: true, item: null, font_size: null, font: '', spacing_above: small, spacing_below: small,
     italic: false, background: '', bold: false, underline: false}
   name: data_row_panel_view
   layout_properties: {column: null, row: WYYHIZ, width_xs: 12, col_xs: 0}
@@ -26,6 +26,14 @@ components:
     name: grid_panel_1
     layout_properties: {column: null}
     components:
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Download .gcode, font_size: null, font: '',
+        spacing_above: medium, icon_align: right, spacing_below: none, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:cloud-download'}
+      name: button_download
+      layout_properties: {row: ZEQOSR, width_xs: 3, col_xs: 0, width: 156}
+      event_bindings: {click: button_download_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Edit, font_size: null, font: '', spacing_above: medium,

@@ -2,6 +2,7 @@ from ._anvil_designer import PrintSummaryTemplate
 from anvil import *
 import anvil.server
 import anvil.users
+import anvil.media
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -58,6 +59,11 @@ class PrintSummary(PrintSummaryTemplate):
   def drop_down_status_edit_change(self, **event_args):
     """This method is called when an item is selected"""
     pass
+
+  def button_download_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    media = anvil.server.call('get_gcode_download', self.item.get_id())
+    anvil.media.download(media, )
 
 
 

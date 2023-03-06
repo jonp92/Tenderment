@@ -46,7 +46,7 @@ def find_png(media_object, uploaded_file):
             name = name_match.group()
           else:
             name = filename
-          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New')      
+          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New', gcode=media_object)      
     return return_media, name
   else:
     return no_save, "File Already Exist"
