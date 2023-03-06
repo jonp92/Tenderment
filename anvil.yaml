@@ -32,18 +32,24 @@ db_schema:
     - name: uploaded
       admin_ui: {width: 200}
       type: string
-    - name: id
-      admin_ui: {order: 7, width: 200}
-      type: simpleObject
-    - name: cost
-      admin_ui: {order: 6, width: 200}
-      type: simpleObject
     - name: weight
-      admin_ui: {order: 7, width: 200}
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: time
+      admin_ui: {width: 200}
       type: simpleObject
     - name: status
-      admin_ui: {order: 7, width: 200}
+      admin_ui: {width: 200}
       type: simpleObject
+    - name: id
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: gcode
+      admin_ui: {width: 200}
+      type: media
+    - name: cost
+      admin_ui: {order: 8, width: 200}
+      type: number
   users:
     title: Users
     client: none

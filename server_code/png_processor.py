@@ -31,11 +31,12 @@ def find_png(media_object, uploaded_file):
           thumbnail_data = sub(r'^; ', '', thumbnail_data, flags=MULTILINE)
           thumbnail_data = b64decode(thumbnail_data)
           return_media = anvil.BlobMedia(content_type="image/png", content=thumbnail_data)
-          match = search(r"\$(\d+\.\d+)-(\d+\.\d+)g-(\d+.)m.gcode", uploaded_file)
+          match = search(r'\$(\d+\.\d+)-(\d{1,4}\.\d{1,4})g-(\d{1,2}.+).gcode', uploaded_file)
           if match:
-            cost = float(match.group(1))
+            cost = round(match.group(1))
+            print(cost)
             weight = float(match.group(2))
-            time = float(match.group(3))
+            time = match.group(3)
           else:
             cost = 0
             weight = 0
