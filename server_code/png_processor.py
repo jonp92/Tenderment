@@ -33,8 +33,7 @@ def find_png(media_object, uploaded_file):
           return_media = anvil.BlobMedia(content_type="image/png", content=thumbnail_data)
           match = search(r'\$(\d+\.\d+)-(\d{1,4}\.\d{1,4})g-(\d{1,2}.+).gcode', uploaded_file)
           if match:
-            cost = round(match.group(1))
-            print(cost)
+            cost = float(match.group(1))
             weight = float(match.group(2))
             time = match.group(3)
           else:
@@ -47,7 +46,7 @@ def find_png(media_object, uploaded_file):
             name = name_match.group()
           else:
             name = filename
-          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=return_media, uploaded=date_string, cost=cost, weight=weight, time=time, status='New', gcode=media_object)      
+          png_table = app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=return_media, uploaded=date_string, cost=round(cost,2), weight=round(weight,2), time=time, status='New', gcode=media_object)      
     return return_media, name
   else:
     return no_save, "File Already Exist"

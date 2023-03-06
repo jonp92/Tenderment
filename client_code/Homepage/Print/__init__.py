@@ -13,14 +13,14 @@ class Print(PrintTemplate):
     self.selected_status = 'All'
     self.selected_sort = 'None'
     self.number_rows = '4'
+    self.repeating_panel_1.set_event_handler('x-refresh-prints', self.refresh_prints)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.refresh_prints()
     # Any code you write here will run before the form opens.
 
-  def refresh_prints(self):
+  def refresh_prints(self, **event_args):
     self.repeating_panel_1.items = anvil.server.call('get_prints', 'No', "")
-    self.refresh_data_bindings()
     
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""

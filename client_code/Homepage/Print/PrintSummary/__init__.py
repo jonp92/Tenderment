@@ -29,16 +29,12 @@ class PrintSummary(PrintSummaryTemplate):
     save_clicked = alert(f"Are you sure you want to update {self.text_box_name.text}?", title="Update Table Info", buttons=[("Save", True), ("Cancel", False)])
     if save_clicked:
       self.update_print_table()
-      get_open_form().column_panel_2.clear()
-      get_open_form().column_panel_2.add_component(Print())
-      self.refresh_data_bindings()
+      self.parent.raise_event('x-refresh-prints')
       self.data_row_panel_edit.visible = False
       self.data_row_panel_view.visible = True
     else:
-      self.data_row_panel_edit.visible = False
-      self.data_row_panel_view.visible = True
-    
-    
+      self.parent.raise_event('x-refresh-prints')
+      
   def text_box_1_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     pass
@@ -63,7 +59,18 @@ class PrintSummary(PrintSummaryTemplate):
   def button_download_click(self, **event_args):
     """This method is called when the button is clicked"""
     media = anvil.server.call('get_gcode_download', self.item.get_id())
-    anvil.media.download(media, )
+    anvil.media.download(media)
+
+  def button_delete_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    delete_clicked = alert(f"Are you sure you want to DELETE {self.text_box_name.text}?", title="Delete Table Row", buttons=[("Delete", True), ("Cancel", False)])
+    if delete_clicked:
+      anvil.server.call('delete_row', self.item)
+      self.parent.raise_event('x-refresh-prints')
+      self.data_row_panel_edit.visible = False
+      self.data_row_panel_view.visible = True
+
+
 
 
 

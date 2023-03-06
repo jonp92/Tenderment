@@ -62,8 +62,9 @@ components:
         foreground: '', visible: true, text: Delete, font_size: null, font: '', spacing_above: medium,
         icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:trash'}
-      name: button_2
+      name: button_delete
       layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 0, width: 130.65625}
+      event_bindings: {click: button_delete_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: medium,
