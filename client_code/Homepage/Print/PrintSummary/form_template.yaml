@@ -114,7 +114,6 @@ components:
     name: text_box_1
     layout_properties: {column: POWQVU}
     data_bindings:
-    - {property: text, code: self.print_name, writeback: true}
     - {property: text, code: 'self.item[''name'']', writeback: false}
     event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: TextBox
@@ -122,7 +121,7 @@ components:
     name: text_box_2
     layout_properties: {column: UNBRPG}
     data_bindings:
-    - {property: text, code: 'self.item[''time'']', writeback: true}
+    - {property: text, code: 'self.item[''uploaded'']', writeback: true}
   - type: TextBox
     properties: {}
     name: text_box_3

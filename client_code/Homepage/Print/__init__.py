@@ -6,7 +6,6 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from . import PrintSummary_Edit
 
 class Print(PrintTemplate):
   def __init__(self, **properties):
@@ -20,6 +19,7 @@ class Print(PrintTemplate):
 
   def refresh_prints(self):
     self.repeating_panel_1.items = anvil.server.call('get_prints')
+    self.refresh_data_bindings()
     
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
@@ -45,9 +45,6 @@ class Print(PrintTemplate):
       self.repeating_panel_1.items = self.refresh_prints()
     else:
       self.repeating_panel_1.items = app_tables.prints.search(status=status)
-
-  def load_printsummary_edit(self):
-    self.repeating_panel_1.item_template = PrintSummary_Edit
       
 
 

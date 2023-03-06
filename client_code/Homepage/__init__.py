@@ -6,7 +6,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .Print import Print, PrintDetail, PrintSummary
+from .Print import Print, PrintSummary
 from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
