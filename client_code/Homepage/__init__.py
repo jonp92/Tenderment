@@ -16,6 +16,7 @@ class Homepage(HomepageTemplate):
     user = anvil.users.login_with_form()
     self.authenticated = anvil.server.call('is_authenticated')
     self.user = anvil.users.get_user()
+    self.version = "v0.7.1"
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Any code you write here will run before the form opens.

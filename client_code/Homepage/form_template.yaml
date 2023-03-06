@@ -73,6 +73,15 @@ components:
     name: link_logoff
     layout_properties: {grid_position: 'RQGRQM,EXUXUM'}
     event_bindings: {click: link_logoff_click}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 8, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: true,
+      icon: ''}
+    name: label_version
+    layout_properties: {row: XFAJSW, width_xs: 3, col_xs: 9, width: 208, grid_position: 'ECCNSN,THCOQV'}
+    data_bindings:
+    - {property: text, code: self.version}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Tenderment, font_size: 26, font: '', spacing_above: small, icon_align: left,
