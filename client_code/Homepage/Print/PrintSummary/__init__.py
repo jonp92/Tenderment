@@ -70,6 +70,11 @@ class PrintSummary(PrintSummaryTemplate):
       self.data_row_panel_edit.visible = False
       self.data_row_panel_view.visible = True
 
+  def image_1_mouse_down(self, x, y, button, **event_args):
+    """This method is called when a mouse button is pressed on this component"""
+    alert(Image(source=self.item['media_object']), title=self.item['name'], large=True)
+
+
 
 
 

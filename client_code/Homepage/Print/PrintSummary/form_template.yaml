@@ -20,6 +20,7 @@ components:
     layout_properties: {column: AYCFIN}
     data_bindings:
     - {property: source, code: 'self.item[''media_object'']'}
+    event_bindings: {mouse_down: image_1_mouse_down}
   - type: GridPanel
     properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
       border: thin dashed, visible: true, role: null, tooltip: ''}
