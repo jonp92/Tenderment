@@ -4,6 +4,18 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import pandas as pd
+
+
+@anvil.server.callable
+def count_prints():
+  list = [r['id'] for r in app_tables.prints.search()]
+  unique = count_unique(list)
+  return pd.Series(unique).sum()
+
+@anvil.server.callable
+def count_unique(list):
+  return pd.Series(list).value_counts()
 
 @anvil.server.callable
 def get_prints(stat_search, status):

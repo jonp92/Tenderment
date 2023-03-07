@@ -13,21 +13,15 @@ from .Inventory import Inventory
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
-    user = anvil.users.login_with_form()
+    self.user = anvil.users.login_with_form()
     self.authenticated = anvil.server.call('is_authenticated')
-    self.user = anvil.users.get_user()
+    #self.user = anvil.users.get_user()
     self.version = "v0.7.1"
-    self.data = [
-      {
-        'time': r['time'],
-        'cost': r['cost'],
-        'weight':r['weight']
-      }
-      for r in anvil.server.call('get_prints', 'No', "")
-    ]
+    self.print_count = anvil.server.call('count_prints')
+    #self.plot_1.data = go.Pie(values=self.print_statues)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    print(self.data[1:])
+    
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
@@ -40,15 +34,14 @@ class Homepage(HomepageTemplate):
     else:
       anvil.alert(title='Not Authorized') 
 
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.users.logout()
-    open_form()
-
   def link_logoff_click(self, **event_args):
     """This method is called when the link is clicked"""
+    self.column_panel_2.clear()
+    self.column_panel_1.clear()
+    self.link_current_user.clear()
     anvil.users.logout()
     anvil.users.login_with_form()
+    open_form('Homepage')   
 
   def link_home_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -57,7 +50,7 @@ class Homepage(HomepageTemplate):
   def link_upload_click(self, **event_args):
     """This method is called when the link is clicked"""
     if self.authenticated is True:
-      get_open_form().column_panel_2.clear()
+      self.column_panel_2.clear()
       self.column_panel_2.add_component(Upload())
     else:
       pass
@@ -65,7 +58,7 @@ class Homepage(HomepageTemplate):
   def link_orders_click(self, **event_args):
     """This method is called when the link is clicked"""
     if self.authenticated is True:
-      get_open_form().column_panel_2.clear()
+      self.column_panel_2.clear()
       self.column_panel_2.add_component(Orders())
     else:
       pass
@@ -73,7 +66,7 @@ class Homepage(HomepageTemplate):
   def link_inventory_click(self, **event_args):
     """This method is called when the link is clicked"""
     if self.authenticated is True:
-      get_open_form().column_panel_2.clear()
+      self.column_panel_2.clear()
       self.column_panel_2.add_component(Inventory())
     else:
       pass
