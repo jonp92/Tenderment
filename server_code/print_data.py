@@ -14,6 +14,11 @@ def count_prints():
   return pd.Series(unique).sum()
 
 @anvil.server.callable
+def uploads_per_day():
+  items = app_tables.print.search()
+
+
+@anvil.server.callable
 def count_unique(list):
   return pd.Series(list).value_counts()
 
