@@ -24,8 +24,7 @@ def prints_by_status():
   ]
   df = pd.DataFrame(info, columns=['name', 'status'])
   df = df.groupby('status').count().reset_index()
-  print(df)
-  return go.Bar(x=df['status'], y=df['name'], text="Number of Prints" )
+  return go.Bar(x=df['status'], y=df['name'], text="Prints In"+df['status'])
 
 @anvil.server.callable
 def count_unique(list):

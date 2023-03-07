@@ -2,6 +2,7 @@ from ._anvil_designer import PrintSummaryTemplate
 from anvil import *
 import anvil.server
 import anvil.media
+from ..PrintDetail import PrintDetail
 
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
@@ -66,7 +67,7 @@ class PrintSummary(PrintSummaryTemplate):
 
   def image_1_mouse_down(self, x, y, button, **event_args):
     """This method is called when a mouse button is pressed on this component"""
-    alert(Image(source=self.item['media_object']), title=self.item['name'], large=True)
+    alert(PrintDetail(self.item.get_id()), large=True, buttons=[("Save", True), ("Cancel", False)])
 
 
 
