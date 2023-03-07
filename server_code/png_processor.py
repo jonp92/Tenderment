@@ -8,8 +8,6 @@ from anvil.tables import app_tables
 import anvil.media
 from re import search, DOTALL, sub, MULTILINE, compile
 from base64 import b64decode
-from .Homepage import Homepage
-from .Homepage import Upload
 import datetime
 import shortuuid
 now = datetime.datetime.now()

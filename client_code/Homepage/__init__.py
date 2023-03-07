@@ -1,13 +1,8 @@
 from ._anvil_designer import HomepageTemplate
 from anvil import *
-import plotly.graph_objects as go
-
 import anvil.users
 import anvil.server
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-from .Print import Print, PrintSummary
+from .Print import Print
 from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
@@ -19,7 +14,7 @@ class Homepage(HomepageTemplate):
     #self.user = anvil.users.get_user()
     self.version = "v0.7.1"
     self.print_count = anvil.server.call('count_prints')
-    self.plot_1.data = anvil.server.call('uploads_per_day')
+    self.plot_1.data = anvil.server.call('prints_by_status')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     

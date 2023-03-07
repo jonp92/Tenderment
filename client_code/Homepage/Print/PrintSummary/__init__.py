@@ -1,13 +1,7 @@
 from ._anvil_designer import PrintSummaryTemplate
 from anvil import *
 import anvil.server
-import anvil.users
 import anvil.media
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-from ..PrintDetail import PrintDetail
-from .. import Print
 
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):

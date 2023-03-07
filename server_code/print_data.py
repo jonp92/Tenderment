@@ -6,7 +6,6 @@ from anvil.tables import app_tables
 import anvil.server
 import pandas as pd
 import plotly.graph_objects as go
-import plotly.express as px
 
 @anvil.server.callable
 def count_prints():
@@ -15,7 +14,7 @@ def count_prints():
   return pd.Series(unique).sum()
 
 @anvil.server.callable
-def uploads_per_day():
+def prints_by_status():
   info = [
     {
       'name': r['name'],
@@ -24,10 +23,9 @@ def uploads_per_day():
    for r in app_tables.prints.search()
   ]
   df = pd.DataFrame(info, columns=['name', 'status'])
-  df['count'] = df['status'].value_counts()
   df = df.groupby('status').count().reset_index()
-  return go.Histogram(x=df['status'], y=df['count'])
-  return 
+  print(df)
+  return go.Bar(x=df['status'], y=df['name'], text="Number of Prints" )
 
 @anvil.server.callable
 def count_unique(list):

@@ -1,12 +1,6 @@
 from ._anvil_designer import PrintTemplate
 from anvil import *
-import plotly.graph_objects as go
 import anvil.server
-import anvil.users
-import anvil.tables as tables
-import anvil.tables.query as q
-import anvil.media
-from anvil.tables import app_tables
 
 class Print(PrintTemplate):
   def __init__(self, **properties):
