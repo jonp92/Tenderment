@@ -1,6 +1,7 @@
 from ._anvil_designer import HomepageTemplate
 from anvil import *
 import plotly.graph_objects as go
+
 import anvil.users
 import anvil.server
 import anvil.tables as tables
@@ -18,7 +19,7 @@ class Homepage(HomepageTemplate):
     #self.user = anvil.users.get_user()
     self.version = "v0.7.1"
     self.print_count = anvil.server.call('count_prints')
-    #self.plot_1.data = go.Pie(values=self.print_statues)
+    self.plot_1.data = anvil.server.call('uploads_per_day')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
@@ -32,7 +33,7 @@ class Homepage(HomepageTemplate):
       self.column_panel_2.clear()
       self.column_panel_2.add_component(Print())
     else:
-      anvil.alert(title='Not Authorized') 
+      anvil.alert(title='Not Authorized')
 
   def link_logoff_click(self, **event_args):
     """This method is called when the link is clicked"""

@@ -13,7 +13,8 @@ from .Homepage import Upload
 import datetime
 import shortuuid
 now = datetime.datetime.now()
-date_string = now.strftime("%m_%d_%Y-%H:%M:%S")
+date_string = now.strftime("%Y-%m-%d")
+time_string =now.strftime("%H:%M:%S")
 no_save = anvil.server.get_app_origin() + "/_/theme/no_save.png"
 
 def sanitize_name(name):
