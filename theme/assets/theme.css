@@ -406,7 +406,7 @@ color: %color:On Primary Container%;
   line-height: 40px;
   font-size: 20px;
 
-  background-color: %color:Surface%;
+  background-color: %color:Primary Overlay 1%;
   transition: background-color 250ms;
   -webkit-transition: background-color 250ms;
   -moz-transition: background-color 250ms;
