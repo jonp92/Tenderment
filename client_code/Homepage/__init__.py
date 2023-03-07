@@ -17,10 +17,17 @@ class Homepage(HomepageTemplate):
     self.authenticated = anvil.server.call('is_authenticated')
     self.user = anvil.users.get_user()
     self.version = "v0.7.1"
+    self.data = [
+      {
+        'time': r['time'],
+        'cost': r['cost'],
+        'weight':r['weight']
+      }
+      for r in anvil.server.call('get_prints', 'No', "")
+    ]
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # Any code you write here will run before the form opens.
-  
+    print(self.data[1:])
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
@@ -70,6 +77,13 @@ class Homepage(HomepageTemplate):
       self.column_panel_2.add_component(Inventory())
     else:
       pass
+
+  def plot_1_click(self, points, **event_args):
+    """This method is called when a data point is clicked."""
+    pass
+
+
+
 
 
 
