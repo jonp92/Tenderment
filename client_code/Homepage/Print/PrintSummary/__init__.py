@@ -67,7 +67,11 @@ class PrintSummary(PrintSummaryTemplate):
 
   def image_1_mouse_down(self, x, y, button, **event_args):
     """This method is called when a mouse button is pressed on this component"""
-    alert(PrintDetail(self.item.get_id()), large=True, buttons=[("Save", True), ("Cancel", False)])
+    save_clicked = alert(PrintDetail(self.item.get_id()), large=True, buttons=[("Save", True), ("Cancel", False)])
+    if save_clicked:
+      anvil.server.call('add_note', self.item, PrintDetail(self.item.get_id()).text_area_1.text)
+      
+      
 
 
 

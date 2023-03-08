@@ -82,6 +82,18 @@ db_schema:
     - name: remembered_logins
       admin_ui: {width: 200}
       type: simpleObject
+  notes:
+    client: none
+    server: full
+    columns:
+    - name: print
+      admin_ui: {order: 0, width: 200}
+      type: link_single
+      target: prints
+    - name: notes
+      admin_ui: {order: 1, width: 200}
+      type: simpleObject
+    title: Notes
 secrets:
   sqspace:
     value: {? '' : H965t8DY1adlhRGaG7ojUqYPK36+xPalySbSdVvfSM3Km1yFdPHO7DAnELJIf8yV2ujngmBK0y0xdfpFsLNn4dKt6Q/cJT+GV5xu14p7x2donD7VP6n7MfIK5Ud41Rq8FRI8h78fwT2kPdS+/j8wJmm158C3J//+chMRHSxji/V5Oeo=}

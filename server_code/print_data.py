@@ -54,3 +54,8 @@ def get_gcode_download(id):
 @anvil.server.callable
 def delete_row(row):
   row.delete()
+
+@anvil.server.callable
+def add_note(row, notes):
+  app_tables.notes.add_row(print=row, notes=notes)
+  
