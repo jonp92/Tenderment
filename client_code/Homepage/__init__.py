@@ -12,7 +12,7 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.login_with_form()
     self.authenticated = anvil.server.call('is_authenticated')
     #self.user = anvil.users.get_user()
-    self.version = "v0.7.1"
+    self.version = "v0.8.2"
     self.print_count = anvil.server.call('count_prints')
     self.plot_1.data = anvil.server.call('prints_by_status')
     # Set Form properties and Data Bindings.

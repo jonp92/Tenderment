@@ -39,7 +39,7 @@ def get_prints(stat_search, status):
 
 @anvil.server.callable
 def get_print_by_id(id):
-  return app_tables.prints.get_by_id(id)
+  return app_tables.prints.get(id=id)
 
 @anvil.server.callable
 def update_print_data(id, name, uploaded, time, cost, weight, status):
@@ -59,4 +59,10 @@ def delete_row(row):
 def add_note(row, notes):
   row = app_tables.prints.get(id=row['id'])
   app_tables.notes.add_row(print=row, notes=notes)
+
+@anvil.server.callable
+def get_notes(print_row):
+  row = app_tables.prints.get(id=print_row['id'])
+  note_row = app_tables.notes.search(print=row)
+  return note_row
   
