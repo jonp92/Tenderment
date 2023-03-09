@@ -57,6 +57,6 @@ def delete_row(row):
 
 @anvil.server.callable
 def add_note(row, notes):
-  print(notes)
+  row = app_tables.prints.get(id=row['id'])
   app_tables.notes.add_row(print=row, notes=notes)
   

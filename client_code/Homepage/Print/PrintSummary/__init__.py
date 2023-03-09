@@ -71,7 +71,7 @@ class PrintSummary(PrintSummaryTemplate):
     print_copy = dict(self.item)
     save_clicked = alert(PrintDetail(item=print_copy), large=True, buttons=[("Close", True)])
     if save_clicked:
-      anvil.server.call('add_note', self.item, PrintDetail().item['note'])
+      anvil.server.call('add_note', self.item, PrintDetail().text_area_1.text)
       
       
 
