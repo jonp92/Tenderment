@@ -98,4 +98,13 @@ secrets:
   sqspace:
     value: {? '' : H965t8DY1adlhRGaG7ojUqYPK36+xPalySbSdVvfSM3Km1yFdPHO7DAnELJIf8yV2ujngmBK0y0xdfpFsLNn4dKt6Q/cJT+GV5xu14p7x2donD7VP6n7MfIK5Ud41Rq8FRI8h78fwT2kPdS+/j8wJmm158C3J//+chMRHSxji/V5Oeo=}
     type: secret
+  wix-account-id:
+    value: {? '' : rrcEUOVkTiN0e1Al1fg3doOIOyvLy9zvRo838rzHqw4kLCrbFkw8ouaHnko4EXtme8vdFOV1shLOEz3MTBvyiqn+GSVCk/ekR9x066FjSzI3I9Kz30d5fHe541SpNb8ODZq+Z+3JNL3ZNzaXT82qzkIwLVsGN8epyrA4u25yft4+d1Q=}
+    type: secret
+  wix:
+    value: {? '' : m0q+ergYTveIq8tdNR4MAc4hcak2bvJMbWhNV1hu8vV/bUrCWxjU6rssuikIdPWL225QgPMMG0/JBhhvcg6749q/bATjFVTCqOd0SGOpBMS+GbwXOvzlCmL2GiRLDKDqcLW2vLoD9pDybV4jxEyFf5usMvLAMb0Ltw8LNraSrBtq++Kcilr5qYdJ7/JO6OoCqngtCkGqnCIo/a58qZ31oY5vDTgmdiiWktRodtZQ/2Bo5gGZMxUh9oJlgauGOlFBedU0ZEA7mmvo3t6GDxrCjaF7qRIQ/ZmlGovvabSU7Rz1VlC10VgJ8IIdKTOTxhY0g8NPs4MYDo6gl8mYspy7iXceq6RKfB+aTzze7G8RBUUVcJzneCMVLD735/vAswdYiopTTc5KEGxKR7nqoqE5KNjpP6tk6P6NPKeehoXz9zcOelBHD7tE1Q3hB4QCFnL6DUMAzk1ru8wEMbrTayVLVKBA9Ujl8n2LUVtPN1ZV4PIr6o3liRp5lT3aw/f/5mx02eVpITdozpM5b1AbDQPHBlFg6bHDLqwKjfacv9hRtFtOIGf+6BX3ROV4mcBmGQHIVk1Ku5RHrHupvLWAcTUMZMxiqtrTtwK9QKWLxQxtW6AAhJbBUau7bikdX/1+fOHRpinLKBaS7Bi7ei0UDHpxOzOjwvbchTo0JVBruLMpU8kv0hk+g7yO6ZHL39eT7J469K3lN0remjzUp22EbBr8jwUI3ttSyKfnoQ7ud7q4J3Hq8+Ju8J2C7WCeVJpp+XjOglj5bazHD162HLZpiEBgqanAZwpT8Rokm8bZBrU7REGFb2Sv9bCXGgxEmCUQyiaV5XzT8D9ROcHgLAM4H6VFKI1oLjOdWRZGMssdbPY5gWgUo9TnXRE1qZkxrgvGVV+SBAfMPbiPao0RQEiiS2UMpD7VLUGOLCj9uoyve9CodPPjOVUAGh1rGpEICAiIEZ9vudyYDGAWYjazl0BTc4kb4W8Giv68Zbmf+C4zp8sv1+w82rj7tUfq6WQGoc1dlf+sKc28tqUOxqk+3EepHhL0B0MZ9JDCoIc2ZCNIAuYKlt4NHkQntCt6LhOwtJB8S5Xv}
+    type: secret
+  wix-site-id:
+    value: {? '' : cPBJejzcNxqZLVugXd3SCDHcwK6AT+v8rSgtPwzz6lSwPged0C6KH/ndoH6kVXPVSL9WLWOomxL0xYxuNbHSXHhUH4c7gr7KHL2acFC7vKP6dctMd6LqcUI4PJOw+H7Tio5TiZI9cJHynfzSwbKqyxVvn5ZzsAKlH7/nc7weiJpU+kU=}
+    type: secret
 renamed: true

@@ -4,9 +4,15 @@ import anvil.server
 
 class Inventory(InventoryTemplate):
   def __init__(self, **properties):
-    url = f"/commerce/inventory"
-    self.inventory = anvil.server.call('get_sqdata', url)
+    url = f"stores/v1/products/query"
+    self.item = anvil.server.call('get_wix_products', url)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+  def get_thumbnail_url(self):
+    return self.item['media']['mainMedia']['thumbnail']['url']
+
+  def get_quantity(self):
+    return self.item['stock']['quantity']    
 
     # Any code you write here will run before the form opens.

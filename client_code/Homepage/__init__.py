@@ -10,13 +10,12 @@ from .Inventory import Inventory
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     self.user = anvil.users.login_with_form()
-    self.authenticated = anvil.server.call('is_authenticated')
     #self.user = anvil.users.get_user()
     self.version = "v0.8.2"
     self.print_count = anvil.server.call('count_prints')
-    self.plot_1.data = anvil.server.call('plot_prints_by_status')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.plot_1.data = anvil.server.call('plot_prints_by_status')
     
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -24,11 +23,8 @@ class Homepage(HomepageTemplate):
     
   def link_prints_click(self, **event_args):
     """This method is called when the link is clicked"""
-    if self.authenticated is True:
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Print())
-    else:
-      anvil.alert(title='Not Authorized')
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Print())
 
   def link_logoff_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -45,27 +41,18 @@ class Homepage(HomepageTemplate):
 
   def link_upload_click(self, **event_args):
     """This method is called when the link is clicked"""
-    if self.authenticated is True:
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Upload())
-    else:
-      pass
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Upload())
 
   def link_orders_click(self, **event_args):
     """This method is called when the link is clicked"""
-    if self.authenticated is True:
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Orders())
-    else:
-      pass
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Orders())
 
   def link_inventory_click(self, **event_args):
     """This method is called when the link is clicked"""
-    if self.authenticated is True:
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Inventory())
-    else:
-      pass
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Inventory())
 
   def plot_1_click(self, points, **event_args):
     """This method is called when a data point is clicked."""

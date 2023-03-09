@@ -4,12 +4,13 @@ container:
 components:
 - type: DataGrid
   properties:
-    role: null
+    role: tonal-data-grid
     columns:
-    - {id: ZTAFTV, title: ID, data_key: variantId, $$hashKey: 'object:1031'}
-    - {id: XDMCKE, title: Description, data_key: descriptor, $$hashKey: 'object:1033'}
+    - {id: ZTAFTV, title: Name, data_key: name, $$hashKey: 'object:1031'}
+    - {id: XDMCKE, title: Description, data_key: description, $$hashKey: 'object:1033'}
     - {id: KWBLPW, title: SKU, data_key: sku, $$hashKey: 'object:1032'}
-    - {id: ZOJBFS, title: Qty, data_key: quantity, $$hashKey: 'object:1072'}
+    - {id: ZOJBFS, title: Qty, data_key: '', $$hashKey: 'object:1072'}
+    - {id: PIZUMC, title: '', data_key: column_1, $$hashKey: 'object:233212'}
     auto_header: true
     tooltip: ''
     border: ''
@@ -29,5 +30,5 @@ components:
     name: repeating_panel_1
     layout_properties: {}
     data_bindings:
-    - {property: items, code: 'self.inventory[''inventory'']'}
+    - {property: items, code: 'self.item[''products'']'}
 is_package: true
