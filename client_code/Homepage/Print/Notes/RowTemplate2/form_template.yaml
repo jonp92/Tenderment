@@ -3,5 +3,27 @@ container:
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
     visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none,
     italic: false, background: '', bold: false, underline: false}
-components: []
+components:
+- type: GridPanel
+  properties: {}
+  name: grid_panel_1
+  layout_properties: {column: BUWEXR}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: medium, icon_align: left,
+      spacing_below: none, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_1
+    layout_properties: {row: TCOUNU, width_xs: 11, col_xs: 0, width: 670.7}
+    data_bindings:
+    - {property: text, code: 'self.item[''notes'']'}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: medium,
+      icon_align: left_edge, spacing_below: none, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:trash'}
+    name: button_delete
+    layout_properties: {row: TCOUNU, width_xs: 1, col_xs: 11, width: 33.6875}
+    event_bindings: {click: button_delete_click}
 is_package: true

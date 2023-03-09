@@ -21,7 +21,7 @@ def sanitize_name(name):
   if name_match:
     name = name_match.group()
   else:
-    name = filename
+    name = name
   return sub(r'%20', '_', name)
 
 def find_print_info(name):

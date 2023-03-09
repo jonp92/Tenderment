@@ -23,7 +23,7 @@ components:
     event_bindings: {mouse_down: image_1_mouse_down}
   - type: GridPanel
     properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: thin dashed, visible: true, role: null, tooltip: ''}
+      border: '', visible: true, role: null, tooltip: ''}
     name: grid_panel_1
     layout_properties: {column: null}
     components:
@@ -54,7 +54,7 @@ components:
   components:
   - type: GridPanel
     properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: thin dashed, visible: true, role: null, tooltip: ''}
+      border: '', visible: true, role: null, tooltip: ''}
     name: grid_panel_2
     layout_properties: {column: null}
     components:
@@ -99,14 +99,14 @@ components:
       border: ''
       enabled: true
       foreground: ''
-      items: [New, None, Printed, Not Printed, Shipped]
+      items: [New, Printed, Not Printed, Shipped]
       visible: true
       font_size: null
       font: ''
       spacing_above: small
       spacing_below: small
       italic: false
-      background: ''
+      background: theme:Primary Overlay 2
       bold: false
       underline: false
       include_placeholder: false
@@ -116,32 +116,47 @@ components:
     - {property: selected_value, code: 'self.item[''status'']', writeback: false}
     event_bindings: {change: drop_down_status_edit_change}
   - type: TextBox
-    properties: {}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:Primary Overlay 2', bold: false, underline: false}
     name: text_box_name
     layout_properties: {column: POWQVU}
     data_bindings:
     - {property: text, code: 'self.item[''name'']', writeback: false}
     event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: TextBox
-    properties: {}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:Primary Overlay 2', bold: false, underline: false}
     name: text_box_uploaded
     layout_properties: {column: UNBRPG}
     data_bindings:
     - {property: text, code: 'self.item[''uploaded'']', writeback: false}
   - type: TextBox
-    properties: {}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:Primary Overlay 2', bold: false, underline: false}
     name: text_box_cost
     layout_properties: {column: KJEUIY}
     data_bindings:
     - {property: text, code: 'self.item[''cost'']', writeback: false}
   - type: TextBox
-    properties: {}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:Primary Overlay 2', bold: false, underline: false}
     name: text_box_weight
     layout_properties: {column: ABEGHY}
     data_bindings:
     - {property: text, code: 'self.item[''weight'']', writeback: false}
   - type: TextBox
-    properties: {}
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:Primary Overlay 2', bold: false, underline: false}
     name: text_box_time
     layout_properties: {column: IDAVJE}
     data_bindings:

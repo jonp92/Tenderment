@@ -14,7 +14,7 @@ class Homepage(HomepageTemplate):
     #self.user = anvil.users.get_user()
     self.version = "v0.8.2"
     self.print_count = anvil.server.call('count_prints')
-    self.plot_1.data = anvil.server.call('prints_by_status')
+    self.plot_1.data = anvil.server.call('plot_prints_by_status')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     

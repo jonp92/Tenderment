@@ -14,7 +14,7 @@ def count_prints():
   return pd.Series(unique).sum()
 
 @anvil.server.callable
-def prints_by_status():
+def plot_prints_by_status():
   info = [
     {
       'name': r['name'],
@@ -24,15 +24,15 @@ def prints_by_status():
   ]
   df = pd.DataFrame(info, columns=['name', 'status'])
   df = df.groupby('status').count().reset_index()
-  return go.Bar(x=df['status'], y=df['name'], text="Prints In"+df['status'])
+  return go.Bar(x=df['status'], y=df['name'], text=df['status'])
 
 @anvil.server.callable
 def count_unique(list):
   return pd.Series(list).value_counts()
 
 @anvil.server.callable
-def get_prints(stat_search, status):
-  if stat_search == 'Yes':
+def get_prints(status_search, status):
+  if status_search == 'Yes':
     return app_tables.prints.search(status=status)
   else:
     return app_tables.prints.search()
@@ -52,7 +52,7 @@ def get_gcode_download(id):
  return anvil.BlobMedia(content_type="application/octet-stream", content=print_row['gcode'].get_bytes(), name=f"{print_row['name']}.gcode")
 
 @anvil.server.callable
-def delete_row(row):
+def delete_prints_row(row):
   row.delete()
 
 @anvil.server.callable
@@ -65,4 +65,8 @@ def get_notes(print_row):
   row = app_tables.prints.get(id=print_row['id'])
   note_row = app_tables.notes.search(print=row)
   return note_row
+
+@anvil.server.callable
+def delete_note(notes_row):
+  notes_row.delete()
   
