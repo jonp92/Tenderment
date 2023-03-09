@@ -6,6 +6,7 @@ from ..PrintDetail import PrintDetail
 
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
+    self.note = None
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
@@ -67,9 +68,10 @@ class PrintSummary(PrintSummaryTemplate):
 
   def image_1_mouse_down(self, x, y, button, **event_args):
     """This method is called when a mouse button is pressed on this component"""
-    save_clicked = alert(PrintDetail(self.item.get_id()), large=True, buttons=[("Save", True), ("Cancel", False)])
+    print_copy = dict(self.item)
+    save_clicked = alert(PrintDetail(item=print_copy), large=True, buttons=[("Close", True)])
     if save_clicked:
-      anvil.server.call('add_note', self.item, PrintDetail(self.item.get_id()).text_area_1.text)
+      anvil.server.call('add_note', self.item, PrintDetail().item['note'])
       
       
 

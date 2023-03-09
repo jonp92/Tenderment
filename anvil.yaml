@@ -92,7 +92,7 @@ db_schema:
       target: prints
     - name: notes
       admin_ui: {order: 1, width: 200}
-      type: simpleObject
+      type: string
     title: Notes
 secrets:
   sqspace:

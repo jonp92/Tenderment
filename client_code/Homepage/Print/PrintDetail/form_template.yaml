@@ -87,11 +87,21 @@ components:
           name: label_6
           layout_properties: {grid_position: 'RSIGDR,JOFPON'}
       - type: TextArea
-        properties: {role: null, align: left, height: '', tooltip: '', placeholder: 'Add
+        properties: {role: null, align: left, height: 50.8, tooltip: '', placeholder: 'Add
             a note:', border: '', enabled: true, foreground: '', visible: true, text: '',
           font_size: null, auto_expand: false, font: '', spacing_above: small, spacing_below: small,
           italic: false, background: '', bold: false, underline: false}
         name: text_area_1
-        layout_properties: {row: ENMNOW, width_xs: 10, col_xs: 1, width: 261.663}
-        event_bindings: {}
+        layout_properties: {row: ENMNOW, width_xs: 8, col_xs: 0, width: 261.663}
+        event_bindings: {lost_focus: text_area_1_lost_focus}
+        data_bindings:
+        - {property: text, code: 'self.item[''note'']', writeback: true}
+      - type: Button
+        properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: 'fa:save'}
+        name: button_save
+        layout_properties: {row: ENMNOW, width_xs: 3, col_xs: 0, width: 67.5}
+        event_bindings: {click: button_save_click}
 is_package: true
