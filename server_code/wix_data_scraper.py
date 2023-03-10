@@ -21,10 +21,21 @@ def get_wix_products(url):
                                 method="POST",
                                 json=True, 
                                 headers=headers,
-                                data= {}
+                                data= {"includeVariants": 'true', 'query': {'paging': {'limit': "10"}}}
                               )                
   return response
 
 @anvil.server.callable
 def edit_sqqty(variantId, qty):
   pass
+
+@anvil.server.callable
+def set_wix_products(url):
+  url = f"{API_URL}{url}"
+  response = anvil.http.request(url,
+                                method="POST",
+                                json=True, 
+                                headers=headers,
+                                data= {"includeVariants": 'true', 'query': {'paging': {'limit': "10"}}}
+                              )                
+  app_tables.inventory.add
