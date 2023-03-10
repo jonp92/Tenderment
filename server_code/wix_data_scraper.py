@@ -40,6 +40,8 @@ def edit_sqqty(variantId, qty):
 @anvil.server.background_task
 @anvil.server.callable
 def set_wix_products():
+  sync_row = app_tables.sync.get(id='products')
+  sync_row.update(last_sync=now_tz)
   url = f"{API_URL}{product_url}"
   response = anvil.http.request(url,
                                 method="POST",

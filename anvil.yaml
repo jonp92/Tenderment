@@ -136,6 +136,17 @@ db_schema:
     - name: last_sync
       admin_ui: {order: 6, width: 200}
       type: string
+  sync:
+    client: none
+    server: full
+    columns:
+    - name: last_sync
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: id
+      admin_ui: {order: 1, width: 200}
+      type: string
+    title: Sync
 secrets:
   sqspace:
     value: {? '' : H965t8DY1adlhRGaG7ojUqYPK36+xPalySbSdVvfSM3Km1yFdPHO7DAnELJIf8yV2ujngmBK0y0xdfpFsLNn4dKt6Q/cJT+GV5xu14p7x2donD7VP6n7MfIK5Ud41Rq8FRI8h78fwT2kPdS+/j8wJmm158C3J//+chMRHSxji/V5Oeo=}

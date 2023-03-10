@@ -8,6 +8,7 @@ class Inventory(InventoryTemplate):
     self.item = anvil.server.call('get_wix_products_table')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.item[0]['last_sync']
     if get_open_form().user['role'] == "superadmin":
       self.button_settings.visible = True
     # Any code you write here will run before the form opens.
@@ -20,8 +21,6 @@ class Inventory(InventoryTemplate):
     """This method is called when the button is clicked"""
     alert(InventorySettings(item=self.item), large=True)
 
-  def button_edit_click(self, **event_args):
-    """This method is called when the button is clicked"""
     
 
 
