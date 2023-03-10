@@ -48,7 +48,7 @@ db_schema:
       admin_ui: {width: 200}
       type: media
     - name: cost
-      admin_ui: {order: 8, width: 200}
+      admin_ui: {width: 200}
       type: number
   users:
     title: Users
@@ -83,22 +83,37 @@ db_schema:
       admin_ui: {width: 200}
       type: simpleObject
   notes:
+    title: Notes
     client: none
     server: full
     columns:
     - name: print
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: link_single
       target: prints
     - name: notes
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: Notes
   inventory:
+    title: Inventory
     client: none
     server: full
-    columns: []
-    title: Inventory
+    columns:
+    - name: name
+      admin_ui: {}
+      type: string
+    - name: description
+      admin_ui: {}
+      type: string
+    - name: price
+      admin_ui: {}
+      type: string
+    - name: quantity
+      admin_ui: {}
+      type: number
+    - name: sku
+      admin_ui: {}
+      type: string
 secrets:
   sqspace:
     value: {? '' : H965t8DY1adlhRGaG7ojUqYPK36+xPalySbSdVvfSM3Km1yFdPHO7DAnELJIf8yV2ujngmBK0y0xdfpFsLNn4dKt6Q/cJT+GV5xu14p7x2donD7VP6n7MfIK5Ud41Rq8FRI8h78fwT2kPdS+/j8wJmm158C3J//+chMRHSxji/V5Oeo=}

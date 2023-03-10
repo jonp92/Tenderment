@@ -36,7 +36,7 @@ def set_wix_products(url):
                                 method="POST",
                                 json=True, 
                                 headers=headers,
-                                data= {"includeVariants": 'true', 'query': {'paging': {'limit': "10"}}}
-                              )                
-  print(response[0])
-  app_tables.inventory.add_row(name=response[0]['products']['name'])
+                                data= {"includeVariants": 'true'})                
+  for i in range(len(response['products'])):
+    app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'])
+  #app_tables.inventory.add_row(name=response['products'][0]['name'])
