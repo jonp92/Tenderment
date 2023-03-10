@@ -6,7 +6,6 @@ from ..PrintDetail import PrintDetail
 
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
-    user_role = anvil.server.call('user_role')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #  Any code you write here will run before the form opens.
@@ -22,7 +21,7 @@ class PrintSummary(PrintSummaryTemplate):
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
-    save_clicked = alert(f"Are you sure you want to update {self.text_box_name.text}?", title="Update Table Info", buttons=[("Save", True), ("Cancel", False)])
+    save_clicked = alert(f"Are you sure you want to update {self.text_box_name.text}?", title="Update Print Information", buttons=[("Save", True), ("Cancel", False)])
     if save_clicked:
       self.update_print_table()
       self.parent.raise_event('x-refresh-prints')
@@ -59,16 +58,12 @@ class PrintSummary(PrintSummaryTemplate):
 
   def button_delete_click(self, **event_args):
     """This method is called when the button is clicked"""
-    print(user_role)
-    if anvil.server.call('user_role') == "user":
-      alert("You are not authorized to delete Prints")
-    else:
-      delete_clicked = alert(f"Are you sure you want to DELETE {self.text_box_name.text}?", title="Delete Table Row", buttons=[("Delete", True), ("Cancel", False)])
-      if delete_clicked:
-        anvil.server.call('delete_prints_row', self.item)
-        self.parent.raise_event('x-refresh-prints')
-        self.data_row_panel_edit.visible = False
-        self.data_row_panel_view.visible = True  
+    delete_clicked = alert(f"Are you sure you want to DELETE {self.text_box_name.text}?", title="Delete Table Row", buttons=[("Delete", True), ("Cancel", False)])
+    if delete_clicked:
+      anvil.server.call('delete_prints_row', self.item)
+      self.parent.raise_event('x-refresh-prints')
+      self.data_row_panel_edit.visible = False
+      self.data_row_panel_view.visible = True  
 
   def image_1_mouse_down(self, x, y, button, **event_args):
     """This method is called when a mouse button is pressed on this component"""

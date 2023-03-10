@@ -16,8 +16,7 @@ class PrintDetail(PrintDetailTemplate):
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
-    name = get_open_form().user['first_name']+" "+get_open_form().user['last_name'][0]
-    anvil.server.call('add_note', self.item, f'{name}: {self.text_area_1.text}')
+    anvil.server.call('add_note', self.item, self.text_area_1.text)
     self.text_area_1.text = None
 
   def text_area_1_lost_focus(self, **event_args):

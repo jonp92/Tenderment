@@ -7,14 +7,19 @@ import anvil.server
 import anvil.http
 import anvil.secrets
 import json
-import uuid
+import datetime
 
-User_Agent = 'Tenderment v0.8.2'
+product_url = f"stores/v1/products/query"
+now = datetime.datetime.now()
+date_string = now.strftime("%Y_%m_%d")
+time_string =now.strftime("%H:%M:%S")
+User_Agent = 'Tenderment'
 API_KEY = anvil.secrets.get_secret('wix')
 wix_site_id = anvil.secrets.get_secret('wix-site-id')
 API_URL = f"https://www.wixapis.com/"
 headers = {'Authorization': f'{API_KEY}', 'User-Agent': f'{User_Agent}', 'Accept': "application/json, text/plain, */*", 'Content-Type': 'application/json', 'wix-site-id': f'{wix_site_id}'}
 @anvil.server.callable
+
 def get_wix_products(url):
   url = f"{API_URL}{url}"
   response = anvil.http.request(url,
@@ -31,8 +36,8 @@ def edit_sqqty(variantId, qty):
 
 @anvil.server.background_task
 @anvil.server.callable
-def set_wix_products(url):
-  url = f"{API_URL}{url}"
+def set_wix_products():
+  url = f"{API_URL}{product_url}"
   response = anvil.http.request(url,
                                 method="POST",
                                 json=True, 
@@ -41,7 +46,10 @@ def set_wix_products(url):
   for i in range(len(response['products'])):
     if app_tables.inventory.get(id=response['products'][i]['id']):
       row = app_tables.inventory.get(id=response['products'][i]['id'])
-      row.update(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'])
+      row.update(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], last_sync=date_string + '_' + time_string)
     else:
-      app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], id=response['products'][i]['id'])
-  #app_tables.inventory.add_row(name=response['products'][0]['name'])
+      app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], id=response['products'][i]['id'], last_sync=date_string + '_' + time_string)
+
+@anvil.server.callable
+def get_wix_products_table():
+  return app_tables.inventory.search()

@@ -7,11 +7,14 @@ from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
 
+def error_handler(err):
+  alert(str(err), title="An error has occurred")
+
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     self.user = anvil.users.login_with_form()
-    #self.user = anvil.users.get_user()
-    self.version = "v0.8.2"
+    set_default_error_handling(error_handler)
+    self.version = "v0.5.5"
     self.print_count = anvil.server.call('count_prints')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

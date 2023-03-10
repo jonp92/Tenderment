@@ -15,7 +15,11 @@ components:
     properties:
       role: tonal-data-grid
       columns:
-      - {id: BUWEXR, title: Notes, data_key: notes, $$hashKey: 'object:166196', expand: true}
+      - {id: GRNSJD, title: User, data_key: user, $$hashKey: 'object:34841', width: '100'}
+      - {id: KJBNPV, title: Date/Time, data_key: date_time, $$hashKey: 'object:34843',
+        width: '170'}
+      - {id: BUWEXR, title: Notes, data_key: notes, $$hashKey: 'object:166196', expand: true,
+        width: '200'}
       auto_header: true
       tooltip: ''
       border: ''

@@ -6,6 +6,11 @@ from anvil.tables import app_tables
 import anvil.server
 import pandas as pd
 import plotly.graph_objects as go
+import datetime
+
+now = datetime.datetime.now()
+date_string = now.strftime("%Y_%m_%d")
+time_string =now.strftime("%H:%M:%S")
 
 @anvil.server.callable
 def count_prints():
@@ -53,12 +58,17 @@ def get_gcode_download(id):
 
 @anvil.server.callable
 def delete_prints_row(row):
-  row.delete()
+  user_role = anvil.users.get_user()['role']
+  if user_role == 'admin' or user_role == 'superadmin':
+    row.delete()
+  else:
+    raise Exception('You are not authorized to delete prints.')
 
 @anvil.server.callable
 def add_note(row, notes):
+  user = anvil.users.get_user()['first_name']+anvil.users.get_user()['last_name'][0]
   row = app_tables.prints.get(id=row['id'])
-  app_tables.notes.add_row(print=row, notes=notes)
+  app_tables.notes.add_row(print=row, notes=notes, user=user, date_time=date_string + '_' + time_string)
 
 @anvil.server.callable
 def get_notes(print_row):
@@ -68,5 +78,13 @@ def get_notes(print_row):
 
 @anvil.server.callable
 def delete_note(notes_row):
-  notes_row.delete()
+  user = anvil.users.get_user()['first_name']+anvil.users.get_user()['last_name'][0]
+  user_role = anvil.users.get_user()['role']
+  if notes_row['user'] == user:
+    notes_row.delete()
+  elif user_role == 'admin' or user_role == 'superadmin':
+    notes_row.delete()
+  else:
+    raise Exception('You cannot delete other users\' notes.')
+    
   

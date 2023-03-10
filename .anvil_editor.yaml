@@ -5,10 +5,11 @@ unique_ids:
     Homepage.Print: '1677765563569728769351108.7166'
     Homepage.Inventory: '167786688712932628928447.84715'
     Homepage.Orders: '1677857023746457758677097.7042'
+    Homepage.Inventory.InventorySummary: '1677857029299684347892715.0571'
     Homepage.Print.Notes: '1678371597513583203375963.9712'
     Homepage.Print.PrintSummary: '1677694156997369758147661.1719'
+    Homepage.Inventory.InventorySettings: '1678469783900109394472513.24364'
     Homepage.Upload: '1677780771823505990341348.18353'
-    Homepage.Inventory.RowTemplate1: '1677857029299684347892715.0571'
     Homepage.Print.PrintDetail: '1677961608580596514108371.4974'
   modules: {}
   server_modules:

@@ -9,7 +9,7 @@ components:
     - {id: ZTAFTV, title: Name, data_key: name, $$hashKey: 'object:1031'}
     - {id: XDMCKE, title: Description, data_key: description, $$hashKey: 'object:1033'}
     - {id: KWBLPW, title: SKU, data_key: sku, $$hashKey: 'object:1032'}
-    - {id: ZOJBFS, title: Qty, data_key: '', $$hashKey: 'object:1072'}
+    - {id: ZOJBFS, title: Qty, data_key: quantity, $$hashKey: 'object:1072'}
     - {id: PIZUMC, title: '', data_key: column_1, $$hashKey: 'object:233212'}
     auto_header: true
     tooltip: ''
@@ -26,11 +26,13 @@ components:
   layout_properties: {grid_position: 'LWQTZS,AQISRF'}
   components:
   - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: Homepage.Inventory.RowTemplate1}
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Inventory.InventorySummary,
+      background: ''}
     name: repeating_panel_1
     layout_properties: {}
     data_bindings:
-    - {property: items, code: 'self.item[''products'']'}
+    - {property: items, code: self.item}
   - type: GridPanel
     properties: {}
     name: grid_panel_1
@@ -43,4 +45,27 @@ components:
         background: '', bold: false, underline: false, icon: 'fa:gear'}
       name: button_settings
       layout_properties: {row: GHHOZI, width_xs: 3, col_xs: 0, width: 128.95}
+      event_bindings: {click: button_settings_click}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_1
+      layout_properties: {row: GHHOZI, width_xs: 6, col_xs: 6}
+      components:
+      - type: Label
+        properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'Last Sync from Wix:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_sync
+        layout_properties: {grid_position: 'PZZSNI,FKGKEX'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_last_sync
+        layout_properties: {grid_position: 'PZZSNI,PVEEYF', row: GHHOZI, width_xs: 3,
+          col_xs: 9}
+        data_bindings:
+        - {property: text, code: 'self.item[0][''last_sync'']'}
 is_package: true

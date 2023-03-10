@@ -1,0 +1,21 @@
+container:
+  type: DataRowPanel
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: false,
+    visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false}
+components:
+- type: DataRowPanel
+  properties: {}
+  name: data_row_panel_view
+  layout_properties: {column: null}
+  data_bindings:
+  - {property: item, code: self.item}
+- type: DataRowPanel
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
+    visible: false, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false}
+  name: data_row_panel_edit
+  layout_properties: {column: null}
+  data_bindings:
+  - {property: item, code: self.item}
+is_package: true
