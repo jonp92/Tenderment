@@ -6,9 +6,9 @@ from .InventorySettings import InventorySettings
 class Inventory(InventoryTemplate):
   def __init__(self, **properties):
     self.item = anvil.server.call('get_wix_products_table')
+    self.label_last_sync.text = anvil.server.call('get_product_last_sync')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.item[0]['last_sync']
     if get_open_form().user['role'] == "superadmin":
       self.button_settings.visible = True
     # Any code you write here will run before the form opens.

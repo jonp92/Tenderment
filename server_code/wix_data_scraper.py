@@ -14,6 +14,7 @@ product_url = f"stores/v1/products/query"
 now = datetime.datetime.now(datetime.timezone.utc)
 timezone_ny = pytz.timezone('America/New_York')
 now_tz = now.astimezone(timezone_ny)
+time_string_tz = now_tz.strftime("%H:%M:%S")
 date_string = now.strftime("%Y_%m_%d")
 time_string =now.strftime("%H:%M:%S")
 User_Agent = 'Tenderment'
@@ -41,7 +42,7 @@ def edit_sqqty(variantId, qty):
 @anvil.server.callable
 def set_wix_products():
   sync_row = app_tables.sync.get(id='products')
-  sync_row.update(last_sync=now_tz)
+  sync_row.update(last_sync=date_string + '-' + time_string_tz)
   url = f"{API_URL}{product_url}"
   response = anvil.http.request(url,
                                 method="POST",
@@ -58,3 +59,10 @@ def set_wix_products():
 @anvil.server.callable
 def get_wix_products_table():
   return app_tables.inventory.search()
+
+@anvil.server.callable
+def get_product_last_sync():
+  last_sync = [r['last_sync'] for r in app_tables.sync.search(id='products')]
+  last_sync = str(last_sync)
+  print(last_sync)
+  return last_sync.strip('[\'\']') + " " + "EST"

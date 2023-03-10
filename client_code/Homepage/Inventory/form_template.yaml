@@ -66,6 +66,5 @@ components:
         name: label_last_sync
         layout_properties: {grid_position: 'PZZSNI,PVEEYF', row: GHHOZI, width_xs: 3,
           col_xs: 9}
-        data_bindings:
-        - {property: text, code: 'self.item[0][''last_sync'']'}
+        data_bindings: []
 is_package: true
