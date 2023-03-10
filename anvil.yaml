@@ -1,3 +1,10 @@
+scheduled_tasks:
+- task_name: set_wix_products
+  time_spec:
+    n: 10
+    every: minute
+    at: {}
+  job_id: OHILZQZP
 dependencies: []
 services:
 - source: /runtime/services/tables.yml
@@ -99,6 +106,9 @@ db_schema:
     client: none
     server: full
     columns:
+    - name: id
+      admin_ui: {}
+      type: string
     - name: name
       admin_ui: {}
       type: string

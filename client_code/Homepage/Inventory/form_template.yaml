@@ -25,19 +25,22 @@ components:
   name: data_grid_1
   layout_properties: {grid_position: 'LWQTZS,AQISRF'}
   components:
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: 'import
-
-        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: button_1
-    layout_properties: {}
-    event_bindings: {click: button_1_click}
   - type: RepeatingPanel
     properties: {spacing_above: none, spacing_below: none, item_template: Homepage.Inventory.RowTemplate1}
     name: repeating_panel_1
     layout_properties: {}
     data_bindings:
     - {property: items, code: 'self.item[''products'']'}
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {slot: footer}
+    components:
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: false, text: Settings, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:gear'}
+      name: button_settings
+      layout_properties: {row: GHHOZI, width_xs: 3, col_xs: 0, width: 128.95}
 is_package: true

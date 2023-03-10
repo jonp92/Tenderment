@@ -29,6 +29,7 @@ def get_wix_products(url):
 def edit_sqqty(variantId, qty):
   pass
 
+@anvil.server.background_task
 @anvil.server.callable
 def set_wix_products(url):
   url = f"{API_URL}{url}"
@@ -38,5 +39,9 @@ def set_wix_products(url):
                                 headers=headers,
                                 data= {"includeVariants": 'true'})                
   for i in range(len(response['products'])):
-    app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'])
+    if app_tables.inventory.get(id=response['products'][i]['id']):
+      row = app_tables.inventory.get(id=response['products'][i]['id'])
+      row.update(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'])
+    else:
+      app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], id=response['products'][i]['id'])
   #app_tables.inventory.add_row(name=response['products'][0]['name'])
