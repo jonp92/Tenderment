@@ -21,10 +21,10 @@ def get_wix_products(url):
                                 method="POST",
                                 json=True, 
                                 headers=headers,
-                                data= {})
+                                data= {}
+                              )                
   return response
 
 @anvil.server.callable
 def edit_sqqty(variantId, qty):
   pass
-
