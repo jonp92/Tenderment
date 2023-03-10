@@ -8,9 +8,12 @@ import anvil.http
 import anvil.secrets
 import json
 import datetime
+import pytz
 
 product_url = f"stores/v1/products/query"
-now = datetime.datetime.now()
+now = datetime.datetime.now(datetime.timezone.utc)
+timezone_ny = pytz.timezone('America/New_York')
+now_tz = now.astimezone(timezone_ny)
 date_string = now.strftime("%Y_%m_%d")
 time_string =now.strftime("%H:%M:%S")
 User_Agent = 'Tenderment'
@@ -46,9 +49,9 @@ def set_wix_products():
   for i in range(len(response['products'])):
     if app_tables.inventory.get(id=response['products'][i]['id']):
       row = app_tables.inventory.get(id=response['products'][i]['id'])
-      row.update(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], last_sync=date_string + '_' + time_string)
+      row.update(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], last_sync=date_string + '-' + time_string)
     else:
-      app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], id=response['products'][i]['id'], last_sync=date_string + '_' + time_string)
+      app_tables.inventory.add_row(name=response['products'][i]['name'], description=response['products'][i]['description'], price=response['products'][i]['price']['formatted']['price'], quantity=response['products'][i]['stock']['quantity'], id=response['products'][i]['id'], last_sync=date_string + '-' + time_string)
 
 @anvil.server.callable
 def get_wix_products_table():
