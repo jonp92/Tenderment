@@ -16,3 +16,8 @@ class Inventory(InventoryTemplate):
     return self.item['stock']['quantity']    
 
     # Any code you write here will run before the form opens.
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('set_wix_products', f"stores/v1/products/query")
+

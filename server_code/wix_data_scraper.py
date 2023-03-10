@@ -38,4 +38,5 @@ def set_wix_products(url):
                                 headers=headers,
                                 data= {"includeVariants": 'true', 'query': {'paging': {'limit': "10"}}}
                               )                
-  app_tables.inventory.add
+  print(response[0])
+  app_tables.inventory.add_row(name=response[0]['products']['name'])
