@@ -8,7 +8,7 @@ class Inventory(InventoryTemplate):
     self.item = anvil.server.call('get_wix_products', url)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    if get_open_form().user['email'] == "jonathan@3dmk.xyz":
+    if get_open_form().user['role'] == "superadmin":
       self.button_settings.visible = True
 
   def get_thumbnail_url(self):
