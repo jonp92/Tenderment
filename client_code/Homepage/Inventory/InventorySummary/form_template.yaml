@@ -10,6 +10,15 @@ components:
   layout_properties: {column: null}
   data_bindings:
   - {property: item, code: self.item}
+  components:
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Edit, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:pencil-square-o'}
+    name: button_edit
+    layout_properties: {column: PIZUMC}
+    event_bindings: {click: button_edit_click}
 - type: DataRowPanel
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
     visible: false, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
@@ -18,4 +27,38 @@ components:
   layout_properties: {column: null}
   data_bindings:
   - {property: item, code: self.item}
+  components:
+  - type: TextBox
+    properties: {}
+    name: text_box_name
+    layout_properties: {column: ZTAFTV}
+    data_bindings:
+    - {property: text, code: 'self.item[''name'']', writeback: false}
+  - type: TextBox
+    properties: {}
+    name: text_box_description
+    layout_properties: {column: XDMCKE}
+    data_bindings:
+    - {property: text, code: 'self.item[''description'']', writeback: false}
+    event_bindings: {}
+  - type: TextBox
+    properties: {}
+    name: text_box_sku
+    layout_properties: {column: KWBLPW}
+    data_bindings:
+    - {property: text, code: 'self.item[''sku'']', writeback: false}
+  - type: TextBox
+    properties: {}
+    name: text_box_quantity
+    layout_properties: {column: ZOJBFS}
+    data_bindings:
+    - {property: text, code: 'self.item[''quantity'']', writeback: false}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:save'}
+    name: button_save
+    layout_properties: {column: PIZUMC}
+    event_bindings: {click: button_save_click}
 is_package: true

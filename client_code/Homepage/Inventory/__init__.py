@@ -20,4 +20,9 @@ class Inventory(InventoryTemplate):
     """This method is called when the button is clicked"""
     alert(InventorySettings(item=self.item), large=True)
 
+  def button_edit_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+
+
 
