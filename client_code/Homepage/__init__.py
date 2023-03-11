@@ -6,7 +6,6 @@ from .Print import Print
 from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
-
 def error_handler(err):
   alert(str(err), title="An error has occurred")
 
@@ -61,6 +60,8 @@ class Homepage(HomepageTemplate):
     """This method is called when a data point is clicked."""
     pass
 
+
+  
 
 
 
