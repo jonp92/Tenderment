@@ -30,8 +30,7 @@ def get_wix_products(url):
                                 method="POST",
                                 json=True, 
                                 headers=headers,
-                                data= {"includeVariants": 'true', 'query': {'paging': {'limit': "10"}}}
-                              )                
+                                data= {"includeVariants": 'true', 'query': {'paging': {'limit': "10"}}})                
   return response
 
 @anvil.server.callable
@@ -64,5 +63,4 @@ def get_wix_products_table():
 def get_product_last_sync():
   last_sync = [r['last_sync'] for r in app_tables.sync.search(id='products')]
   last_sync = str(last_sync)
-  print(last_sync)
   return last_sync.strip('[\'\']') + " " + "EST"
