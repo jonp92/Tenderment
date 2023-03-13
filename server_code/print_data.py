@@ -101,9 +101,9 @@ def delete_note(notes_row):
     raise Exception('You cannot delete other users\' notes.')
     
 @anvil.server.callable
-def get_wix_price(id):
-  product = app_tables.prints.get(id=id)
-  price = app_tables.inventory.get(print=product)
-  print(price['price'])
+def get_wix_price(print_row):
+  #product = app_tables.prints.get(id=id)
+  inventory_row = app_tables.inventory.get(print=print_row)
+  return inventory_row
   
   

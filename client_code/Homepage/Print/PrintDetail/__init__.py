@@ -12,7 +12,11 @@ class PrintDetail(PrintDetailTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.label_2.text = anvil.server.call('get_wix_price', self.item['id'])
+    inventory_row = anvil.server.call('get_wix_price', self.item)
+    if inventory_row:
+      self.label_2.text = inventory_row['price']
+    else:
+      self.label_2.text = 'No Price Data from WIX'
     # Any code you write here will run before the form opens.
 
   def button_save_click(self, **event_args):

@@ -68,7 +68,7 @@ class PrintSummary(PrintSummaryTemplate):
   def image_1_mouse_down(self, x, y, button, **event_args):
     """This method is called when a mouse button is pressed on this component"""
     print_copy = dict(self.item)
-    save_clicked = alert(PrintDetail(item=print_copy), large=True, buttons=[("Close", False)])
+    save_clicked = alert(PrintDetail(item=self.item), large=True, buttons=[("Close", False)])
       
       
 
