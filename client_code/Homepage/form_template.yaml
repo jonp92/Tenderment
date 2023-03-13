@@ -127,10 +127,9 @@ components:
       layout_properties: {row: JTPTGJ, width_xs: 2, col_xs: 3, width: 86.8625}
     - type: Label
       properties: {}
-      name: label_3
+      name: label_print_count
       layout_properties: {row: JTPTGJ, width_xs: 1, col_xs: 5}
-      data_bindings:
-      - {property: text, code: self.print_count}
+      data_bindings: []
   - type: Plot
     properties: {}
     name: plot_1

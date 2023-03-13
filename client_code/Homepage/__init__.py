@@ -14,10 +14,11 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.login_with_form()
     set_default_error_handling(error_handler)
     self.version = "v0.5.5"
-    self.print_count = anvil.server.call('count_prints')
+    #self.print_count = anvil.server.call('count_prints')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.plot_1.data = anvil.server.call('plot_prints_pie')
+    self.label_print_count.text = anvil.server.call('count_prints')
     
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
