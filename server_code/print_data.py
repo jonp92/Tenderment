@@ -32,6 +32,19 @@ def plot_prints_by_status():
   return go.Bar(x=df['status'], y=df['name'], text=df['status'])
 
 @anvil.server.callable
+def plot_prints_pie():
+  info = [
+    {
+      'name': r['name'],
+      'status': r['status'],
+   }
+   for r in app_tables.prints.search()
+  ]
+  df = pd.DataFrame(info, columns=['name', 'status'])
+  df = df.groupby('status').count().reset_index()
+  return go.Pie(labels=df['status'], values=df['name'])
+
+@anvil.server.callable
 def count_unique(list):
   return pd.Series(list).value_counts()
 
@@ -87,4 +100,10 @@ def delete_note(notes_row):
   else:
     raise Exception('You cannot delete other users\' notes.')
     
+@anvil.server.callable
+def get_wix_price(id):
+  product = app_tables.prints.get(id=id)
+  price = app_tables.inventory.search(print=product)
+  print(print['price'])
+  
   
