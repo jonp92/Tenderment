@@ -35,7 +35,7 @@ components:
         layout_properties: {row: KFJTJG, width_xs: 12, col_xs: 0, width: 356.79999999999995}
         components:
         - type: Label
-          properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Price:', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: ''}
@@ -55,8 +55,8 @@ components:
         layout_properties: {row: GEZILB, width_xs: 12, col_xs: 0}
         components:
         - type: Label
-          properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-            visible: true, text: 'Average Revenue:', font_size: null, font: '', spacing_above: small,
+          properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+            visible: true, text: 'Profit / Margin:', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: ''}
           name: label_revenue
@@ -74,7 +74,7 @@ components:
         layout_properties: {row: HBRITK, width_xs: 12, col_xs: 0}
         components:
         - type: Label
-          properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
             visible: true, text: '% of Monthly Sales', font_size: null, font: '',
             spacing_above: small, icon_align: left, spacing_below: small, italic: false,
             background: '', bold: false, underline: false, icon: ''}

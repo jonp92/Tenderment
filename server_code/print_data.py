@@ -104,10 +104,12 @@ def delete_note(notes_row):
 def get_wix_price(print_row):
   #product = app_tables.prints.get(id=id)
   inventory_row = app_tables.inventory.get(print=print_row)
-  return inventory_row
+  revenue = float(inventory_row['price'][1:])-float(print_row['cost'])
+  margin = float(revenue)/float(inventory_row['price'][1:])
+  return inventory_row, revenue, "{:.2f}%".format(round(margin,2))
   
 @anvil.server.callable
 def calculate_revenue(print_row):
   inventory_row = get_wix_price(print_row)
-  return float(inventory_row['price'])-float(print_row['cost'])
+  return float(inventory_row['price'][1:])-float(print_row['cost'])
   
