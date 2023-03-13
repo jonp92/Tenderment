@@ -15,7 +15,7 @@ class PrintDetail(PrintDetailTemplate):
     inventory_row, revenue, margin = anvil.server.call('get_wix_price', self.item)
     if inventory_row:
       self.label_price_data.text = inventory_row['price']
-      self.label_revenue_data.text = f'{revenue} \ {margin}'
+      self.label_revenue_data.text = f'${revenue} / {margin}'
     else:
       self.label_price_data.text = 'No Price Data from WIX'
       self.label_revenue_data.text = 'No Price Data from WIX'
