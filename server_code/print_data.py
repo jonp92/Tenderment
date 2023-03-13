@@ -103,7 +103,7 @@ def delete_note(notes_row):
 @anvil.server.callable
 def get_wix_price(id):
   product = app_tables.prints.get(id=id)
-  price = app_tables.inventory.search(print=product)
-  print(print['price'])
+  price = app_tables.inventory.get(print=product)
+  print(price['price'])
   
   
