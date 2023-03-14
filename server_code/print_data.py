@@ -69,16 +69,6 @@ def update_print_data(id, name, uploaded, time, cost, weight, status):
   update_row.update(name=name, uploaded=uploaded, time=time, cost=float(cost), weight=float(weight), status=status)
 
 @anvil.server.callable
-def get_gcode_download(id):
- print_row = app_tables.prints.get_by_id(id)
- return anvil.BlobMedia(content_type="application/octet-stream", content=print_row['gcode'].get_bytes(), name=f"{print_row['name']}.gcode")
-
-@anvil.server.callable
-def get_stl_download(print_row):
- stl_row = app_tables.stls.get(print=print_row)
- return anvil.BlobMedia(content_type="application/octet-stream", content=stl_row['stl'].get_bytes(), name=f"{stl_row['name']}")
-
-@anvil.server.callable
 def delete_prints_row(row):
   user_role = anvil.users.get_user()['role']
   if user_role == 'admin' or user_role == 'superadmin':
