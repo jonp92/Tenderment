@@ -60,6 +60,10 @@ def get_print_by_id(id):
   return app_tables.prints.get(id=id)
 
 @anvil.server.callable
+def get_print_by_name(name):
+  return app_tables.prints.get(name=name)
+
+@anvil.server.callable
 def update_print_data(id, name, uploaded, time, cost, weight, status):
   update_row = app_tables.prints.get(id=id)
   update_row.update(name=name, uploaded=uploaded, time=time, cost=float(cost), weight=float(weight), status=status)
@@ -117,4 +121,9 @@ def get_wix_price(print_row):
 def calculate_revenue(print_row):
   inventory_row = get_wix_price(print_row)
   return float(inventory_row['price'][1:])-float(print_row['cost'])
+
+@anvil.server.callable
+def link_stl_to_print(print_row, name):
+  stl_row = app_tables.stls.get(name=name)
+  stl_row.update(print=print_row)
   

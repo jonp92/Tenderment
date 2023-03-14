@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .print_chooser import print_chooser
 
 
 class Upload(UploadTemplate):
@@ -19,13 +20,21 @@ class Upload(UploadTemplate):
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    self.png, uploaded_file = anvil.server.call('find_png', file, file.name)
-    self.image_1.source = self.png
-    self.uploaded_file = uploaded_file
-    if self.uploaded_file == "File Already Exist":
-      Notification(uploaded_file).show()
+    if self.drop_down_file_type == ".gcode":
+      self.png, uploaded_file = anvil.server.call('find_png', file, file.name)
+      self.image_1.source = self.png
+      self.uploaded_file = uploaded_file
+      if self.uploaded_file == "File Already Exist":
+        Notification(uploaded_file).show()
+      else:
+        Notification(uploaded_file, title="File Uploaded Successfully").show()
+      self.refresh_data_bindings()
+      self.file_loader_1.clear()
     else:
-      Notification(uploaded_file, title="File Uploaded Successfully").show()
-    self.refresh_data_bindings()
-    self.file_loader_1.clear()
+      anvil.server.call('upload_stl', file, file.name)
+      self.uploaded_file = file.name
+      self.refresh_data_bindings()
+      self.file_loader_1.clear()
+      alert(print_chooser(file.name), large=True)
+      
 
