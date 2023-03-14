@@ -11,8 +11,7 @@ from .print_chooser import print_chooser
 class Upload(UploadTemplate):
   def __init__(self, **properties):
     self.uploaded_file = 'None'
-    tcicon = anvil.server.get_app_origin() + "/_/theme/tcicon.png"
-    self.image_1.source = tcicon
+    self.image_1.source = anvil.server.get_app_origin() + "/_/theme/tcicon.png"
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 

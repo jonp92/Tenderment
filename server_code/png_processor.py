@@ -37,7 +37,8 @@ def find_print_info(name):
   return cost, weight, time
 
 def upload_print_data(name, png, cost, weight, time, gcode):
-  app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=png, uploaded=date_string, cost=round(cost,2), weight=round(weight,2), time=time, status='New', gcode=gcode)
+  app_tables.prints.add_row(id=shortuuid.uuid(), name=name, media_object=png, uploaded=date_string,
+                            cost=round(cost,2), weight=round(weight,2), time=time, status='New', gcode=gcode)
 
 @anvil.server.callable
 def find_png(media_object, uploaded_file):

@@ -53,9 +53,14 @@ class PrintSummary(PrintSummaryTemplate):
 
   def button_download_click(self, **event_args):
     """This method is called when the button is clicked"""
-    media = anvil.server.call('get_gcode_download', self.item.get_id())
+    media = anvil.server.call('get_gcode_download', self.item.get_id(id))
     anvil.media.download(media)
 
+  def button_download_stl_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    media = anvil.server.call('get_stl_download', self.item)
+    anvil.media.download(media)
+    
   def button_delete_click(self, **event_args):
     """This method is called when the button is clicked"""
     delete_clicked = alert(f"Are you sure you want to DELETE {self.text_box_name.text}?", title="Delete Table Row", buttons=[("Delete", True), ("Cancel", False)])
@@ -69,6 +74,8 @@ class PrintSummary(PrintSummaryTemplate):
     """This method is called when a mouse button is pressed on this component"""
     print_copy = dict(self.item)
     save_clicked = alert(PrintDetail(item=self.item), large=True, buttons=[("Close", False)])
+
+
       
       
 

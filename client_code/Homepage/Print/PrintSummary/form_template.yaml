@@ -33,8 +33,16 @@ components:
         spacing_above: medium, icon_align: right, spacing_below: none, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:cloud-download'}
       name: button_download
-      layout_properties: {row: ZEQOSR, width_xs: 3, col_xs: 0, width: 156}
+      layout_properties: {row: ZEQOSR, width_xs: 3, col_xs: 0, width: 164.2}
       event_bindings: {click: button_download_click}
+    - type: Button
+      properties: {role: filled-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Download .stl, font_size: null, font: '',
+        spacing_above: medium, icon_align: right, spacing_below: none, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:cloud-download'}
+      name: button_download_stl
+      layout_properties: {row: ZEQOSR, width_xs: 3, col_xs: 3, width: 164.2}
+      event_bindings: {click: button_download_stl_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Edit, font_size: null, font: '', spacing_above: medium,
