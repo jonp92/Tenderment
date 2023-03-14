@@ -164,4 +164,5 @@ secrets:
   wix-site-id:
     value: {? '' : cPBJejzcNxqZLVugXd3SCDHcwK6AT+v8rSgtPwzz6lSwPged0C6KH/ndoH6kVXPVSL9WLWOomxL0xYxuNbHSXHhUH4c7gr7KHL2acFC7vKP6dctMd6LqcUI4PJOw+H7Tio5TiZI9cJHynfzSwbKqyxVvn5ZzsAKlH7/nc7weiJpU+kU=}
     type: secret
+uplink_visible: true
 renamed: true
