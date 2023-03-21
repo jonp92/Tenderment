@@ -26,11 +26,12 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_1
-    layout_properties: {row: BJAHJS, width_xs: 3, col_xs: 0, width: 165}
+    layout_properties: {row: BJAHJS, width_xs: 2, col_xs: 1, width: 165}
   - type: Label
     properties: {}
     name: label_filament_type_data
     layout_properties: {row: BJAHJS, width_xs: 3, col_xs: 3}
+    data_bindings: []
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Filament Used:', font_size: null, font: '', spacing_above: small,
@@ -41,14 +42,14 @@ components:
   - type: Label
     properties: {}
     name: label_filament_used_data
-    layout_properties: {row: BJAHJS, width_xs: 3, col_xs: 9}
+    layout_properties: {row: BJAHJS, width_xs: 2, col_xs: 9}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Cost:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_5
-    layout_properties: {row: CKIKUW, width_xs: 3, col_xs: 0, width: 165}
+    layout_properties: {row: CKIKUW, width_xs: 2, col_xs: 1, width: 165}
   - type: Label
     properties: {}
     name: label_cost_data
@@ -63,5 +64,5 @@ components:
   - type: Label
     properties: {}
     name: label_print_time_data
-    layout_properties: {row: CKIKUW, width_xs: 3, col_xs: 9}
+    layout_properties: {row: CKIKUW, width_xs: 2, col_xs: 9}
 is_package: true

@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from .print_chooser import print_chooser
 from .slice_confirm import slice_confirm
+from .slice_options import slice_options
 
 
 class Upload(UploadTemplate):
@@ -37,7 +38,13 @@ class Upload(UploadTemplate):
       #self.file_loader_1.clear()
       #alert(print_chooser(file.name), large=True)
       anvil.server.call('upload_stl', file, file.name)
-      self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost = anvil.server.call('slice', file.name, '0.24mm_FAST_@CREALITY', 'Inland_PLA+', '20%')
+      self.item['quality'] = None
+      self.item['filament_type'] = None
+      self.item['infill'] = None
+      slice_stl = alert(slice_options(file, item=self.item), title=file.name, large=True)
+      if slice_stl:
+        print(self.item['filament_type'], self.item['infill'], self.item['quality'])
+        self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost = anvil.server.call('slice', file.name, self.item['quality'], self.item['filament_type'], self.item['infill'])
       self.refresh_data_bindings()
       self.file_loader_1.clear()
       alert(slice_confirm(self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost), large=True)
