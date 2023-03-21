@@ -19,7 +19,7 @@ class Upload(UploadTemplate):
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    if self.drop_down_file_type == ".gcode":
+    if self.drop_down_file_type.selected_value == ".gcode":
       self.png, uploaded_file = anvil.server.call('find_png', file, file.name)
       self.image_1.source = self.png
       self.uploaded_file = uploaded_file

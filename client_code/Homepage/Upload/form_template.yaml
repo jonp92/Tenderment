@@ -40,6 +40,7 @@ components:
         include_placeholder: true
       name: drop_down_file_type
       layout_properties: {row: SDZVJW, width_xs: 3, col_xs: 1, width: 165}
+      data_bindings: []
     - type: FileLoader
       properties: {}
       name: file_loader_1

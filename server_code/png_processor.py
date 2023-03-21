@@ -62,5 +62,21 @@ def find_png(media_object, uploaded_file):
   else:
     return no_save, "File Already Exist"
 
+@anvil.server.callable
+def find_png_stl_upload(gcode):
+  with anvil.media.TempFile(gcode) as filename:
+    with open(filename, 'r') as f:
+      data = f.read()
+      pattern = r'; thumbnail begin 500x500 \d{5,}(.+); thumbnail end'
+      match = search(pattern, data, DOTALL)
+      if match:
+          # logging.info('Thumbnail data found and copied, now to strip and decode using base64')
+          thumbnail_data = match.group(1).strip()
+          thumbnail_data = sub(r'^; ', '', thumbnail_data, flags=MULTILINE)
+          thumbnail_data = b64decode(thumbnail_data)
+          png = anvil.BlobMedia(content_type="image/png", content=thumbnail_data)
+          return png
+      else:
+        raise Exception('Unable to find thumbnail data in .gcode')
 
     
