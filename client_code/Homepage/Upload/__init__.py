@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .print_chooser import print_chooser
+from .slice_confirm import slice_confirm
 
 
 class Upload(UploadTemplate):
@@ -30,10 +31,14 @@ class Upload(UploadTemplate):
       self.refresh_data_bindings()
       self.file_loader_1.clear()
     else:
-      anvil.server.call('upload_stl', file, file.name)
-      self.uploaded_file = file.name
+      #anvil.server.call('upload_stl', file, file.name)
+      #self.uploaded_file = file.name
+      #self.refresh_data_bindings()
+      #self.file_loader_1.clear()
+      #alert(print_chooser(file.name), large=True)
+      self.output_name, self.fileName, self.png = anvil.server.call('slice', file, '0.24mm_FAST_@CREALITY', 'Inland_PLA+', '20%')
       self.refresh_data_bindings()
       self.file_loader_1.clear()
-      alert(print_chooser(file.name), large=True)
+      alert(slice_confirm(self.output_name, self.fileName, self.png), large=True)
       
 
