@@ -36,9 +36,10 @@ class Upload(UploadTemplate):
       #self.refresh_data_bindings()
       #self.file_loader_1.clear()
       #alert(print_chooser(file.name), large=True)
-      self.output_name, self.fileName, self.png = anvil.server.call('slice', file, '0.24mm_FAST_@CREALITY', 'Inland_PLA+', '20%')
+      anvil.server.call('upload_stl', file, file.name)
+      self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost = anvil.server.call('slice', file.name, '0.24mm_FAST_@CREALITY', 'Inland_PLA+', '20%')
       self.refresh_data_bindings()
       self.file_loader_1.clear()
-      alert(slice_confirm(self.output_name, self.fileName, self.png), large=True)
+      alert(slice_confirm(self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost), large=True)
       
 
