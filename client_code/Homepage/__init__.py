@@ -32,12 +32,8 @@ class Homepage(HomepageTemplate):
 
   def link_logoff_click(self, **event_args):
     """This method is called when the link is clicked"""
-    self.column_panel_2.clear()
-    self.column_panel_1.clear()
-    self.link_current_user.clear()
     anvil.users.logout()
-    anvil.users.login_with_form()
-    open_form('Homepage')   
+    open_form('Login')   
 
   def link_home_click(self, **event_args):
     """This method is called when the link is clicked"""
