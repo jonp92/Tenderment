@@ -29,6 +29,8 @@ name: Tenderment
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 metadata: {title: Tenderment, description: Print Management System, logo_img: 'asset:tcicon.png'}
 startup_form: null
+native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\"\
+    \n/>"}
 db_schema:
   prints:
     title: Prints

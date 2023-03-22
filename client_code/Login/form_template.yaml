@@ -11,7 +11,7 @@ container:
       \  background-color: #e8bff2; \n  height: 100vh;\n  padding-top: 35px;\n  display:\
       \ flex;\n  flex-direction: row;\n  justify-content: center;\n  /*overflow-y:\
       \ hidden;*/\n }\n\n.login-box {\n  width: 500px;\n  margin-top: 20vh;\n  border-radius:\
-      \ 40px;\n  background-color: #8e5a9c;\n  height: 52vh;\n  padding: 20px;\n\n\
+      \ 40px;\n  background-color: #8e5a9c;\n  height: 40vh;\n  padding: 20px;\n\n\
       }\n\n  \n /* Remove margin from main ContentPanel */\n.anvil-panel-section-container\
       \ {\n  margin: 0 !important;\n  }\n  \n\n\n\n</style>"}
   event_bindings: {show: form_show}
