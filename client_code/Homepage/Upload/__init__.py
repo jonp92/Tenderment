@@ -21,7 +21,7 @@ class Upload(UploadTemplate):
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    if self.drop_down_file_type.selected_value == ".gcode":
+    if file.name.endswith('.gcode'):
       self.png, uploaded_file = anvil.server.call('find_png', file, file.name)
       self.image_1.source = self.png
       self.uploaded_file = uploaded_file
@@ -31,7 +31,7 @@ class Upload(UploadTemplate):
         Notification(uploaded_file, title="File Uploaded Successfully").show()
       self.refresh_data_bindings()
       self.file_loader_1.clear()
-    else:
+    elif file.name.endswith('.stl'):
       #anvil.server.call('upload_stl', file, file.name)
       #self.uploaded_file = file.name
       #self.refresh_data_bindings()
@@ -49,6 +49,8 @@ class Upload(UploadTemplate):
         anvil.server.call('delete_stl', file.name)
       self.refresh_data_bindings()
       self.file_loader_1.clear()
+    else:
+      raise Exception('Only .STL or .GCODE files are supported here.')
       
       
 
