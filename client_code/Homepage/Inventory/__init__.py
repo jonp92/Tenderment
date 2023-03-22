@@ -1,12 +1,13 @@
 from ._anvil_designer import InventoryTemplate
 from anvil import *
 import anvil.server
+from anvil.tables import app_tables
 from .InventorySettings import InventorySettings
 
 class Inventory(InventoryTemplate):
   def __init__(self, **properties):
     self.item = anvil.server.call('get_wix_products_table')
-    self.label_last_sync.text = anvil.server.call('get_product_last_sync')
+    self.label_last_sync.text = [r['last_sync'] for r in app_tables.sync.search()][0]
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     if get_open_form().user['role'] == "superadmin":

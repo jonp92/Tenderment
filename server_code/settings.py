@@ -9,4 +9,7 @@ import anvil.server
 def update_settings(settingsdict):
   row = app_tables.settings.get()
   row.update(selected_printer=settingsdict['selected_printer'])
-  
+
+@anvil.server.callable
+def get_settings():
+  return [r['selected_printer'] for r in app_tables.settings.search()][0]

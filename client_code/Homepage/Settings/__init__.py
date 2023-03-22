@@ -9,6 +9,7 @@ from anvil.tables import app_tables
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    self.drop_down_printer.selected_value = [r['selected_printer'] for r in app_tables.settings.search()][0]
     self.init_components(**properties)
     self.drop_down_printer.items = self.item['printers']
 

@@ -58,9 +58,3 @@ def set_wix_products():
 @anvil.server.callable
 def get_wix_products_table():
   return app_tables.inventory.search()
-
-@anvil.server.callable
-def get_product_last_sync():
-  last_sync = [r['last_sync'] for r in app_tables.sync.search(id='products')]
-  last_sync = str(last_sync)
-  return last_sync.strip('[\'\']') + " " + "EST"

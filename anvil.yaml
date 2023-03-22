@@ -150,7 +150,7 @@ db_schema:
       target: prints
   sync:
     title: Sync
-    client: none
+    client: search
     server: full
     columns:
     - name: last_sync
@@ -178,7 +178,7 @@ db_schema:
       type: link_single
       target: prints
   settings:
-    client: full
+    client: search
     server: full
     columns:
     - name: selected_printer
