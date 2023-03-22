@@ -53,7 +53,7 @@ class PrintSummary(PrintSummaryTemplate):
 
   def button_download_click(self, **event_args):
     """This method is called when the button is clicked"""
-    media = anvil.server.call('get_gcode_download', self.item.get_id(id))
+    media = anvil.server.call('get_gcode_download', self.item.get_id())
     anvil.media.download(media)
 
   def button_download_stl_click(self, **event_args):
