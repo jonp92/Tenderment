@@ -40,7 +40,7 @@ components:
       border: ''
       enabled: true
       foreground: ''
-      items: [Inland_PLA+, OVERTURE_PETG_@CREALITY_-_230, '']
+      items: [Inland_PLA+, OVERTURE_PETG_@CREALITY_-_230]
       visible: true
       font_size: 14
       font: ''
@@ -71,7 +71,7 @@ components:
       border: ''
       enabled: true
       foreground: ''
-      items: [5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%]
+      items: [0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%]
       visible: true
       font_size: null
       font: ''

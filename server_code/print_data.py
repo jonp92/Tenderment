@@ -121,4 +121,12 @@ def calculate_revenue(print_row):
 def link_stl_to_print(print_row, name):
   stl_row = app_tables.stls.get(name=name)
   stl_row.update(print=print_row)
-  
+
+@anvil.server.callable
+def delete_stl(filename):
+  stl_row = app_tables.stls.get(name=filename)
+  user_role = anvil.users.get_user()['role']
+  if user_role == 'admin' or user_role == 'superadmin':
+    stl_row.delete()
+  else:
+    raise Exception('You are not authorized to delete files.')
