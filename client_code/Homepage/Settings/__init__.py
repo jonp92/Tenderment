@@ -13,3 +13,8 @@ class Settings(SettingsTemplate):
     self.drop_down_printer.items = self.item['printers']
 
     # Any code you write here will run before the form opens.
+
+  def Save_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('update_settings', self.item)
+

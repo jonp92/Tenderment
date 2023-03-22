@@ -4,9 +4,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import pandas as pd
-import plotly.graph_objects as go
 import datetime
+import pandas as pd
 
 now = datetime.datetime.now()
 date_string = now.strftime("%Y_%m_%d")
@@ -20,6 +19,7 @@ def count_prints():
 
 @anvil.server.callable
 def plot_prints_by_status():
+  import plotly.graph_objects as go
   info = [
     {
       'name': r['name'],
@@ -33,6 +33,7 @@ def plot_prints_by_status():
 
 @anvil.server.callable
 def plot_prints_pie():
+  import plotly.graph_objects as go
   info = [
     {
       'name': r['name'],

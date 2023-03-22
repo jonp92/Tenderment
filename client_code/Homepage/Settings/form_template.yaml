@@ -36,7 +36,8 @@ components:
         properties: {}
         name: drop_down_printer
         layout_properties: {grid_position: 'KUCYIS,YTMLXF'}
-        data_bindings: []
+        data_bindings:
+        - {property: selected_value, code: 'self.item[''selected_printer'']', writeback: true}
       - type: Label
         properties: {}
         name: label_2
@@ -58,4 +59,13 @@ components:
       name: outlined_card_1
       layout_properties: {grid_position: 'JXGLNO,UXZGYJ', row: RVFWHD, width_xs: 6,
         col_xs: 0}
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: 'Save
+
+          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
+      name: Save
+      layout_properties: {row: LBHVIR, width_xs: 4, col_xs: 4, width: 99.9875}
+      event_bindings: {click: Save_click}
 is_package: true
