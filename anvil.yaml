@@ -17,7 +17,7 @@ services:
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: Homepage}
+startup: {type: form, module: Login}
 package_name: Tenderment
 allow_embedding: false
 name: Tenderment

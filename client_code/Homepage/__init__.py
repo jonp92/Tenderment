@@ -6,12 +6,13 @@ from .Print import Print
 from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
+from .Settings import Settings
 def error_handler(err):
-  alert(str(err), title="An error has occurred")
+  alert(str(err), title="An error has occurred", large=True, dismissible=False)
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
-    self.user = anvil.users.login_with_form()
+    self.user = anvil.users.get_user()
     set_default_error_handling(error_handler)
     self.version = "v0.5.5"
     #self.print_count = anvil.server.call('count_prints')
@@ -19,7 +20,7 @@ class Homepage(HomepageTemplate):
     self.init_components(**properties)
     self.plot_1.data = anvil.server.call('plot_prints_pie')
     self.label_print_count.text = anvil.server.call('count_prints')
-    
+    self.item['printers'] = ['Creality_Ender-3_S1', 'BIQU_B1']
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
@@ -60,6 +61,12 @@ class Homepage(HomepageTemplate):
   def plot_1_click(self, points, **event_args):
     """This method is called when a data point is clicked."""
     pass
+
+  def link_settings_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Settings(item=self.item))
+
 
 
   

@@ -1,0 +1,36 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_1
+  layout_properties: {grid_position: 'VWPIPR,GAWJSU'}
+  components:
+  - type: Spacer
+    properties: {height: 259}
+    name: spacer_1
+    layout_properties: {grid_position: 'TQSYUS,XRHWKM'}
+  - type: ColumnPanel
+    properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: column_panel_2
+    layout_properties: {grid_position: 'BAHPZQ,FHLYSO'}
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: Welcome to Tenderment!, font_size: 36, font: Tahoma,
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      name: label_title
+      layout_properties: {grid_position: 'YKBPXE,RLMCDN'}
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Login, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:user'}
+      name: button_login
+      layout_properties: {grid_position: 'NRFYOH,PRBESS'}
+      event_bindings: {click: button_login_click}
+is_package: true
