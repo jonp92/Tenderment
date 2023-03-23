@@ -68,7 +68,7 @@ class Homepage(HomepageTemplate):
   def link_users_click(self, **event_args):
     """This method is called when the link is clicked"""
     self.column_panel_2.clear()
-    self.column_panel_2.add_component(Users())
+    self.column_panel_2.add_component(Users(), full_width_row=True)
 
 
 

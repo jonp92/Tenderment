@@ -1,42 +1,47 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: never, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small,
+    background: ''}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: none, spacing_above: small, col_widths: '{}', spacing_below: small,
+    background: ''}
   name: column_panel_1
-  layout_properties: {grid_position: 'KIAMYY,VPDQFK'}
+  layout_properties: {grid_position: 'KIAMYY,VPDQFK', full_width_row: true}
   components:
   - type: DataGrid
     properties:
       role: tonal-data-grid
       columns:
-      - {id: ZWRMGK, title: First Name, data_key: first_name, $$hashKey: 'object:7229'}
-      - {id: SSXWMQ, title: Last Name, data_key: last_name, $$hashKey: 'object:7230'}
-      - {id: KNIVII, title: Email, data_key: email, $$hashKey: 'object:7231', width: 161,
+      - {id: ZWRMGK, title: First Name, data_key: first_name, $$hashKey: 'object:7229',
+        width: 117, expand: false}
+      - {id: SSXWMQ, title: Last Name, data_key: last_name, $$hashKey: 'object:7230',
+        width: 125, expand: false}
+      - {id: KNIVII, title: Email, data_key: email, $$hashKey: 'object:7231', width: 168,
+        expand: false}
+      - {id: SOSJMQ, title: Role, data_key: role, $$hashKey: 'object:7238', width: 117,
         expand: false}
       - {id: TKDNHN, title: Enabled, data_key: enabled, $$hashKey: 'object:7232',
-        width: 50, expand: false}
-      - {id: VBCLHT, title: Last Login, data_key: last_login, $$hashKey: 'object:7233',
-        width: 159, expand: false}
-      - {id: TGWXUW, title: Password Hash, data_key: password_hash, $$hashKey: 'object:7234',
-        width: 219, expand: true}
+        width: '85', expand: false}
       - {id: DMCLHD, title: Conf Email, data_key: confirmed_email, $$hashKey: 'object:7236',
-        width: 51, expand: false}
-      - {id: SOSJMQ, title: Role, data_key: role, $$hashKey: 'object:7238'}
+        width: '85', expand: false}
+      - {id: TGWXUW, title: Password Hash, data_key: password_hash, $$hashKey: 'object:7234',
+        width: 527, expand: true}
       auto_header: true
       tooltip: ''
       border: ''
       foreground: ''
       rows_per_page: 20
       visible: true
-      wrap_on: never
+      wrap_on: mobile
       show_page_controls: true
       spacing_above: small
       spacing_below: small
       background: ''
     name: data_grid_users
-    layout_properties: {grid_position: 'IUHYAS,LIJQIT'}
+    layout_properties: {grid_position: 'IUHYAS,ZMYLXF', full_width_row: true}
     components:
     - type: RepeatingPanel
       properties: {role: tonal-card, tooltip: '', border: '', foreground: '', items: null,
