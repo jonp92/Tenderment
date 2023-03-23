@@ -43,7 +43,7 @@ class Upload(UploadTemplate):
       self.item['infill'] = '10%'
       slice_stl = alert(slice_options(item=self.item), title=filename, large=True, buttons=[("Slice", True), ("Cancel", False)])
       if slice_stl:
-        self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost = anvil.server.call('slice', file.name, self.item['quality'], self.item['filament_type'], self.item['infill'])
+        self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost = anvil.server.call('slice', filename, self.item['quality'], self.item['filament_type'], self.item['infill'])
         alert(slice_confirm(self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost), large=True)
       else:
         anvil.server.call('delete_stl', file.name)

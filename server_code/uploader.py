@@ -8,9 +8,7 @@ import shortuuid
 import re
 
 def name_sanitizer(filename):
-  regex = r"[()\s_]+(?!\.)"
-  replacement = "-"
-  return re.sub(regex, replacement, filename)
+  return re.sub(r"[()\s_]+(?!\.)", "-", filename)
   
 @anvil.server.callable
 def upload_stl(file, filename):
