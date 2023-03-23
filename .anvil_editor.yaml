@@ -13,11 +13,13 @@ unique_ids:
     Homepage.Inventory.InventorySummary: '1677857029299684347892715.0571'
     Homepage.Upload.slice_options: '1679436690521661709974791.231'
     Homepage.Upload.slice_confirm: '1679423800472999436688760.7329'
+    Homepage.Users.AddUser: '167958766052394733327686.98483'
     Homepage.Users.UsersRowTemplate.RowTemplate1: '1679582390079494189248772.1689'
     Homepage.Print.Notes: '1678371597513583203375963.9712'
     Homepage.Print.PrintSummary: '1677694156997369758147661.1719'
     Homepage.Inventory.InventorySettings: '1678469783900109394472513.24364'
     Homepage.Upload: '1677780771823505990341348.18353'
+    Homepage.Users.RowTemplate3: '1679594862044322303736397.8887'
     Homepage.Print.PrintDetail: '1677961608580596514108371.4974'
   modules: {}
   server_modules:
