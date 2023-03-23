@@ -67,7 +67,7 @@ class PrintSummary(PrintSummaryTemplate):
     
   def button_delete_click(self, **event_args):
     """This method is called when the button is clicked"""
-    delete_clicked = alert(f"Are you sure you want to DELETE {self.text_box_name.text}?", title="Delete Table Row", buttons=[("Delete", True), ("Cancel", False)])
+    delete_clicked = alert(f"Are you sure you want to DELETE {self.text_box_name.text}?", title="Delete Print", buttons=[("Delete", True), ("Cancel", False)])
     if delete_clicked:
       anvil.server.call('delete_prints_row', self.item)
       self.parent.raise_event('x-refresh-prints')

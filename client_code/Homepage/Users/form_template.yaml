@@ -45,7 +45,7 @@ components:
     components:
     - type: RepeatingPanel
       properties: {role: tonal-card, tooltip: '', border: '', foreground: '', items: null,
-        visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Users.UsersRowTemplate,
+        visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Users.UserSummary,
         background: ''}
       name: repeating_panel_users_data
       layout_properties: {}

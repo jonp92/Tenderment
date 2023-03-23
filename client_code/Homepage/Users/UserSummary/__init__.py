@@ -1,4 +1,4 @@
-from ._anvil_designer import UsersRowTemplateTemplate
+from ._anvil_designer import UserSummaryTemplate
 from anvil import *
 import anvil.server
 import anvil.users
@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..UserDetail import UserDetail
 
-class UsersRowTemplate(UsersRowTemplateTemplate):
+class UserSummary(UserSummaryTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
