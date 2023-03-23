@@ -1,0 +1,48 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_1
+  layout_properties: {grid_position: 'KIAMYY,VPDQFK'}
+  components:
+  - type: DataGrid
+    properties:
+      role: tonal-data-grid
+      columns:
+      - {id: ZWRMGK, title: First Name, data_key: first_name, $$hashKey: 'object:7229'}
+      - {id: SSXWMQ, title: Last Name, data_key: last_name, $$hashKey: 'object:7230'}
+      - {id: KNIVII, title: Email, data_key: email, $$hashKey: 'object:7231', width: 161,
+        expand: false}
+      - {id: TKDNHN, title: Enabled, data_key: enabled, $$hashKey: 'object:7232',
+        width: 50, expand: false}
+      - {id: VBCLHT, title: Last Login, data_key: last_login, $$hashKey: 'object:7233',
+        width: 159, expand: false}
+      - {id: TGWXUW, title: Password Hash, data_key: password_hash, $$hashKey: 'object:7234',
+        width: 219, expand: true}
+      - {id: DMCLHD, title: Conf Email, data_key: confirmed_email, $$hashKey: 'object:7236',
+        width: 51, expand: false}
+      - {id: SOSJMQ, title: Role, data_key: role, $$hashKey: 'object:7238'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_users
+    layout_properties: {grid_position: 'IUHYAS,LIJQIT'}
+    components:
+    - type: RepeatingPanel
+      properties: {role: tonal-card, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: none, spacing_below: none, item_template: Homepage.Users.UsersRowTemplate,
+        background: ''}
+      name: repeating_panel_users_data
+      layout_properties: {}
+      data_bindings: []
+is_package: true

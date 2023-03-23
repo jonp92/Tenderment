@@ -7,6 +7,8 @@ from .Upload import Upload
 from .Orders import Orders
 from .Inventory import Inventory
 from .Settings import Settings
+from .Users import Users
+
 def error_handler(err):
   alert(str(err), title="An error has occurred", large=True, dismissible=False)
 
@@ -62,6 +64,12 @@ class Homepage(HomepageTemplate):
     """This method is called when the link is clicked"""
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Settings(item=self.item))
+
+  def link_users_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Users())
+
 
 
 
