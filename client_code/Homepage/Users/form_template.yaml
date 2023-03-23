@@ -125,9 +125,9 @@ components:
       - type: Button
         properties: {role: filled-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: '', visible: true, text: Add User, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: false, underline: false, icon: 'fa:user'}
+          font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false,
+          background: '', bold: false, underline: false, icon: 'fa:user'}
         name: button_add_user
-        layout_properties: {row: BVUMVF, width_xs: 2, col_xs: 10, width: 204.896}
+        layout_properties: {row: BVUMVF, width_xs: 2, col_xs: 0, width: 204.896}
         event_bindings: {click: button_add_user_click}
 is_package: true

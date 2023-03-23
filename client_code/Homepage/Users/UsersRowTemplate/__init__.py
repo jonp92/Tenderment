@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..UserDetail import UserDetail
 
 class UsersRowTemplate(UsersRowTemplateTemplate):
   def __init__(self, **properties):
@@ -38,6 +39,11 @@ class UsersRowTemplate(UsersRowTemplateTemplate):
         self.parent.raise_event('x-refresh-users')
         self.data_row_panel_edit.visible = False
         self.data_row_panel_view.visible = True
+
+  def link_first_name_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    alert(UserDetail(item=self.item))
+
 
 
 

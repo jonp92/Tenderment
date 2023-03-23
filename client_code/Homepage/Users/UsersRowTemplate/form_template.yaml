@@ -35,6 +35,16 @@ components:
     name: button_edit
     layout_properties: {column: TGWXUW}
     event_bindings: {click: button_edit_click}
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: 'fa:search'}
+    name: link_first_name
+    layout_properties: {column: ZWRMGK}
+    data_bindings:
+    - {property: text, code: 'self.item[''first_name'']'}
+    event_bindings: {click: link_first_name_click}
   data_bindings:
   - {property: item, code: self.item}
 - type: DataRowPanel
