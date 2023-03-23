@@ -7,7 +7,11 @@ from ..PrintDetail import PrintDetail
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    self.user = get_open_form().user
     self.init_components(**properties)
+    if self.user['role'] == 'user':
+      self.button_details.visible = False
+    
     #  Any code you write here will run before the form opens.
 
   def link_1_click(self, **event_args):
