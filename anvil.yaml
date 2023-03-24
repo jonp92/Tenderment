@@ -26,7 +26,26 @@ startup: {type: form, module: Login}
 package_name: Tenderment
 allow_embedding: false
 name: Tenderment
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-full
+  server_spec: null
+  server_spec_disabled: {requirements: 'numpy-stl
+
+      numpy
+
+      shortuuid
+
+      pandas
+
+      matplot
+
+      pytz
+
+      bcrypt
+
+      mathplot', base: python310-minimal}
 metadata: {title: Tenderment, description: Print Management System, logo_img: 'asset:tcicon.png'}
 startup_form: null
 native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\"\

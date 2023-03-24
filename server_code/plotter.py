@@ -38,18 +38,18 @@ def plot_prints_pie():
   return go.Pie(labels=df['status'], values=df['name'])
 
 @anvil.server.callable
-def plot_stl(id):
+def plot_stl(fileName):
   import anvil.mpl_util
   import numpy as np
   import pandas as pd
   from stl import mesh
   import matplotlib.pyplot as plt
   # Create a new plot
-  figure = pyplot.figure()
+  figure = plt.figure()
   axes = mplot3d.Axes3D(figure)
 
   # Load the STL files and add the vectors to the plot
-  stl_row = app_tables.stls.get_by_id(id)
+  stl_row = app_tables.stls.get(name=fileName)
   stl = stl_row['stl']
   with anvil.media.TempFile(stl) as stl_file:
     your_mesh = mesh.Mesh.from_file(stl_file)
