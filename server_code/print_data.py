@@ -18,34 +18,6 @@ def count_prints():
   return pd.Series(unique).sum()
 
 @anvil.server.callable
-def plot_prints_by_status():
-  import plotly.graph_objects as go
-  info = [
-    {
-      'name': r['name'],
-      'status': r['status'],
-   }
-   for r in app_tables.prints.search()
-  ]
-  df = pd.DataFrame(info, columns=['name', 'status'])
-  df = df.groupby('status').count().reset_index()
-  return go.Bar(x=df['status'], y=df['name'], text=df['status'])
-
-@anvil.server.callable
-def plot_prints_pie():
-  import plotly.graph_objects as go
-  info = [
-    {
-      'name': r['name'],
-      'status': r['status'],
-   }
-   for r in app_tables.prints.search()
-  ]
-  df = pd.DataFrame(info, columns=['name', 'status'])
-  df = df.groupby('status').count().reset_index()
-  return go.Pie(labels=df['status'], values=df['name'])
-
-@anvil.server.callable
 def count_unique(list):
   return pd.Series(list).value_counts()
 

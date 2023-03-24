@@ -10,7 +10,7 @@ class slice_confirm(slice_confirmTemplate):
   def __init__(self, output_name, fileName, png, filament_type, filament_used, printing_time, cost, **properties):
     # Set Form properties and Data Bindings.
     self.link_title.text = fileName
-    self.image_thumbnail.source = png
+    self.image_thumbnail.source = anvil.server.call('plot_stl', self.item.get_id())
     self.label_filament_type_data.text = filament_type
     self.label_filament_used_data.text = filament_used
     self.label_cost_data.text = cost
