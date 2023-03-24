@@ -10,6 +10,12 @@ now = datetime.datetime.now()
 date_string = now.strftime("%Y_%m_%d")
 time_string =now.strftime("%H:%M:%S")
 
+def authorization():
+  if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
+    return True
+  else:
+    return False
+
 @anvil.server.callable
 def count_prints():
   import pandas as pd
@@ -37,13 +43,12 @@ def get_print_by_id(id):
 def get_print_by_name(name):
   return app_tables.prints.get(name=name)
 
-@anvil.server.callable
+@anvil.server.callable(require_user=authorization())
 def update_print_data(id, name, uploaded, time, cost, weight, status):
   update_row = app_tables.prints.get(id=id)
   update_row.update(name=name, uploaded=uploaded, time=time, cost=float(cost), weight=float(weight), status=status)
 
-
-@anvil.server.callable
+@anvil.server.callable(require_user=authorization())
 def delete_prints_row(row):
   user_role = anvil.users.get_user()['role']
   if user_role == 'admin' or user_role == 'superadmin':
@@ -92,12 +97,12 @@ def calculate_revenue(print_row):
   inventory_row = get_wix_price(print_row)
   return float(inventory_row['price'][1:])-float(print_row['cost'])
 
-@anvil.server.callable
+@anvil.server.callable(require_user=authorization())
 def link_stl_to_print(print_row, name):
   stl_row = app_tables.stls.get(name=name)
   stl_row.update(print=print_row)
 
-@anvil.server.callable
+@anvil.server.callable(require_user=authorization())
 def delete_stl(filename):
   stl_row = app_tables.stls.get(name=filename)
   user_role = anvil.users.get_user()['role']

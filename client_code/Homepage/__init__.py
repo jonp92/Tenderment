@@ -21,9 +21,14 @@ class Homepage(HomepageTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     if self.user['role'] == 'user':
+      self.column_panel_2.clear()
+      self.link_home.visible = False
       self.link_settings.visible = False
       self.link_users.visible = False
-      self.link_orders = False
+      self.link_orders.visible = False
+      self.link_prints.visible = False
+      self.link_inventory.visible = False
+      self.column_panel_2.add_component(Upload())
     #self.plot_1.data = anvil.server.call('plot_prints_pie')
     self.label_print_count.text = anvil.server.call('count_prints')
     self.item['printers'] = ['Creality_Ender-3_S1', 'BIQU_B1']

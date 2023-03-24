@@ -1,5 +1,6 @@
 from ._anvil_designer import LoginTemplate
 from anvil import *
+import anvil.server
 import anvil.users
 
 class Login(LoginTemplate):

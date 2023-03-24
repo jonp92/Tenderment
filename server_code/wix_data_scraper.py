@@ -24,6 +24,12 @@ API_URL = f"https://www.wixapis.com/"
 headers = {'Authorization': f'{API_KEY}', 'User-Agent': f'{User_Agent}', 'Accept': "application/json, text/plain, */*", 'Content-Type': 'application/json', 'wix-site-id': f'{wix_site_id}'}
 @anvil.server.callable
 
+def authorization():
+  if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
+    return True
+  else:
+    return False
+    
 def get_wix_products(url):
   url = f"{API_URL}{url}"
   response = anvil.http.request(url,
@@ -38,7 +44,7 @@ def edit_sqqty(variantId, qty):
   pass
 
 @anvil.server.background_task
-@anvil.server.callable
+@anvil.server.callable(require_user=authorization())
 def set_wix_products():
   sync_row = app_tables.sync.get(id='products')
   sync_row.update(last_sync=date_string + '-' + time_string_tz)
