@@ -29,9 +29,8 @@ class Homepage(HomepageTemplate):
       self.link_prints.visible = False
       self.link_inventory.visible = False
       self.column_panel_2.add_component(Upload())
-    #self.plot_1.data = anvil.server.call('plot_prints_pie')
+    self.plot_1.data = anvil.server.call('plot_prints_pie')
     self.label_print_count.text = anvil.server.call('count_prints')
-    self.item['printers'] = ['Creality_Ender-3_S1', 'BIQU_B1']
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()

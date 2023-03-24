@@ -10,7 +10,9 @@ class AddUser(AddUserTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.drop_down_role.items = anvil.server.call('get_roles')    
+    self.drop_down_role.items = anvil.server.call('get_roles')
+    self.item['role'] = self.drop_down_role.selected_value
+    print(self.item['role'])
     # Any code you write here will run before the form opens.
 
   def button_cancel_click(self, **event_args):

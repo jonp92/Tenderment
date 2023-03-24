@@ -38,16 +38,13 @@ class Upload(UploadTemplate):
       #self.file_loader_1.clear()
       #alert(print_chooser(file.name), large=True)
       filename = anvil.server.call('upload_stl', file, file.name)
-      self.item['quality'] = '0.24mm_FAST_@CREALITY'
-      self.item['filament_type'] = 'Inland_PLA+'
-      self.item['infill'] = '10%'
-      slice_stl = alert(slice_options(item=self.item), title=filename, large=True, buttons=[("Slice", True), ("Cancel", False)])
+      slice_stl = alert(slice_options(filename, item=self.item), title='Choose your slicing options:', large=True, buttons=[("Slice", True), ("Cancel", False)])
       if slice_stl:
         with Notification('Please wait, slicing your print.'):
           self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost = anvil.server.call('slice', filename, self.item['quality'], self.item['filament_type'], self.item['infill'])
         alert(slice_confirm(self.output_name, self.fileName, self.png, self.filament_type, self.filament_used, self.printing_time, self.cost), large=True)
       else:
-        anvil.server.call('delete_stl', file.name)
+        anvil.server.call('delete_stl', filename)
       self.refresh_data_bindings()
       self.file_loader_1.clear()
     else:

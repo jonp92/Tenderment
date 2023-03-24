@@ -7,61 +7,20 @@ components:
   name: grid_panel_1
   layout_properties: {grid_position: 'PKNAVU,QNLIJS'}
   components:
-  - type: DropDown
-    properties:
-      role: null
-      align: full
-      tooltip: ''
-      placeholder: 0.20mm_NORMAL_@CREALITY_-
-      border: ''
-      enabled: true
-      foreground: ''
-      items: [0.20mm_NORMAL_@CREALITY_-, 0.24mm_FAST_@CREALITY]
-      visible: true
-      font_size: 14
-      font: ''
-      spacing_above: small
-      spacing_below: small
-      italic: false
-      background: ''
-      bold: false
-      underline: false
-      include_placeholder: true
-    name: drop_down_1
-    layout_properties: {row: CBWNLS, width_xs: 6, col_xs: 3, width: 360}
-    data_bindings:
-    - {property: selected_value, code: 'self.item[''quality'']', writeback: true}
-  - type: DropDown
-    properties:
-      role: null
-      align: full
-      tooltip: ''
-      placeholder: Inland_PLA+
-      border: ''
-      enabled: true
-      foreground: ''
-      items: [Inland_PLA+, OVERTURE_PETG_@CREALITY_-_230]
-      visible: true
-      font_size: 14
-      font: ''
-      spacing_above: small
-      spacing_below: small
-      italic: false
-      background: ''
-      bold: false
-      underline: false
-      include_placeholder: true
-    name: drop_down_2
-    layout_properties: {row: VWUWMM, width_xs: 6, col_xs: 3, width: 360}
-    data_bindings:
-    - {property: selected_value, code: 'self.item[''filament_type'']', writeback: true}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 14, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: true, background: '', bold: false, underline: true,
+      icon: ''}
+    name: label_filename
+    layout_properties: {row: VURMCF, width_xs: 4, col_xs: 4, width: 303.333}
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Infill %:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Quality:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_2
-    layout_properties: {row: WSHHFX, width_xs: 2, col_xs: 3, width: 99.9875}
+      underline: false, icon: 'fa:cubes'}
+    name: label_quality
+    layout_properties: {row: CBWNLS, width_xs: 2, col_xs: 2, width: 136.667}
   - type: DropDown
     properties:
       role: null
@@ -71,7 +30,69 @@ components:
       border: ''
       enabled: true
       foreground: ''
-      items: [0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%]
+      items: ['']
+      visible: true
+      font_size: 14
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
+    name: drop_down_quality
+    layout_properties: {row: CBWNLS, width_xs: 5, col_xs: 4, width: 470}
+    data_bindings:
+    - {property: selected_value, code: 'self.item[''quality'']', writeback: true}
+  - type: Label
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Filament:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:magic'}
+    name: label_filament
+    layout_properties: {row: VWUWMM, width_xs: 2, col_xs: 2, width: 136.667}
+  - type: DropDown
+    properties:
+      role: null
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: ['']
+      visible: true
+      font_size: 14
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
+    name: drop_down_filament
+    layout_properties: {row: VWUWMM, width_xs: 5, col_xs: 4, width: 470}
+    data_bindings:
+    - {property: selected_value, code: 'self.item[''filament_type'']', writeback: true}
+  - type: Label
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Infill:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:percent'}
+    name: label_2
+    layout_properties: {row: WSHHFX, width_xs: 2, col_xs: 2, width: 136.667}
+  - type: DropDown
+    properties:
+      role: null
+      align: full
+      tooltip: ''
+      placeholder: 0%
+      border: ''
+      enabled: true
+      foreground: ''
+      items: [5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%]
       visible: true
       font_size: null
       font: ''
@@ -81,9 +102,9 @@ components:
       background: ''
       bold: false
       underline: false
-      include_placeholder: false
-    name: drop_down_3
-    layout_properties: {row: WSHHFX, width_xs: 3, col_xs: 6, width: 165}
+      include_placeholder: true
+    name: drop_down_infill
+    layout_properties: {row: WSHHFX, width_xs: 2, col_xs: 4, width: 220}
     data_bindings:
     - {property: selected_value, code: 'self.item[''infill'']', writeback: true}
 is_package: true

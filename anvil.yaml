@@ -51,6 +51,32 @@ startup_form: null
 native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\"\
     \n/>"}
 db_schema:
+  stls:
+    title: STLs
+    client: none
+    server: full
+    columns:
+    - name: id
+      admin_ui: {}
+      type: string
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+    - name: stl
+      admin_ui: {width: 200}
+      type: media
+    - name: print
+      admin_ui: {width: 200}
+      type: link_single
+      target: prints
+  settings:
+    client: search
+    server: full
+    columns:
+    - name: selected_printer
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: Settings
   prints:
     title: Prints
     client: none
@@ -85,6 +111,17 @@ db_schema:
       type: number
     - name: filament_type
       admin_ui: {}
+      type: string
+  sync:
+    title: Sync
+    client: search
+    server: full
+    columns:
+    - name: last_sync
+      admin_ui: {width: 200}
+      type: string
+    - name: id
+      admin_ui: {width: 200}
       type: string
   users:
     title: Users
@@ -121,24 +158,6 @@ db_schema:
     - name: role
       admin_ui: {width: 200}
       type: string
-  notes:
-    title: Notes
-    client: none
-    server: full
-    columns:
-    - name: print
-      admin_ui: {width: 200}
-      type: link_single
-      target: prints
-    - name: notes
-      admin_ui: {width: 200}
-      type: string
-    - name: user
-      admin_ui: {}
-      type: string
-    - name: date_time
-      admin_ui: {width: 200}
-      type: string
   inventory:
     title: Inventory
     client: none
@@ -169,43 +188,38 @@ db_schema:
       admin_ui: {width: 200}
       type: link_single
       target: prints
-  sync:
-    title: Sync
+  static_info:
     client: search
     server: full
     columns:
-    - name: last_sync
-      admin_ui: {width: 200}
+    - name: printers
+      admin_ui: {order: 0, width: 200}
       type: string
-    - name: id
-      admin_ui: {width: 200}
+    - name: quality
+      admin_ui: {order: 1, width: 200}
       type: string
-  stls:
-    title: STLs
+    - name: filament
+      admin_ui: {order: 2, width: 200}
+      type: string
+    title: static_info
+  notes:
+    title: Notes
     client: none
     server: full
     columns:
-    - name: id
-      admin_ui: {}
-      type: string
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: stl
-      admin_ui: {width: 200}
-      type: media
     - name: print
       admin_ui: {width: 200}
       type: link_single
       target: prints
-  settings:
-    client: search
-    server: full
-    columns:
-    - name: selected_printer
-      admin_ui: {order: 0, width: 200}
+    - name: notes
+      admin_ui: {width: 200}
       type: string
-    title: Settings
+    - name: user
+      admin_ui: {}
+      type: string
+    - name: date_time
+      admin_ui: {width: 200}
+      type: string
   roles:
     client: none
     server: full

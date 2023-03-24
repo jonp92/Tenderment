@@ -11,8 +11,8 @@ class Settings(SettingsTemplate):
     # Set Form properties and Data Bindings.
     self.drop_down_printer.selected_value = [r['selected_printer'] for r in app_tables.settings.search()][0]
     self.init_components(**properties)
-    self.drop_down_printer.items = self.item['printers']
-
+    self.drop_down_printer.items = [r['printers'] for r in app_tables.static_info.search()]
+    
     # Any code you write here will run before the form opens.
 
   def Save_click(self, **event_args):
