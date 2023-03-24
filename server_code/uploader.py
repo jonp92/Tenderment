@@ -4,16 +4,16 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import shortuuid
-import re
 
 @anvil.server.callable
 def name_sanitizer(filename):
+  import re
   first_pass = re.sub(r"[()\s_]+(?!\.)", "-", filename)
   return re.sub(r"\)", "", first_pass)
   
 @anvil.server.callable
 def upload_stl(file, filename):
+  import shortuuid
   filename = name_sanitizer(filename)
   existing_row = app_tables.stls.get(name=filename)
   if not existing_row:

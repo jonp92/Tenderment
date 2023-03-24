@@ -4,7 +4,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import bcrypt
+
 
 @anvil.server.callable
 def get_users():
@@ -12,6 +12,7 @@ def get_users():
 
 @anvil.server.callable
 def edit_user(id, first_name, last_name, email, role, enabled, confirmed_email, password):
+  import bcrypt
   # converting password to array of bytes
   bytes = password.encode('utf-8')
   # generating the salt
@@ -23,6 +24,7 @@ def edit_user(id, first_name, last_name, email, role, enabled, confirmed_email, 
 
 @anvil.server.callable
 def add_user(first_name, last_name, email, role, enabled, confirmed_email, password):
+  import bcrypt
   # converting password to array of bytes
   bytes = password.encode('utf-8')
   # generating the salt
@@ -40,4 +42,7 @@ def delete_user(id):
   user_row = app_tables.users.get_by_id(id)
   user = user_row['first_name'] + " " + user_row['last_name']
   user_row.delete()
-  
+
+@anvil.server.callable
+def user_role():
+  return anvil.users.get_user()['role']

@@ -23,7 +23,8 @@ class Homepage(HomepageTemplate):
     if self.user['role'] == 'user':
       self.link_settings.visible = False
       self.link_users.visible = False
-    self.plot_1.data = anvil.server.call('plot_prints_pie')
+      self.link_orders = False
+    #self.plot_1.data = anvil.server.call('plot_prints_pie')
     self.label_print_count.text = anvil.server.call('count_prints')
     self.item['printers'] = ['Creality_Ender-3_S1', 'BIQU_B1']
   def link_current_user_click(self, **event_args):

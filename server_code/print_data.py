@@ -5,7 +5,6 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import datetime
-import pandas as pd
 
 now = datetime.datetime.now()
 date_string = now.strftime("%Y_%m_%d")
@@ -13,12 +12,14 @@ time_string =now.strftime("%H:%M:%S")
 
 @anvil.server.callable
 def count_prints():
+  import pandas as pd
   list = [r['id'] for r in app_tables.prints.search()]
   unique = count_unique(list)
   return pd.Series(unique).sum()
 
 @anvil.server.callable
 def count_unique(list):
+  import pandas as pd
   return pd.Series(list).value_counts()
 
 @anvil.server.callable
@@ -40,6 +41,7 @@ def get_print_by_name(name):
 def update_print_data(id, name, uploaded, time, cost, weight, status):
   update_row = app_tables.prints.get(id=id)
   update_row.update(name=name, uploaded=uploaded, time=time, cost=float(cost), weight=float(weight), status=status)
+
 
 @anvil.server.callable
 def delete_prints_row(row):
