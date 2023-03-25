@@ -51,6 +51,14 @@ startup_form: null
 native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\"\
     \n/>"}
 db_schema:
+  infill:
+    client: search
+    server: full
+    columns:
+    - name: infill
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: infill
   filament:
     client: search
     server: full

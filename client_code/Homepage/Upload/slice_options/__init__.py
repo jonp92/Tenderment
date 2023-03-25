@@ -12,6 +12,7 @@ class slice_options(slice_optionsTemplate):
     self.init_components(**properties)
     self.drop_down_quality.items = [r['quality'] for r in app_tables.quality.search()]
     self.drop_down_filament.items = [r['filament'] for r in app_tables.filament.search()]
+    self.drop_down_infill.items = [r['infill'] for r in app_tables.infill.search()]
     self.label_filename.text = filename
     self.item['quality'] = self.drop_down_quality.selected_value
     self.item['filament_type'] = self.drop_down_filament.selected_value

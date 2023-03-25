@@ -92,7 +92,7 @@ components:
       border: ''
       enabled: true
       foreground: ''
-      items: [0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%]
+      items: ['']
       visible: true
       font_size: null
       font: ''
@@ -102,7 +102,7 @@ components:
       background: ''
       bold: false
       underline: false
-      include_placeholder: true
+      include_placeholder: false
     name: drop_down_infill
     layout_properties: {row: WSHHFX, width_xs: 2, col_xs: 4, width: 99.9875}
     data_bindings:
