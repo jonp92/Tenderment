@@ -38,7 +38,7 @@ class Homepage(HomepageTemplate):
   def link_prints_click(self, **event_args):
     """This method is called when the link is clicked"""
     self.column_panel_2.clear()
-    self.column_panel_2.add_component(Print())
+    self.column_panel_2.add_component(Print(), full_width_row=True)
 
   def link_logoff_click(self, **event_args):
     """This method is called when the link is clicked"""

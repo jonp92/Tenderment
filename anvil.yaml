@@ -52,21 +52,21 @@ native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnj
     \n/>"}
 db_schema:
   infill:
+    title: infill
     client: search
     server: full
     columns:
     - name: infill
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: infill
   filament:
+    title: filament
     client: search
     server: full
     columns:
     - name: filament
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: filament
   stls:
     title: STLs
     client: none
@@ -86,13 +86,13 @@ db_schema:
       type: link_single
       target: prints
   settings:
+    title: Settings
     client: search
     server: full
     columns:
     - name: selected_printer
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: Settings
   prints:
     title: Prints
     client: none
@@ -125,6 +125,12 @@ db_schema:
     - name: cost
       admin_ui: {width: 200}
       type: number
+    - name: printer
+      admin_ui: {}
+      type: string
+    - name: quality
+      admin_ui: {}
+      type: string
     - name: filament_type
       admin_ui: {}
       type: string
@@ -223,29 +229,29 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   quality:
+    title: quality
     client: search
     server: full
     columns:
     - name: quality
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: quality
   roles:
+    title: Roles
     client: none
     server: full
     columns:
     - name: role
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: Roles
   printers:
+    title: printers
     client: search
     server: full
     columns:
     - name: printers
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: printers
 secrets:
   sqspace:
     value: {? '' : H965t8DY1adlhRGaG7ojUqYPK36+xPalySbSdVvfSM3Km1yFdPHO7DAnELJIf8yV2ujngmBK0y0xdfpFsLNn4dKt6Q/cJT+GV5xu14p7x2donD7VP6n7MfIK5Ud41Rq8FRI8h78fwT2kPdS+/j8wJmm158C3J//+chMRHSxji/V5Oeo=}

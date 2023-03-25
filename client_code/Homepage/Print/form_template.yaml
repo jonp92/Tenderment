@@ -3,14 +3,17 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
   name: column_panel_1
-  layout_properties: {grid_position: 'WIADMB,BIOTZN'}
+  layout_properties: {grid_position: 'WIADMB,BIOTZN', full_width_row: true}
   components:
   - type: GridPanel
-    properties: {}
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: '', visible: true, role: null, tooltip: ''}
     name: grid_panel_1
-    layout_properties: {grid_position: 'WFSCZT,UXKKDX'}
+    layout_properties: {grid_position: 'WFSCZT,UXKKDX', full_width_row: true}
     components:
     - type: Label
       properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
@@ -83,7 +86,7 @@ components:
       - {id: POWQVU, title: Name, data_key: name, $$hashKey: 'object:110163', expand: false,
         width: 230}
       - {id: UNBRPG, title: Uploaded, data_key: uploaded, $$hashKey: 'object:110165',
-        expand: true}
+        expand: false, width: 88}
       - {id: KJEUIY, title: Cost, data_key: cost, $$hashKey: 'object:110166', expand: false,
         width: 90}
       - {id: ABEGHY, title: Weight, data_key: weight, $$hashKey: 'object:110167',
@@ -91,7 +94,10 @@ components:
       - {id: IDAVJE, title: Time, data_key: time, $$hashKey: 'object:110168', expand: false,
         width: 90}
       - {id: YAODAG, title: Status, data_key: status, $$hashKey: 'object:158326',
-        width: 154, expand: false}
+        width: 96, expand: false}
+      - {id: UTSYQJ, title: Printer, data_key: printer, $$hashKey: 'object:4013'}
+      - {id: QMDSTG, title: Quality, data_key: quality, $$hashKey: 'object:4015'}
+      - {id: GWLOFD, title: FIlament, data_key: filament_type, $$hashKey: 'object:4017'}
       - {id: AYCFIN, title: '', data_key: media_object, $$hashKey: 'object:110164',
         expand: true}
       auto_header: true
@@ -106,7 +112,7 @@ components:
       spacing_below: small
       background: ''
     name: data_grid_1
-    layout_properties: {grid_position: 'ZUOHAA,NWVEND'}
+    layout_properties: {grid_position: 'ZUOHAA,NWVEND', full_width_row: true}
     components:
     - type: RepeatingPanel
       properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
