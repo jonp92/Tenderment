@@ -51,6 +51,14 @@ startup_form: null
 native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\"\
     \n/>"}
 db_schema:
+  filament:
+    client: search
+    server: full
+    columns:
+    - name: filament
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: filament
   stls:
     title: STLs
     client: none
@@ -188,20 +196,6 @@ db_schema:
       admin_ui: {width: 200}
       type: link_single
       target: prints
-  static_info:
-    client: search
-    server: full
-    columns:
-    - name: printers
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: quality
-      admin_ui: {order: 1, width: 200}
-      type: string
-    - name: filament
-      admin_ui: {order: 2, width: 200}
-      type: string
-    title: static_info
   notes:
     title: Notes
     client: none
@@ -220,6 +214,14 @@ db_schema:
     - name: date_time
       admin_ui: {width: 200}
       type: string
+  quality:
+    client: search
+    server: full
+    columns:
+    - name: quality
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: quality
   roles:
     client: none
     server: full
@@ -228,6 +230,14 @@ db_schema:
       admin_ui: {order: 0, width: 200}
       type: string
     title: Roles
+  printers:
+    client: search
+    server: full
+    columns:
+    - name: printers
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: printers
 secrets:
   sqspace:
     value: {? '' : H965t8DY1adlhRGaG7ojUqYPK36+xPalySbSdVvfSM3Km1yFdPHO7DAnELJIf8yV2ujngmBK0y0xdfpFsLNn4dKt6Q/cJT+GV5xu14p7x2donD7VP6n7MfIK5Ud41Rq8FRI8h78fwT2kPdS+/j8wJmm158C3J//+chMRHSxji/V5Oeo=}

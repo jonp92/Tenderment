@@ -9,9 +9,10 @@ from anvil.tables import app_tables
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.drop_down_printer.selected_value = [r['selected_printer'] for r in app_tables.settings.search()][0]
+    
     self.init_components(**properties)
-    self.drop_down_printer.items = [r['printers'] for r in app_tables.static_info.search()]
+    self.drop_down_printer.items = [r['printers'] for r in app_tables.printers.search()]
+    self.drop_down_printer.selected_value = [r['selected_printer'] for r in app_tables.settings.search()][0]
     
     # Any code you write here will run before the form opens.
 
