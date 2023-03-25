@@ -9,7 +9,8 @@ import anvil.server
 def name_sanitizer(filename):
   import re
   first_pass = re.sub(r"[()\s_]+(?!\.)", "-", filename)
-  return re.sub(r"\)", "", first_pass)
+  second_pass = re.sub(r'\.stl$', '', first_pass)
+  return re.sub(r"\)", "", second_pass)
   
 @anvil.server.callable
 def upload_stl(file, filename):
