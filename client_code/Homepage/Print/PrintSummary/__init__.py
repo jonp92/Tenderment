@@ -3,6 +3,7 @@ from anvil import *
 import anvil.server
 import anvil.media
 from ..PrintDetail import PrintDetail
+from ..StartPrint import StartPrint
 
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
@@ -78,6 +79,12 @@ class PrintSummary(PrintSummaryTemplate):
     """This method is called when a mouse button is pressed on this component"""
     print_copy = dict(self.item)
     save_clicked = alert(PrintDetail(item=self.item), large=True, buttons=[("Close", False)])
+
+  def button_print_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    start_print = alert(StartPrint(item=self.item), title="Are you sure you want to print?", buttons=[("Print", True), ("Close", False)], large=True)
+    
+
 
 
       

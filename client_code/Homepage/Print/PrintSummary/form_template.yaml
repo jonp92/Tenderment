@@ -44,12 +44,20 @@ components:
       layout_properties: {row: ZEQOSR, width_xs: 3, col_xs: 3, width: 164.2}
       event_bindings: {click: button_download_stl_click}
     - type: Button
+      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Print, font_size: null, font: '', spacing_above: medium,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:print'}
+      name: button_print
+      layout_properties: {row: ZEQOSR, width_xs: 2, col_xs: 8, width: 230.771}
+      event_bindings: {click: button_print_click}
+    - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Edit, font_size: null, font: '', spacing_above: medium,
         icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:edit'}
       name: button_details
-      layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 130.65625}
+      layout_properties: {column: AYCFIN, row: ZEQOSR, width_xs: 2, col_xs: 10, width: 230.771}
       event_bindings: {click: button_details_click}
   data_bindings:
   - {property: item, code: self.item}
@@ -67,20 +75,20 @@ components:
     layout_properties: {column: null}
     components:
     - type: Button
-      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Delete, font_size: null, font: '', spacing_above: medium,
         icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:trash'}
       name: button_delete
-      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 0, width: 130.65625}
+      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 0, width: 230.771}
       event_bindings: {click: button_delete_click}
     - type: Button
-      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: medium,
         icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:save'}
       name: button_save
-      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 8, width: 130.65625}
+      layout_properties: {row: RPFWHS, width_xs: 2, col_xs: 8, width: 230.771}
       event_bindings: {click: button_save_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
