@@ -84,8 +84,8 @@ class PrintSummary(PrintSummaryTemplate):
     """This method is called when the button is clicked"""
     start_print = alert(StartPrint(item=self.item), title="Are you sure you want to print?", buttons=[("Print", True), ("Close", False)], large=True)
     if start_print:
-      return_message = anvil.server.call('rollklip', self.item.get_id(), self.item['name'])
-      n = Notification(return_message)
+      return_message, return_data, return_status = anvil.server.call('rollklip', self.item.get_id(), self.item['name'])
+      n = Notification(f'{return_message} {return_status}')
       n.show()
       
     
