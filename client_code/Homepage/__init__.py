@@ -17,25 +17,20 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.get_user()
     set_default_error_handling(error_handler)
     self.item['version'] = "v0.5.8"
-    #self.form_session = anvil.server.call('get_form_session')
+    self.form_session = anvil.server.call('get_form_session')
     #self.print_count = anvil.server.call('count_prints')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     if self.user['role'] == 'user':
       self.column_panel_2.clear()
-      self.link_home.visible = False
-      self.link_settings.visible = False
-      self.link_users.visible = False
-      self.link_orders.visible = False
-      self.link_prints.visible = False
-      self.link_inventory.visible = False
+      self.link_home.visible, self.link_settings.visible, self.link_users.visible, self.link_orders.visible, self.link_prints.visible, self.link_inventory.visible = False
       self.column_panel_2.add_component(Upload())
-    
-    #if self.form_session:
-      #self.column_panel_2.clear()
-      #self.column_panel_2.add_component(self.form_session)
-    self.plot_1.data = anvil.server.call('plot_prints_pie')
-    self.label_print_count.text = anvil.server.call('count_prints')
+    if self.form_session == 'print':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(Print(), full_width_row=True)
+    else:
+      self.plot_1.data = anvil.server.call('plot_prints_pie')
+      self.label_print_count.text = anvil.server.call('count_prints')
     
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -43,7 +38,7 @@ class Homepage(HomepageTemplate):
     
   def link_prints_click(self, **event_args):
     """This method is called when the link is clicked"""
-    #anvil.server.call('set_form_session', 'Print(), full_width_row=True')
+    anvil.server.call('set_form_session', 'print')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Print(), full_width_row=True)
 
@@ -54,6 +49,7 @@ class Homepage(HomepageTemplate):
 
   def link_home_click(self, **event_args):
     """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'homepage')
     open_form('Homepage')
 
   def link_upload_click(self, **event_args):

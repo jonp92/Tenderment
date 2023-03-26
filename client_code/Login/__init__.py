@@ -12,6 +12,7 @@ class Login(LoginTemplate):
   def button_login_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.users.login_with_form()
+    anvil.server.call('set_form_session', 'login')
     open_form('Homepage')
 
   def form_show(self, **event_args):

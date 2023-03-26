@@ -4,11 +4,12 @@ import anvil.server
 import anvil.media
 from ..PrintDetail import PrintDetail
 from ..StartPrint import StartPrint
+import json
 
 class PrintSummary(PrintSummaryTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.user = get_open_form().user
+    self.user = anvil.users.get_user()
     self.init_components(**properties)
     if self.user['role'] == 'user':
       self.button_details.visible = False
@@ -84,8 +85,10 @@ class PrintSummary(PrintSummaryTemplate):
     """This method is called when the button is clicked"""
     start_print = alert(StartPrint(item=self.item), title="Are you sure you want to print?", buttons=[("Print", True), ("Close", False)], large=True)
     if start_print:
-      return_message, return_data, return_status = anvil.server.call('rollklip', self.item.get_id(), self.item['name'])
-      n = Notification(f'{return_message} {return_status}')
+      filename, return_data, return_status = anvil.server.call('rollklip', self.item.get_id(), self.item['name'])
+      response_dict = json.loads(return_data)
+      notification_data = 'Filename: ' + filename + '\n' + 'Queue State: ' + response_dict['result']['queue_state'] + '\n' + str('Job ID: ' + response_dict['result']['queued_jobs'][-1]['job_id'])
+      n = Notification(notification_data, timeout=5, title=return_status)
       n.show()
       
     

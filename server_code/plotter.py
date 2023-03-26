@@ -6,6 +6,13 @@ from anvil.tables import app_tables
 import anvil.server
 import anvil.media
 
+@anvil.server.callable
+def count_prints():
+  import pandas as pd
+  list = [r['id'] for r in app_tables.prints.search()]
+  pd.Series(list).value_counts()
+  unique = count_unique(list)
+  return pd.Series(unique).sum()
 
 @anvil.server.callable
 def plot_prints_by_status():
@@ -30,6 +37,7 @@ def plot_prints_pie():
     {
       'name': r['name'],
       'status': r['status'],
+      'list' : r['id']
    }
    for r in app_tables.prints.search()
   ]

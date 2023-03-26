@@ -17,13 +17,6 @@ def authorization():
     return False
 
 @anvil.server.callable
-def count_prints():
-  import pandas as pd
-  list = [r['id'] for r in app_tables.prints.search()]
-  unique = count_unique(list)
-  return pd.Series(unique).sum()
-
-@anvil.server.callable
 def count_unique(list):
   import pandas as pd
   return pd.Series(list).value_counts()
