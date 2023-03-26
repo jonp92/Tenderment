@@ -3,7 +3,7 @@
 #import anvil.tables as tables
 #import anvil.tables.query as q
 #from anvil.tables import app_tables
-#import anvil.server
+import anvil.server
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -18,5 +18,9 @@
 #   return 42
 #
 @anvil.server.callable
-def store_form_session(open_form):
-  anvil.server.session
+def set_form_session(open_form):
+ anvil.server.session['open_form'] = open_form
+
+@anvil.server.callable
+def get_form_session():
+  return anvil.server.session.get('open_form')

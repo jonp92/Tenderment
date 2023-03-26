@@ -17,6 +17,7 @@ class Homepage(HomepageTemplate):
     self.user = anvil.users.get_user()
     set_default_error_handling(error_handler)
     self.version = "v0.5.5"
+    #self.form_session = anvil.server.call('get_form_session')
     #self.print_count = anvil.server.call('count_prints')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -29,14 +30,20 @@ class Homepage(HomepageTemplate):
       self.link_prints.visible = False
       self.link_inventory.visible = False
       self.column_panel_2.add_component(Upload())
+    
+    #if self.form_session:
+      #self.column_panel_2.clear()
+      #self.column_panel_2.add_component(self.form_session)
     self.plot_1.data = anvil.server.call('plot_prints_pie')
     self.label_print_count.text = anvil.server.call('count_prints')
+    
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
     
   def link_prints_click(self, **event_args):
     """This method is called when the link is clicked"""
+    #anvil.server.call('set_form_session', 'Print(), full_width_row=True')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Print(), full_width_row=True)
 
