@@ -1,21 +1,9 @@
-import anvil.secrets
-import anvil.users
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
+#import anvil.users
 import anvil.server
-import anvil.media
-
-@anvil.server.callable
-def count_prints():
-  import pandas as pd
-  list = [r['id'] for r in app_tables.prints.search()]
-  pd.Series(list).value_counts()
-  unique = count_unique(list)
-  return pd.Series(unique).sum()
 
 @anvil.server.callable
 def plot_prints_by_status():
+  from anvil.tables import app_tables
   import plotly.graph_objects as go
   import pandas as pd
   info = [
@@ -31,22 +19,24 @@ def plot_prints_by_status():
 
 @anvil.server.callable
 def plot_prints_pie():
+  from anvil.tables import app_tables
   import plotly.graph_objects as go
   import pandas as pd
   info = [
     {
       'name': r['name'],
       'status': r['status'],
-      'list' : r['id']
    }
    for r in app_tables.prints.search()
   ]
+  list = [r['id'] for r in app_tables.prints.search()]
   df = pd.DataFrame(info, columns=['name', 'status'])
   df = df.groupby('status').count().reset_index()
-  return go.Pie(labels=df['status'], values=df['name'])
+  return go.Pie(labels=df['status'], values=df['name']), pd.Series(pd.Series(list).value_counts()).sum()
 
 @anvil.server.callable
 def plot_stl(fileName):
+  from anvil.tables import app_tables
   import anvil.mpl_util
   import numpy as np
   import pandas as pd

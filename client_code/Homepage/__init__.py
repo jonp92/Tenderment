@@ -18,7 +18,6 @@ class Homepage(HomepageTemplate):
     set_default_error_handling(error_handler)
     self.item['version'] = "v0.5.8"
     self.form_session = anvil.server.call('get_form_session')
-    #self.print_count = anvil.server.call('count_prints')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     if self.user['role'] == 'user':
@@ -29,8 +28,7 @@ class Homepage(HomepageTemplate):
       self.column_panel_2.clear()
       self.column_panel_2.add_component(Print(), full_width_row=True)
     else:
-      self.plot_1.data = anvil.server.call('plot_prints_pie')
-      self.label_print_count.text = anvil.server.call('count_prints')
+      self.plot_1.data, self.label_print_count.text = anvil.server.call('plot_prints_pie')
     
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
