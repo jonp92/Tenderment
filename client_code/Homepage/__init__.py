@@ -16,7 +16,7 @@ class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     self.user = anvil.users.get_user()
     set_default_error_handling(error_handler)
-    self.version = "v0.5.5"
+    self.item['version'] = "v0.5.8"
     #self.form_session = anvil.server.call('get_form_session')
     #self.print_count = anvil.server.call('count_prints')
     # Set Form properties and Data Bindings.

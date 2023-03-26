@@ -109,7 +109,7 @@ components:
     name: label_version
     layout_properties: {row: XFAJSW, width_xs: 3, col_xs: 9, width: 208, grid_position: 'EHJDZL,MQMILY'}
     data_bindings:
-    - {property: text, code: self.version}
+    - {property: text, code: 'self.item[''version'']'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Tenderment, font_size: 26, font: '', spacing_above: small, icon_align: left,
