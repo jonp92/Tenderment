@@ -20,13 +20,28 @@ class Homepage(HomepageTemplate):
     self.form_session = anvil.server.call('get_form_session')
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.session_orientation()
+
+  def session_orientation(self, **event_args):
     if self.user['role'] == 'user':
       self.column_panel_2.clear()
       self.link_home.visible, self.link_settings.visible, self.link_users.visible, self.link_orders.visible, self.link_prints.visible, self.link_inventory.visible = False
       self.column_panel_2.add_component(Upload())
-    if self.form_session == 'print':
+    if self.form_session == 'Print':
       self.column_panel_2.clear()
       self.column_panel_2.add_component(Print(), full_width_row=True)
+    elif self.form_session == 'Inventory':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(Inventory()) 
+    elif self.form_session == 'Settings':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(Settings())  
+    elif self.form_session == 'Upload':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(Upload())
+    elif self.form_session == 'Users':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(Users(), full_width_row=True)         
     else:
       self.plot_1.data, self.label_print_count.text = anvil.server.call('plot_prints_pie')
     
@@ -36,7 +51,7 @@ class Homepage(HomepageTemplate):
     
   def link_prints_click(self, **event_args):
     """This method is called when the link is clicked"""
-    anvil.server.call('set_form_session', 'print')
+    anvil.server.call('set_form_session', 'Print')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Print(), full_width_row=True)
 
@@ -47,21 +62,24 @@ class Homepage(HomepageTemplate):
 
   def link_home_click(self, **event_args):
     """This method is called when the link is clicked"""
-    anvil.server.call('set_form_session', 'homepage')
+    anvil.server.call('set_form_session', 'Homepage')
     open_form('Homepage')
 
   def link_upload_click(self, **event_args):
     """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'Upload')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Upload())
 
   def link_orders_click(self, **event_args):
     """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'Orders')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Orders())
 
   def link_inventory_click(self, **event_args):
     """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'Inventory')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Inventory())
 
@@ -71,11 +89,13 @@ class Homepage(HomepageTemplate):
 
   def link_settings_click(self, **event_args):
     """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'Settings')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Settings(item=self.item))
 
   def link_users_click(self, **event_args):
     """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'Users')
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Users(), full_width_row=True)
 

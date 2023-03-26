@@ -10,7 +10,7 @@ class Inventory(InventoryTemplate):
     self.label_last_sync.text = [r['last_sync'] for r in app_tables.sync.search()][0]
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    if get_open_form().user['role'] == "superadmin":
+    if anvil.users.get_user()['role'] == "superadmin":
       self.button_settings.visible = True
     # Any code you write here will run before the form opens.
 
