@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .Infill import Infill
 
 class TableExplorer(TableExplorerTemplate):
   def __init__(self, **properties):
@@ -21,6 +22,7 @@ class TableExplorer(TableExplorerTemplate):
     if self.item['selected_table'] == 'Infill':
       columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in app_tables.infill.list_columns()]
       self.data_grid_table.columns = columns
+      self.repeating_panel_table.item_template = Infill
       self.repeating_panel_table.items = app_tables.infill.search()
       self.data_grid_table.columns = self.data_grid_table.columns
       self.refresh_data_bindings()
