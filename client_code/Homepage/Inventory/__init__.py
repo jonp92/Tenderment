@@ -22,7 +22,7 @@ class Inventory(InventoryTemplate):
     """This method is called when the button is clicked"""
     alert(InventorySettings(item=self.item), large=True)
 
-    
+     
 
 
 
