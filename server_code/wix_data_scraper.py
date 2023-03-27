@@ -31,7 +31,7 @@ def authorization():
     else:
       return False
     
-@anvil.server.callable    
+ 
 def get_wix_products(url):
   url = f"{API_URL}{url}"
   response = anvil.http.request(url,
