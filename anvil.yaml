@@ -53,7 +53,7 @@ native_deps: {head_html: "<link\n    rel=\"stylesheet\"\n    href=\"https://cdnj
 db_schema:
   infill:
     title: infill
-    client: search
+    client: full
     server: full
     columns:
     - name: infill
