@@ -1,0 +1,21 @@
+container: {type: DataRowPanel}
+components:
+- type: DataRowPanel
+  properties: {}
+  name: data_row_panel_1
+  layout_properties: {column: null}
+  components:
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {column: null}
+    components:
+    - type: Button
+      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Delete, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:trash'}
+      name: button_delete
+      layout_properties: {row: TYXXBE, width_xs: 2, col_xs: 10, width: 232.219}
+      event_bindings: {click: button_delete_click}
+is_package: true

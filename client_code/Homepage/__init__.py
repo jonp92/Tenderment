@@ -8,6 +8,7 @@ from .Orders import Orders
 from .Inventory import Inventory
 from .Settings import Settings
 from .Users import Users
+from .TableExplorer import TableExplorer
 
 def error_handler(err):
   alert(str(err), title="An error has occurred", large=True, dismissible=False)
@@ -50,6 +51,9 @@ class Homepage(HomepageTemplate):
     elif self.form_session == 'Users':
       self.column_panel_2.clear()
       self.column_panel_2.add_component(Users(), full_width_row=True)
+    elif self.form_session == 'TableExplorer':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(TableExplorer(), full_width_row=True)    
     
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""

@@ -23,8 +23,10 @@ class Settings(SettingsTemplate):
 
   def button_table_explorer_click(self, **event_args):
     """This method is called when the button is clicked"""
+    anvil.server.call('set_form_session', 'TableExplorer')
     form = get_open_form()
     form.column_panel_2.clear()
     form.column_panel_2.add_component(TableExplorer(), full_width_row=True)
+    
 
 
