@@ -22,7 +22,7 @@ API_KEY = anvil.secrets.get_secret('wix')
 wix_site_id = anvil.secrets.get_secret('wix-site-id')
 API_URL = f"https://www.wixapis.com/"
 headers = {'Authorization': f'{API_KEY}', 'User-Agent': f'{User_Agent}', 'Accept': "application/json, text/plain, */*", 'Content-Type': 'application/json', 'wix-site-id': f'{wix_site_id}'}
-@anvil.server.callable
+
 
 def authorization():
   if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
@@ -30,6 +30,7 @@ def authorization():
   else:
     return False
     
+@anvil.server.callable    
 def get_wix_products(url):
   url = f"{API_URL}{url}"
   response = anvil.http.request(url,
@@ -43,8 +44,9 @@ def get_wix_products(url):
 def edit_sqqty(variantId, qty):
   pass
 
+
+@anvil.server.callable(require_user=authorization())
 @anvil.server.background_task
-@anvil.server.callable()
 def set_wix_products():
   sync_row = app_tables.sync.get(id='products')
   sync_row.update(last_sync=date_string + '-' + time_string_tz)
