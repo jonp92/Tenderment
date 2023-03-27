@@ -6,10 +6,11 @@ from anvil.tables import app_tables
 import anvil.server
 
 def authorization():
-  if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
-    return True
-  else:
-    return False
+  if anvil.users.get_user():
+    if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
+      return True
+    else:
+      return False
 
 @anvil.server.callable
 def get_users():

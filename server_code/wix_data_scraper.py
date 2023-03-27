@@ -25,10 +25,11 @@ headers = {'Authorization': f'{API_KEY}', 'User-Agent': f'{User_Agent}', 'Accept
 
 
 def authorization():
-  if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
-    return True
-  else:
-    return False
+  if anvil.users.get_user():
+    if anvil.users.get_user()['role'] == 'admin' or 'superadmin':
+      return True
+    else:
+      return False
     
 @anvil.server.callable    
 def get_wix_products(url):
@@ -46,7 +47,6 @@ def edit_sqqty(variantId, qty):
 
 
 @anvil.server.callable(require_user=authorization())
-@anvil.server.background_task
 def set_wix_products():
   sync_row = app_tables.sync.get(id='products')
   sync_row.update(last_sync=date_string + '-' + time_string_tz)
@@ -66,3 +66,7 @@ def set_wix_products():
 @anvil.server.callable
 def get_wix_products_table():
   return app_tables.inventory.search()
+
+@anvil.server.background_task
+def sync_wix_data():
+  set_wix_products()

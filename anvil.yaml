@@ -1,10 +1,10 @@
 scheduled_tasks:
-- task_name: set_wix_products
+- task_name: sync_wix_data
   time_spec:
     n: 10
     every: minute
     at: {}
-  job_id: OHILZQZP
+  job_id: UHEHAXNL
 dependencies: []
 services:
 - source: /runtime/services/tables.yml
