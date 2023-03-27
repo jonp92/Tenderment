@@ -106,6 +106,13 @@ class Homepage(HomepageTemplate):
     self.column_panel_2.clear()
     self.column_panel_2.add_component(Users(), full_width_row=True)
 
+  def link_table_explorer_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    anvil.server.call('set_form_session', 'TableExplorer')
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(TableExplorer(), full_width_row=True)
+
+
 
 
 

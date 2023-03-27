@@ -103,3 +103,7 @@ def delete_stl(filename):
     stl_row.delete()
   else:
     raise Exception('You are not authorized to delete files.')
+
+@anvil.server.callable(require_user=authorization())
+def get_stl_data():
+  return app_tables.stls.client_writable_cascade()

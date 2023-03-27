@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..TableExplorer import TableExplorer
 
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
@@ -19,4 +20,11 @@ class Settings(SettingsTemplate):
   def Save_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('update_settings', self.item)
+
+  def button_table_explorer_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    form = get_open_form()
+    form.column_panel_2.clear()
+    form.column_panel_2.add_component(TableExplorer(), full_width_row=True)
+
 

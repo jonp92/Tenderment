@@ -44,7 +44,7 @@ def edit_sqqty(variantId, qty):
   pass
 
 @anvil.server.background_task
-@anvil.server.callable(require_user=authorization())
+@anvil.server.callable()
 def set_wix_products():
   sync_row = app_tables.sync.get(id='products')
   sync_row.update(last_sync=date_string + '-' + time_string_tz)

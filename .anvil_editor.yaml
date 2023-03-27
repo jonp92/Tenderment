@@ -4,6 +4,7 @@ unique_ids:
     Homepage: '1677636221537106069399558.61482'
     Homepage.Settings: '1679498354559817919403356.6919'
     Login: '1679501439575488656392643.3485'
+    Homepage.TableExplorer.Table: '1679938113923515072382265.1406'
     Homepage.Users.UserSummary: '1679579404907338650451210.1134'
     Homepage.Print: '1677765563569728769351108.7166'
     Homepage.Inventory: '167786688712932628928447.84715'
@@ -21,6 +22,7 @@ unique_ids:
     Homepage.Inventory.InventorySettings: '1678469783900109394472513.24364'
     Homepage.Upload: '1677780771823505990341348.18353'
     Homepage.Print.PrintDetail: '1677961608580596514108371.4974'
+    Homepage.TableExplorer: '1679938093225361245232361.91174'
   modules: {}
   server_modules:
     SessionRecorder: '167983834835469936024792.73831'
