@@ -3,6 +3,7 @@ container:
   type: HtmlTemplate
   properties: {tooltip: '', background: 'theme:Surface', foreground: '', border: '',
     visible: true, role: null, html: '@theme:standard-page.html'}
+  data_bindings: []
 components:
 - type: FlowPanel
   properties: {}
@@ -133,18 +134,21 @@ components:
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_1
-      layout_properties: {row: JTPTGJ, width_xs: 3, col_xs: 0, width: 145.3}
+      layout_properties: {row: JTPTGJ, width_xs: 2, col_xs: 0, width: 145.3}
     - type: Label
       properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-        visible: true, text: Unique Prints, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        visible: true, text: 'Prints in Database:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
         underline: false, icon: ''}
       name: label_2
-      layout_properties: {row: JTPTGJ, width_xs: 2, col_xs: 3, width: 86.8625}
+      layout_properties: {row: JTPTGJ, width_xs: 2, col_xs: 2, width: 136.667}
     - type: Label
-      properties: {}
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
       name: label_print_count
-      layout_properties: {row: JTPTGJ, width_xs: 1, col_xs: 5}
+      layout_properties: {row: JTPTGJ, width_xs: 1, col_xs: 4, width: 53.3333}
       data_bindings: []
   - type: Plot
     properties: {}
