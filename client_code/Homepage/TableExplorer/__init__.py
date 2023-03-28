@@ -69,8 +69,7 @@ class TableExplorer(TableExplorerTemplate):
     self.refresh_data_bindings()
 
   def button_add_row_click(self, **event_args):
-    self.item['selected_value'] = self.drop_down_selected_table.selected_value
-    self.repeating_panel_table.item_template = 
+    self.repeating_panel_table.item_template = AddRow
     self.repeating_panel_table.items = self.item
     self.refresh_data_bindings()
 
