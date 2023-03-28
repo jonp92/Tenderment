@@ -80,6 +80,14 @@ components:
           name: button_table_explorer
           layout_properties: {row: WPEEOF, width_xs: 5, col_xs: 1, width: 165.271}
           event_bindings: {click: button_table_explorer_click}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: Test Email, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: 'fa:envelope'}
+          name: button_test_email
+          layout_properties: {row: WPEEOF, width_xs: 5, col_xs: 6, width: 165.271}
+          event_bindings: {click: button_test_email_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: 'Save
