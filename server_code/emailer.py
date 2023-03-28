@@ -13,6 +13,8 @@ def test_email_send():
                  to = "jonathan@pressler.tech",
                  subject = "Test",
                  text = "This is a successful test of the Tenderment outbound email service.")
+  
 @anvil.email.handle_message(require_dkim=True)
 def handle_incoming_emails(msg):
-  msg.reply(text=f"Hi {msg.addressees.from_address.name}, thank you for your message.")  
+  msg.reply(text=f"Hi {msg.addressees.from_address.name}, thank you for your message.")
+  print("Email was just sent to " + msg.addressees.from_address.name)
