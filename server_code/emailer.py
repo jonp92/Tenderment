@@ -16,5 +16,15 @@ def test_email_send():
   
 @anvil.email.handle_message(require_dkim=True)
 def handle_incoming_emails(msg):
-  msg.reply(text=f"Hi {msg.addressees.from_address.name}, thank you for your message.")
-  print("Email was just sent to " + msg.addressees.from_address.name)
+  msg.reply(text="Thank you for your message.")
+  msg_row = app_tables.received_messages.add_row(
+              from_addr=msg.envelope.from_address, 
+              to=msg.envelope.recipient,
+              text=msg.text, 
+              html=msg.html
+            )
+  for a in msg.attachments:
+    app_tables.attachments.add_row(
+      message=msg_row, 
+      attachment=a
+    )

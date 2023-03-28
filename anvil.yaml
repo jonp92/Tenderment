@@ -97,6 +97,11 @@ db_schema:
     - name: selected_printer
       admin_ui: {width: 200}
       type: string
+  received_messages:
+    client: none
+    server: full
+    columns: []
+    title: received_messages
   prints:
     title: Prints
     client: none
