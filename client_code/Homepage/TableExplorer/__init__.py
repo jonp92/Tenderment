@@ -10,10 +10,12 @@ from .Printers import Printers
 from .Quality import Quality
 from .Settings import Settings
 from .TableView import TableView
+from .AddRow import AddRow
 
 class TableExplorer(TableExplorerTemplate):
   def __init__(self, **properties):
     self.repeating_panel_table.set_event_handler('x-refresh-stl-table', self.refresh_stl_table)
+    self.repeating_panel_table.set_event_handler('x-new-row', self.new_row_added)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
@@ -67,5 +69,12 @@ class TableExplorer(TableExplorerTemplate):
     self.refresh_data_bindings()
 
   def button_add_row_click(self, **event_args):
-    Notification('poke').show()
+    self.item['selected_value'] = self.drop_down_selected_table.selected_value
+    self.repeating_panel_table.item_template = 
+    self.repeating_panel_table.items = self.item
+    self.refresh_data_bindings()
+
+  def new_row_added(self, **event_args):
+    self.repeating_panel_table.item_template = TableView
+    self.refresh_data_bindings()
     
