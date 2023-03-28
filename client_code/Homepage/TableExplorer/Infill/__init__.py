@@ -12,3 +12,8 @@ class Infill(InfillTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_delete_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.item.delete()
+    self.parent.items = app_tables.infill.search()

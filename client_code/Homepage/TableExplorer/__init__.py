@@ -65,3 +65,6 @@ class TableExplorer(TableExplorerTemplate):
     client_table = anvil.server.call('get_stl_data')
     self.repeating_panel_table.items = client_table.search()
     self.refresh_data_bindings()
+
+  def button_add_row_click(self, **event_args):
+    """This method is called when the button is clicked"""
