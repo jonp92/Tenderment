@@ -67,4 +67,5 @@ class TableExplorer(TableExplorerTemplate):
     self.refresh_data_bindings()
 
   def button_add_row_click(self, **event_args):
-    """This method is called when the button is clicked"""
+    Notification('poke').show()
+    
