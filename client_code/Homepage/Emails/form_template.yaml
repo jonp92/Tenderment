@@ -17,7 +17,7 @@ components:
       - {id: NGQEBY, title: To, data_key: to, $$hashKey: 'object:64060'}
       - {id: BZSGVW, title: Subject, data_key: subject, $$hashKey: 'object:64256'}
       - {id: VNGTNI, title: Text, data_key: text, $$hashKey: 'object:64061'}
-      - {id: GVJUYG, title: Attachments, data_key: attachment, $$hashKey: 'object:64067'}
+      - {id: GVJUYG, title: Attachments, data_key: attachments, $$hashKey: 'object:64067'}
       auto_header: true
       tooltip: ''
       border: ''
