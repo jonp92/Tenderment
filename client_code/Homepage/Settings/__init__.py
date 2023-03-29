@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..TableExplorer import TableExplorer
+from .LogTail import LogTail
 
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
@@ -41,6 +42,14 @@ class Settings(SettingsTemplate):
     """This method is called when the button is clicked"""
     git_result = anvil.server.call('git_latest_config')
     Notification(git_result).show()
+
+  def button_tail_anvil_log_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    alert(LogTail(), title='Tail of Tenderment Anvil Log', large=True)
+
+
+
+
 
 
 

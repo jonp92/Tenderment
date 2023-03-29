@@ -104,6 +104,14 @@ components:
           name: button_git_pull
           layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 6, width: 165.271}
           event_bindings: {click: button_git_pull_click}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: Tail Anvil Log, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: 'fa:list'}
+          name: button_tail_anvil_log
+          layout_properties: {row: QUHTDX, width_xs: 5, col_xs: 1, width: 165.271}
+          event_bindings: {click: button_tail_anvil_log_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: 'Save
