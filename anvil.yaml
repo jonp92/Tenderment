@@ -102,7 +102,7 @@ db_schema:
     client: none
     server: full
     columns:
-    - name: attachments
+    - name: ''
       admin_ui: {order: 0, width: 200}
       type: link_multiple
       target: attachments
