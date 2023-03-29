@@ -88,6 +88,22 @@ components:
           name: button_test_email
           layout_properties: {row: WPEEOF, width_xs: 5, col_xs: 6, width: 165.271}
           event_bindings: {click: button_test_email_click}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: Restart Server, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: 'fa:power-off'}
+          name: button_restart_server
+          layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 1, width: 165.271}
+          event_bindings: {click: button_restart_server_click}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: Pull Config, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: 'fa:git'}
+          name: button_git_pull
+          layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 6, width: 165.271}
+          event_bindings: {click: button_git_pull_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: 'Save

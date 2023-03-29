@@ -32,6 +32,18 @@ class Settings(SettingsTemplate):
     """This method is called when the button is clicked"""
     anvil.server.call('test_email_send')
 
+  def button_restart_server_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('reset_server')
+    Notification('The Tenderment Anvil Service has been restarted on delta.badjholdings.com').show()
+
+  def button_git_pull_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    git_result = anvil.server.call('git_latest_config')
+    Notfication(git_result).show()
+
+
+
     
 
 
