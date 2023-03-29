@@ -102,24 +102,20 @@ db_schema:
     client: none
     server: full
     columns:
-    - name: ''
-      admin_ui: {order: 0, width: 200}
-      type: link_multiple
-      target: attachments
     - name: from_addr
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: to
-      admin_ui: {order: 2, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: subject
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: text
-      admin_ui: {order: 4, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: html
-      admin_ui: {order: 5, width: 200}
+      admin_ui: {width: 200}
       type: string
   prints:
     title: Prints
@@ -270,11 +266,11 @@ db_schema:
     server: full
     columns:
     - name: message
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: link_single
       target: received_messages
     - name: attachment
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: media
   roles:
     title: Roles
