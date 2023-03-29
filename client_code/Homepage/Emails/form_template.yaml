@@ -1,0 +1,39 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'QNKDTT,EUKZJZ', full_width_row: true}
+  components:
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: OHBQDV, title: From, data_key: from_addr, $$hashKey: 'object:64059'}
+      - {id: NGQEBY, title: To, data_key: to, $$hashKey: 'object:64060'}
+      - {id: BZSGVW, title: Subject, data_key: subject, $$hashKey: 'object:64256'}
+      - {id: VNGTNI, title: Text, data_key: text, $$hashKey: 'object:64061'}
+      - {id: GVJUYG, title: Attachments, data_key: attachment, $$hashKey: 'object:64067'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'HHTLNS,DBARNF', full_width_row: true}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Homepage.Emails.RowTemplate3}
+      name: repeating_panel_1
+      layout_properties: {}
+is_package: true

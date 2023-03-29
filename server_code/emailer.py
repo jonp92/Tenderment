@@ -36,7 +36,6 @@ def handle_incoming_emails(msg):
       message=msg_row, 
       attachment=a
     )
-  raise Exception('New email from ' + msg.envelope.from_address)
     
 @anvil.server.callable(require_user=authorization())
 def get_email_data():

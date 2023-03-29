@@ -11,7 +11,7 @@ from .Quality import Quality
 from .Settings import Settings
 from .TableView import TableView
 from .AddRow import AddRow
-from .Emails import Emails
+from .Email_Table import Email_Table
 
 class TableExplorer(TableExplorerTemplate):
   def __init__(self, **properties):
@@ -67,7 +67,7 @@ class TableExplorer(TableExplorerTemplate):
       client_table = anvil.server.call('get_email_data')
       columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in client_table.list_columns()]
       self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = Emails
+      self.repeating_panel_table.item_template = Email_Table
       self.repeating_panel_table.items = client_table.search()
       self.data_grid_table.columns = self.data_grid_table.columns
       self.refresh_data_bindings()      
