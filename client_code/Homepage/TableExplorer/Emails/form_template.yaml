@@ -25,10 +25,10 @@ components:
         border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
         auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
-      name: text_area_html
+      name: text_area_text
       layout_properties: {grid_position: 'PVDNFE,GRGCCN', full_width_row: true}
       data_bindings:
-      - {property: text, code: 'self.item[''html'']', writeback: true}
+      - {property: text, code: 'self.item[''text'']', writeback: true}
     - type: Label
       properties: {}
       name: label_subject
