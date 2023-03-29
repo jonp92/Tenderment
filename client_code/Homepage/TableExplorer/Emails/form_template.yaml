@@ -10,7 +10,7 @@ components:
   layout_properties: {grid_position: 'YKYPIV,FOIUHY', full_width_row: true}
   components:
   - type: ColumnPanel
-    properties: {col_widths: '{"UDIPKW":10,"EPOTDQ":10,"XVBDFQ":15,"UZVZKG":25}'}
+    properties: {col_widths: '{"UDIPKW":11,"XVBDFQ":16,"GRGCCN":16,"NIFBCM":17}'}
     name: column_panel_1
     layout_properties: {column: null}
     components:
@@ -19,26 +19,25 @@ components:
       name: label_from
       layout_properties: {grid_position: 'PVDNFE,UDIPKW', full_width_row: true}
       data_bindings:
-      - {property: text, code: 'self.item[''from'']'}
-    - type: Label
-      properties: {}
-      name: label_to
-      layout_properties: {grid_position: 'PVDNFE,EPOTDQ', full_width_row: true}
-      data_bindings:
-      - {property: text, code: 'self.item[''to'']'}
-    - type: Label
-      properties: {}
-      name: label_subject
-      layout_properties: {grid_position: 'PVDNFE,XVBDFQ', full_width_row: true}
-      data_bindings:
-      - {property: text, code: 'self.item[''subject'']'}
+      - {property: text, code: 'self.item[''from_addr'']'}
     - type: TextArea
       properties: {role: null, align: left, height: '', tooltip: '', placeholder: '',
         border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
         auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: text_area_html
-      layout_properties: {grid_position: 'PVDNFE,UZVZKG', full_width_row: true}
+      layout_properties: {grid_position: 'PVDNFE,GRGCCN', full_width_row: true}
       data_bindings:
       - {property: text, code: 'self.item[''html'']', writeback: true}
+    - type: Label
+      properties: {}
+      name: label_subject
+      layout_properties: {grid_position: 'PVDNFE,XVBDFQ', full_width_row: true}
+      data_bindings: []
+    - type: Label
+      properties: {}
+      name: label_to
+      layout_properties: {grid_position: 'PVDNFE,NIFBCM', full_width_row: true}
+      data_bindings:
+      - {property: text, code: 'self.item[''to'']'}
 is_package: true
