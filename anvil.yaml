@@ -106,6 +106,21 @@ db_schema:
       admin_ui: {order: 0, width: 200}
       type: link_multiple
       target: attachments
+    - name: from_addr
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: to
+      admin_ui: {order: 2, width: 200}
+      type: string
+    - name: subject
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: text
+      admin_ui: {order: 4, width: 200}
+      type: string
+    - name: html
+      admin_ui: {order: 5, width: 200}
+      type: string
   prints:
     title: Prints
     client: none
