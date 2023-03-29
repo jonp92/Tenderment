@@ -10,8 +10,9 @@ class RowTemplate3(RowTemplate3Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    if self.item['attachments']:
-      self.image_1.source = self.item['attachments'][0]['attachment']
+    attachments = anvil.server.call('get_attachments', self.item)
+    if attachments:
+      self.image_1.source = attachments
 
     # Any code you write here will run before the form opens.
 

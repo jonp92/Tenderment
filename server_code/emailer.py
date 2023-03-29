@@ -36,7 +36,6 @@ def handle_incoming_emails(msg):
                      message=msg_row, 
                      attachment=a
                      )
-  msg_row.update(attachments=attachment_row)
     
 @anvil.server.callable(require_user=authorization())
 def get_email_data():
@@ -44,5 +43,5 @@ def get_email_data():
 
 @anvil.server.callable(require_user=authorization())
 def get_attachments(msg_row):
-  attachments = app_tables.attachments.get(msg_row=msg_row)
+  attachments = app_tables.attachments.get(message=msg_row)
   return attachments['attachment'] 
