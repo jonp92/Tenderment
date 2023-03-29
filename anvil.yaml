@@ -101,7 +101,26 @@ db_schema:
     title: received_messages
     client: none
     server: full
-    columns: []
+    columns:
+    - name: from_addr
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: to
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: subject
+      admin_ui: {order: 2, width: 200}
+      type: string
+    - name: text
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: html
+      admin_ui: {order: 4, width: 200}
+      type: string
+    - name: attachments
+      admin_ui: {order: 5, width: 200}
+      type: link_multiple
+      target: attachments
   prints:
     title: Prints
     client: none
@@ -249,7 +268,14 @@ db_schema:
     title: attachments
     client: none
     server: full
-    columns: []
+    columns:
+    - name: attachment
+      admin_ui: {order: 0, width: 200}
+      type: media
+    - name: msg_row
+      admin_ui: {order: -1, width: 200}
+      type: link_single
+      target: received_messages
   roles:
     title: Roles
     client: none
