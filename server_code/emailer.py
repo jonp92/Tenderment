@@ -39,4 +39,9 @@ def handle_incoming_emails(msg):
     
 @anvil.server.callable(require_user=authorization())
 def get_email_data():
-  return app_tables.received_messages.client_writable_cascade()    
+  return app_tables.received_messages.client_writable_cascade()
+
+@anvil.server.callable(require_user=authorization())
+def get_attachments(msg_row):
+  attachments = app_tables.attachments.get(msg_row=msg_row)
+  return attachments['attachment'] 
