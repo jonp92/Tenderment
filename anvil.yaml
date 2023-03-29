@@ -101,7 +101,11 @@ db_schema:
     title: received_messages
     client: none
     server: full
-    columns: []
+    columns:
+    - name: attachments
+      admin_ui: {order: 0, width: 200}
+      type: link_multiple
+      target: attachments
   prints:
     title: Prints
     client: none
