@@ -40,7 +40,7 @@ class Settings(SettingsTemplate):
   def button_git_pull_click(self, **event_args):
     """This method is called when the button is clicked"""
     git_result = anvil.server.call('git_latest_config')
-    Notfication(git_result).show()
+    Notification(git_result).show()
 
 
 
