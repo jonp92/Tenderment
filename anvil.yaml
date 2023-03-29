@@ -260,7 +260,14 @@ db_schema:
   attachments:
     client: none
     server: full
-    columns: []
+    columns:
+    - name: attachment
+      admin_ui: {order: 0, width: 200}
+      type: media
+    - name: msg_row
+      admin_ui: {order: 1, width: 200}
+      type: link_single
+      target: received_messages
     title: attachments
   roles:
     title: Roles
