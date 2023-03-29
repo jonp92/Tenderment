@@ -8,7 +8,8 @@ from anvil.tables import app_tables
 
 class Emails(EmailsTemplate):
   def __init__(self, **properties):
-    self.item = anvil.server.call('get_email_data')
+    email_data = anvil.server.call('get_email_data')
+    self.item = email_data.search()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
