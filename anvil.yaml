@@ -114,9 +114,6 @@ db_schema:
     - name: html
       admin_ui: {width: 200}
       type: string
-    - name: attachment
-      admin_ui: {order: 4, width: 200}
-      type: media
   prints:
     title: Prints
     client: none
