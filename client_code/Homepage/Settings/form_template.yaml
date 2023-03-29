@@ -104,29 +104,58 @@ components:
           name: button_git_pull
           layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 6, width: 165.271}
           event_bindings: {click: button_git_pull_click}
-        - type: Button
-          properties: {role: filled-button, align: center, tooltip: '', border: '',
-            enabled: true, foreground: '', visible: true, text: Tail Anvil Log, font_size: null,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '', bold: false, underline: false, icon: 'fa:list'}
-          name: button_tail_anvil_log
-          layout_properties: {row: QUHTDX, width_xs: 5, col_xs: 1, width: 165.271}
-          event_bindings: {click: button_tail_anvil_log_click}
         - type: Label
           properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Line to Tail:', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: ''}
           name: label_lines_tail
-          layout_properties: {row: EUEOKF, width_xs: 3, col_xs: 0, width: 87.1667}
+          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 1, width: 87.1667}
+        - type: Label
+          properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+            visible: true, text: 'Log to Tail:', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_log
+          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 6, width: 165.271}
         - type: TextBox
           properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '50',
             border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
             font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
             background: '', bold: false, underline: false}
           name: text_box_lines_tail
-          layout_properties: {grid_position: 'GDEMVD,LBIISY', row: EUEOKF, width_xs: 3,
-            col_xs: 3, width: 133.271}
+          layout_properties: {grid_position: 'GDEMVD,LBIISY', row: RMOGFQ, width_xs: 3,
+            col_xs: 2, width: 133.271}
+        - type: DropDown
+          properties:
+            role: null
+            align: full
+            tooltip: ''
+            placeholder: ''
+            border: ''
+            enabled: true
+            foreground: ''
+            items: [tenderment_anvil, TenderSlicer]
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: ''
+            bold: false
+            underline: false
+            include_placeholder: false
+          name: drop_down_log_selected
+          layout_properties: {row: RMOGFQ, width_xs: 5, col_xs: 6, width: 165.271}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: Tail Log, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: 'fa:list'}
+          name: button_tail_log
+          layout_properties: {row: VCDYWN, width_xs: 6, col_xs: 3, width: 165.271}
+          event_bindings: {click: button_tail_anvil_log_click}
     - type: Button
       properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: 'Save
