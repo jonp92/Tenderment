@@ -31,7 +31,7 @@ components:
         border: ''
         enabled: true
         foreground: ''
-        items: [Infill, Quality, Printers, Settings, STLs]
+        items: [Infill, Emails, Quality, Printers, Settings, STLs]
         visible: true
         font_size: null
         font: ''
@@ -43,7 +43,7 @@ components:
         underline: false
         include_placeholder: true
       name: drop_down_selected_table
-      layout_properties: {row: OIARFB, width_xs: 3, col_xs: 5, width: 220}
+      layout_properties: {row: OIARFB, width_xs: 3, col_xs: 5, width: 363.333}
       event_bindings: {change: drop_down_selected_table_change}
       data_bindings:
       - {property: selected_value, code: 'self.item[''selected_table'']', writeback: true}
