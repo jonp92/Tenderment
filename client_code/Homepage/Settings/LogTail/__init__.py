@@ -7,9 +7,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class LogTail(LogTailTemplate):
-  def __init__(self, **properties):
+  def __init__(self, tail_lines, **properties):
     # Set Form properties and Data Bindings.
-    self.text_area_log_data.text = anvil.server.call('tail_log')
+    self.text_area_log_data.text = anvil.server.call('tail_log', tail_lines)
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.

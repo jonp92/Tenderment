@@ -45,7 +45,7 @@ class Settings(SettingsTemplate):
 
   def button_tail_anvil_log_click(self, **event_args):
     """This method is called when the button is clicked"""
-    alert(LogTail(), title='Tail of Tenderment Anvil Log', large=True)
+    alert(LogTail(self.text_box_lines_tail.text), title='Tail of Tenderment Anvil Log', large=True)
 
 
 
