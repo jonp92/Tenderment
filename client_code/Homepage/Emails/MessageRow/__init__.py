@@ -11,6 +11,7 @@ class MessageRow(MessageRowTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     attachments = anvil.server.call('get_attachments', self.item)
+    print(attachments)
     if attachments:
       self.image_1.source = attachments
 
