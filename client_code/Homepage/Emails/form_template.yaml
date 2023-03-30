@@ -25,7 +25,7 @@ components:
         width: '150'}
       auto_header: true
       tooltip: ''
-      border: ''
+      border: 'radius 2px '
       foreground: ''
       rows_per_page: 20
       visible: true

@@ -1021,6 +1021,10 @@ input[disabled] ~ span {
   border-right: 0;
 }
 
+.anvil-role-outline-data-grid.anvil-data-grid {
+  border-radius: 12px;
+  text-align: center !important;
+}
 
 /*Plots*/
 
