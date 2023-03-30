@@ -16,8 +16,18 @@ class Compose(ComposeTemplate):
   def button_send_click(self, **event_args):
     """This method is called when the button is clicked"""
     with Notification('Email sent to ' + self.item['to'], title='Email Sent!', style='success'):
-      anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], file.get_bytes())
+      attachment = app_tables.outgoing_attachments.get()
+      if attachment:
+        anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment)
+      else:
+        attachment = None
+        anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment)
     self.raise_event('x-close-alert', value=True)
+
+  def file_loader_attach_change(self, file, **event_args):
+    """This method is called when a new file is loaded into this FileLoader"""
+    app_tables.outgoing_attachments.add_row(attachment=file)
+
     
     
     

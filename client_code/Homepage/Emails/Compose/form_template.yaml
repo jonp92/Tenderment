@@ -92,6 +92,7 @@ components:
             icon: fa:upload
           name: file_loader_attach
           layout_properties: {row: JULQRV, width_xs: 2, col_xs: 8, width: 126.438}
+          event_bindings: {change: file_loader_attach_change}
         - type: Button
           properties: {role: filled-button, align: center, tooltip: '', border: '',
             enabled: true, foreground: '', visible: true, text: Send, font_size: null,

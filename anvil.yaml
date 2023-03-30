@@ -234,6 +234,14 @@ db_schema:
       admin_ui: {width: 200}
       type: link_single
       target: prints
+  outgoing_attachments:
+    client: none
+    server: full
+    columns:
+    - name: attachment
+      admin_ui: {order: 0, width: 200}
+      type: media
+    title: outgoing_attachments
   notes:
     title: Notes
     client: none
