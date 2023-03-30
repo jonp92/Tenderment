@@ -28,6 +28,7 @@ class Emails(EmailsTemplate):
           if c.checked == True:
             r.item.delete()
     self.get_email_data()
+    self.refresh_data_bindings()
     
 
 
