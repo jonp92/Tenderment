@@ -44,4 +44,7 @@ def get_email_data():
 @anvil.server.callable(require_user=authorization())
 def get_attachments(msg_row):
   attachments = app_tables.attachments.get(message=msg_row)
-  return attachments['attachment'] 
+  if attachments['attachment']:
+    return attachments['attachment']
+  else:
+    return False
