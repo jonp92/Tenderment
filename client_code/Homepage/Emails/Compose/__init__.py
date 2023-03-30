@@ -19,6 +19,7 @@ class Compose(ComposeTemplate):
       attachment = app_tables.outgoing_attachments.get()
       if attachment:
         anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment['attachment'])
+        attachment.delete()
       else:
         attachment = None
         anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment)
