@@ -235,7 +235,7 @@ db_schema:
       type: link_single
       target: prints
   outgoing_attachments:
-    client: none
+    client: full
     server: full
     columns:
     - name: attachment

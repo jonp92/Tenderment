@@ -18,7 +18,7 @@ class Compose(ComposeTemplate):
     with Notification('Email sent to ' + self.item['to'], title='Email Sent!', style='success'):
       attachment = app_tables.outgoing_attachments.get()
       if attachment:
-        anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment)
+        anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment['attachment'])
       else:
         attachment = None
         anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], attachment)
