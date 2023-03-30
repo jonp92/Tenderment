@@ -18,7 +18,7 @@ class Settings(SettingsTemplate):
     
     # Any code you write here will run before the form opens.
 
-  def Save_click(self, **event_args):
+  def save_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('update_settings', self.item)
 
