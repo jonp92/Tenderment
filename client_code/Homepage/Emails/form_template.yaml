@@ -20,8 +20,9 @@ components:
       - {id: BZSGVW, title: Subject, data_key: subject, $$hashKey: 'object:64256',
         width: 177, expand: false}
       - {id: VNGTNI, title: Message, data_key: html, $$hashKey: 'object:64061', width: 215,
-        expand: false}
-      - {id: GVJUYG, title: Attachments, data_key: attachments, $$hashKey: 'object:64067'}
+        expand: true}
+      - {id: GVJUYG, title: Attachments, data_key: attachments, $$hashKey: 'object:64067',
+        width: '150'}
       auto_header: true
       tooltip: ''
       border: ''
