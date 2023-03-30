@@ -52,18 +52,19 @@ components:
       components:
       - type: Button
         properties: {role: filled-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: true, text: Delete, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: false, underline: false, icon: 'fa:trash'}
-        name: delete
-        layout_properties: {row: EIWLHK, width_xs: 3, col_xs: 0, width: 157.15}
-        event_bindings: {click: delete_click}
-      - type: Button
-        properties: {role: filled-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: '', visible: true, text: Compose, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '', bold: false, underline: false, icon: 'fa:envelope'}
         name: button_compose
-        layout_properties: {row: EIWLHK, width_xs: 3, col_xs: 3, width: 139.95}
+        layout_properties: {row: EIWLHK, width_xs: 2, col_xs: 0, width: 139.95}
+        event_bindings: {click: button_compose_click}
+      - type: Button
+        properties: {role: filled-button, align: center, tooltip: '', border: '',
+          enabled: true, foreground: '', visible: true, text: Delete, font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false, icon: 'fa:trash'}
+        name: delete
+        layout_properties: {row: EIWLHK, width_xs: 2, col_xs: 2, width: 157.15}
+        event_bindings: {click: delete_click}
     data_bindings: []
 is_package: true

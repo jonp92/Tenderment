@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .Compose import Compose
 
 class Emails(EmailsTemplate):
   def __init__(self, **properties):
@@ -30,6 +31,11 @@ class Emails(EmailsTemplate):
     email_data = self.get_email_data()
     self.item = email_data.search()
     self.refresh_data_bindings()
+
+  def button_compose_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    alert(Compose(), large=True, buttons=[])
+
     
 
 

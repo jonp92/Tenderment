@@ -48,3 +48,11 @@ def get_attachments(msg_row):
   attachments = app_tables.attachments.get(message=msg_row)
   if attachments:
     return attachments['attachment']
+
+@anvil.server.callable
+def send_email(to, subject, msg_body):
+  anvil.email.send(from_name = "Tenderment",
+                 from_address = "support@tenderment.com",  
+                 to = to,
+                 subject = subject,
+                 text = msg_body)
