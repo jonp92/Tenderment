@@ -54,7 +54,10 @@ class Homepage(HomepageTemplate):
     elif self.form_session == 'TableExplorer':
       self.column_panel_2.clear()
       self.column_panel_2.add_component(TableExplorer(), full_width_row=True)    
-    
+    elif self.form_session == 'Emails':
+      self.column_panel_2.clear()
+      self.column_panel_2.add_component(Emails(), full_width_row=True)   
+
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
     anvil.users.configure_account_with_form()
