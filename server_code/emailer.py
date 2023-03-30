@@ -50,9 +50,10 @@ def get_attachments(msg_row):
     return attachments['attachment']
 
 @anvil.server.callable
-def send_email(to, subject, msg_body):
+def send_email(to, subject, msg_body, attachments):
   anvil.email.send(from_name = "Tenderment",
                  from_address = "support@tenderment.com",  
                  to = to,
                  subject = subject,
-                 text = msg_body)
+                 text = msg_body,
+                 attachments= attachments)

@@ -16,7 +16,7 @@ class Compose(ComposeTemplate):
   def button_send_click(self, **event_args):
     """This method is called when the button is clicked"""
     with Notification('Email sent to ' + self.item['to'], title='Email Sent!', style='success'):
-      anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'])
+      anvil.server.call('send_email', self.item['to'], self.item['subject'], self.item['msg_body'], file.get_bytes())
     self.raise_event('x-close-alert', value=True)
     
     

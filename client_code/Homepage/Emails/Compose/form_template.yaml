@@ -65,6 +65,33 @@ components:
         name: grid_panel_2
         layout_properties: {grid_position: 'GMOJUC,GCAMEU'}
         components:
+        - type: FileLoader
+          properties:
+            role: filled-button
+            show_state: true
+            align: center
+            tooltip: ''
+            border: ''
+            file_types: null
+            enabled: true
+            files: []
+            foreground: ''
+            visible: true
+            text: Attach
+            font_size: null
+            font: ''
+            spacing_above: small
+            icon_align: left
+            spacing_below: small
+            italic: false
+            file: null
+            background: ''
+            bold: false
+            underline: false
+            multiple: false
+            icon: fa:upload
+          name: file_loader_attach
+          layout_properties: {row: JULQRV, width_xs: 2, col_xs: 8, width: 126.438}
         - type: Button
           properties: {role: filled-button, align: center, tooltip: '', border: '',
             enabled: true, foreground: '', visible: true, text: Send, font_size: null,
