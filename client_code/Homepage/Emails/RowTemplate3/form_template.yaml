@@ -6,7 +6,9 @@ components:
   layout_properties: {column: GVJUYG}
   data_bindings: []
 - type: RichText
-  properties: {}
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: small,
+    spacing_below: small, data: null, background: '', format: markdown}
   name: rich_text_html
   layout_properties: {column: VNGTNI}
   data_bindings:
