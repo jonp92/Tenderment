@@ -14,3 +14,8 @@ class Emails(EmailsTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def delete_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    print(self.repeating_panel_1.get_components())
+
