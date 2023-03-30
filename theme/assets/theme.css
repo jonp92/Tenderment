@@ -1023,6 +1023,7 @@ input[disabled] ~ span {
 
 .anvil-role-outline-data-grid.anvil-data-grid {
   border-radius: 12px;
+  border: 1px solid
   text-align: center !important;
 }
 

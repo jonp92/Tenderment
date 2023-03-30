@@ -49,6 +49,9 @@ roles:
   components: [TextBox, TextArea, DatePicker, DropDown]
 - name: input-error
   components: [TextBox, TextArea, DatePicker, DropDown]
+- name: outline-data-grid
+  components: [DataGrid]
+  display_in_toolbox: false
 color_scheme:
   preset_groups:
   - name: Colour Scheme
