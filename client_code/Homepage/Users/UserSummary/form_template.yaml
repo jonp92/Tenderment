@@ -110,12 +110,20 @@ components:
       layout_properties: {row: SQINMX, width_xs: 12, col_xs: 0, width: 607.667}
       data_bindings: []
     - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Delete, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:user'}
+      name: button_delete_user
+      layout_properties: {column: ZWRMGK, row: EESHEG, width_xs: 2, col_xs: 0, width: 128.885}
+      event_bindings: {click: button_delete_user_click}
+    - type: Button
       properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Cancel, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:times-circle'}
       name: button_cancel
-      layout_properties: {row: EESHEG, width_xs: 5, col_xs: 1, width: 172.417}
+      layout_properties: {row: EESHEG, width_xs: 2, col_xs: 8, width: 172.417}
       event_bindings: {click: button_cancel_click}
     - type: Button
       properties: {role: filled-button, align: left, tooltip: '', border: '', enabled: true,
@@ -123,14 +131,6 @@ components:
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:floppy-o'}
       name: button_save
-      layout_properties: {row: EESHEG, width_xs: 5, col_xs: 6, width: 104.938}
+      layout_properties: {row: EESHEG, width_xs: 2, col_xs: 10, width: 104.938}
       event_bindings: {click: button_save_click}
-  - type: Button
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Delete, font_size: null, font: '', spacing_above: large,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:user'}
-    name: button_delete_user
-    layout_properties: {column: ZWRMGK}
-    event_bindings: {click: button_delete_user_click}
 is_package: true
