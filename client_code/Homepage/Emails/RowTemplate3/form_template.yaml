@@ -5,4 +5,10 @@ components:
   name: image_1
   layout_properties: {column: GVJUYG}
   data_bindings: []
+- type: RichText
+  properties: {}
+  name: rich_text_html
+  layout_properties: {column: VNGTNI}
+  data_bindings:
+  - {property: content, code: 'self.item[''html'']'}
 is_package: true
