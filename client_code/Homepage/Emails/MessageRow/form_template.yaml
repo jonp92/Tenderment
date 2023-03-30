@@ -5,6 +5,7 @@ components:
   name: image_1
   layout_properties: {column: GVJUYG}
   data_bindings: []
+  event_bindings: {mouse_down: image_1_mouse_down}
 - type: RichText
   properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
     foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: small,
