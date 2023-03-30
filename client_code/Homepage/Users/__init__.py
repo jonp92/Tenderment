@@ -40,7 +40,7 @@ class Users(UsersTemplate):
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
-    with Notification('Added User ' + self.text_box_first_name.text + ' ' + self.text_box_last_name.text):
+    with Notification('Added User ' + self.text_box_first_name.text + ' ' + self.text_box_last_name.text, title='User Added', style='success'):
       anvil.server.call('add_user', self.text_box_first_name.text, self.text_box_last_name.text, self.text_box_email.text, self.drop_down_role.selected_value, self.check_box_enabled.checked, self.check_box_confirmed_email.checked, self.text_box_password.text)
       self.get_users()
       self.refresh_data_bindings()

@@ -34,13 +34,13 @@ class Settings(SettingsTemplate):
     """This method is called when the button is clicked"""
     send_test_email = alert(TestEmail(item=self.item), title='Enter an email address to send a test message.', large=True)
     if send_test_email:
-      with Notification('A test email was sent to ' + self.item['test_email_address']):
+      with Notification('A test email was sent to ' + self.item['test_email_address'], style='success', title='Email Sent!'):
         anvil.server.call('test_email_send', self.item['test_email_address'])
 
   def button_restart_server_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('reset_server')
-    Notification('The Tenderment Anvil Service has been restarted on delta.badjholdings.com').show()
+    Notification('The Tenderment Anvil Service has been restarted on delta.badjholdings.com', style='success').show()
 
   def button_git_pull_click(self, **event_args):
     """This method is called when the button is clicked"""

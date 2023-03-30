@@ -26,9 +26,9 @@ class Upload(UploadTemplate):
       self.image_1.source = self.png
       self.uploaded_file = uploaded_file
       if self.uploaded_file == "File Already Exist":
-        Notification(uploaded_file).show()
+        Notification(uploaded_file, style='danger').show()
       else:
-        Notification(uploaded_file, title="File Uploaded Successfully").show()
+        Notification(uploaded_file, title="File Uploaded Successfully", style='success').show()
       self.refresh_data_bindings()
       self.file_loader_1.clear()
     elif file.name.endswith('.stl'):
