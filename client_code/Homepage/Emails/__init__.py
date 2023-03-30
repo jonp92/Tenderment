@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 
 class Emails(EmailsTemplate):
   def __init__(self, **properties):
-    self.get_email_data()
+    email_data = self.get_email_data()
     self.item = email_data.search()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -16,7 +16,7 @@ class Emails(EmailsTemplate):
     # Any code you write here will run before the form opens.
 
   def get_email_data(self, **event_args):
-    email_data = anvil.server.call('get_email_data')
+    return anvil.server.call('get_email_data')
   
   def delete_click(self, **event_args):
     """This method is called when the button is clicked"""
