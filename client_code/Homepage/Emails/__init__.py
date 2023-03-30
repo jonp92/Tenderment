@@ -17,5 +17,12 @@ class Emails(EmailsTemplate):
 
   def delete_click(self, **event_args):
     """This method is called when the button is clicked"""
-    print(self.repeating_panel_1.get_components())
+    # Step through each template form (row) in the repeating panel.
+    for r in self.repeating_panel_1.get_components():
+    # Step through all the components that make up the row.
+      for c in r.get_components():
+        if type(c) is CheckBox:
+          if c.checked == True:
+            r.item.delete()
+
 
