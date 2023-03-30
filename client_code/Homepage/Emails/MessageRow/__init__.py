@@ -10,10 +10,9 @@ class MessageRow(MessageRowTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    attachments = anvil.server.call('get_attachments', self.item)
-    print(attachments)
-    if attachments:
-      self.image_1.source = attachments
+    #attachments = anvil.server.call('get_attachments', self.item)
+    #if attachments:
+      #self.image_1.source = attachments
 
     # Any code you write here will run before the form opens.
 
