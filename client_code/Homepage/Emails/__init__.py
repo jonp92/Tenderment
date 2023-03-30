@@ -27,7 +27,7 @@ class Emails(EmailsTemplate):
         if type(c) is CheckBox:
           if c.checked == True:
             r.item.delete()
-    self.get_email_data()
+    self.item = self.get_email_data()
     self.refresh_data_bindings()
     
 
