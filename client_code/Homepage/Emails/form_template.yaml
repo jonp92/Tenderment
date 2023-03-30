@@ -14,7 +14,7 @@ components:
       role: null
       columns:
       - {id: OHBQDV, title: From, data_key: from_addr, $$hashKey: 'object:64059',
-        width: 201, expand: false}
+        width: 216, expand: false}
       - {id: NGQEBY, title: To, data_key: to, $$hashKey: 'object:64060', width: 201,
         expand: false}
       - {id: BZSGVW, title: Subject, data_key: subject, $$hashKey: 'object:64256',
