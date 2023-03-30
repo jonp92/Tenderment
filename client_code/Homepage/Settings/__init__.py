@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..TableExplorer import TableExplorer
 from .LogTail import LogTail
+from .TestEmail import TestEmail
 
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
@@ -31,7 +32,10 @@ class Settings(SettingsTemplate):
 
   def button_test_email_click(self, **event_args):
     """This method is called when the button is clicked"""
-    anvil.server.call('test_email_send')
+    send_test_email = alert(TestEmail(item=self.item), title='Enter an email address to send a test message.', large=True)
+    if send_test_email:
+      with Notification('A test email was sent to ' + self.item['test_email_address']):
+        anvil.server.call('test_email_send', self.item['test_email_address'])
 
   def button_restart_server_click(self, **event_args):
     """This method is called when the button is clicked"""

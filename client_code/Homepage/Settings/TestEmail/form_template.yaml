@@ -1,0 +1,38 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'KJGBQO,NAPQWW'}
+  components:
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {grid_position: 'LXNDSG,OESDPI'}
+    components:
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_1
+      layout_properties: {row: VMORZY, width_xs: 3, col_xs: 4}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Email Address:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: labeL_email
+      layout_properties: {row: AROEME, width_xs: 2, col_xs: 2, width: 136.667}
+    - type: TextBox
+      properties: {}
+      name: text_box_email_address
+      layout_properties: {row: AROEME, width_xs: 6, col_xs: 4}
+      data_bindings:
+      - {property: text, code: 'self.item[''test_email_address'']', writeback: true}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_2
+      layout_properties: {row: KVURDH, width_xs: 3, col_xs: 4}
+is_package: true

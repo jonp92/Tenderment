@@ -14,10 +14,10 @@ def authorization():
       return False
 
 @anvil.server.callable
-def test_email_send():
+def test_email_send(to):
   anvil.email.send(from_name = "Tenderment",
                  from_address = "support@tenderment.com",  
-                 to = "jonathan@pressler.tech",
+                 to = to,
                  subject = "Test",
                  text = "This is a successful test of the Tenderment outbound email service.")
   
