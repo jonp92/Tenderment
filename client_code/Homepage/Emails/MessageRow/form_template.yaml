@@ -1,7 +1,13 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  properties: {role: border-bottom, align: left, tooltip: '', border: '', foreground: '',
+    auto_display_data: true, visible: true, font_size: null, font: '', spacing_above: none,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false}
 components:
 - type: Image
-  properties: {}
+  properties: {role: rounded-borders, vertical_align: center, height: '200', tooltip: '',
+    border: '', foreground: '', visible: true, display_mode: zoom_to_fill, spacing_above: small,
+    source: '', spacing_below: small, background: '', horizontal_align: center}
   name: image_1
   layout_properties: {column: GVJUYG}
   data_bindings: []

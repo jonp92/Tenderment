@@ -54,6 +54,8 @@ roles:
   display_in_toolbox: false
 - name: rounded-card
   components: [RepeatingPanel]
+- {name: border-bottom, components: null}
+- {name: rounded-borders, components: null}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

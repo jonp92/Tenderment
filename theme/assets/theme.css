@@ -1061,6 +1061,19 @@ input[disabled] ~ span {
   padding: 15px;
 }
 
+.anvil-role-rounded-borders {
+  border-radius: 12px;
+  border: 1px solid %color:Surface Variant%;
+}
+
+.anvil-role-border-bottom {
+  border-bottom: 1px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-style: groove;
+}
+
 /*Plots*/
 
 div.plot-container.plotly svg.main-svg {
