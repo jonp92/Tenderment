@@ -61,21 +61,21 @@ components:
             ', font_size: null, font: '', spacing_above: medium, icon_align: left,
           spacing_below: small, italic: false, background: '', bold: false, underline: false,
           icon: 'fa:floppy-o'}
-        name: save
+        name: button_slicing_options_save
         layout_properties: {row: LBHVIR, width_xs: 4, col_xs: 4, width: 99.9875, grid_position: 'FMYIFT,LPAMHA'}
-        event_bindings: {click: save_click}
+        event_bindings: {click: button_slicing_options_save_click}
     - type: ColumnPanel
       properties: {role: outlined-card, col_widths: '{}'}
       name: outlined_card_1
-      layout_properties: {grid_position: 'JXGLNO,UXZGYJ', row: RVFWHD, width_xs: 6,
-        col_xs: 0}
+      layout_properties: {grid_position: 'AOZXIW,DCRZGJ', row: RVFWHD, width_xs: 6,
+        col_xs: 6}
       components:
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
           visible: true, text: Tools, font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: true, icon: ''}
-        name: label_5
+        name: label_tools
         layout_properties: {grid_position: 'SIYGUC,NRXRWI'}
       - type: GridPanel
         properties: {}
@@ -166,4 +166,49 @@ components:
           name: button_tail_log
           layout_properties: {row: VCDYWN, width_xs: 6, col_xs: 3, width: 165.271}
           event_bindings: {click: button_tail_anvil_log_click}
+    - type: ColumnPanel
+      properties: {role: outlined-card, col_widths: '{"NRXRWI":70,"XHRUSD":10}'}
+      name: outlined_card_1_copy
+      layout_properties: {grid_position: 'JXGLNO,UXZGYJ', row: QTFNRT, width_xs: 6,
+        col_xs: 6}
+      components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'Email Options:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: true, icon: ''}
+        name: label_email_options
+        layout_properties: {grid_position: 'SIYGUC,NRXRWI'}
+        data_bindings: []
+      - type: Button
+        properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: 'fa:angle-down'}
+        name: button_expand_email_options
+        layout_properties: {grid_position: 'SIYGUC,XHRUSD'}
+        event_bindings: {click: button_expand_email_options_click}
+      - type: GridPanel
+        properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+          border: '', visible: false, role: null, tooltip: ''}
+        name: grid_panel_emaiL_options
+        layout_properties: {grid_position: 'GDEMVD,BAIIAV'}
+        components:
+        - type: TextBox
+          properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
+            border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+            font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+            background: '', bold: false, underline: false}
+          name: text_box_outgoing_email_address
+          layout_properties: {row: WPEEOF, width_xs: 10, col_xs: 1, width: 328.552}
+          data_bindings:
+          - {property: text, code: 'self.item[''outgoing_email_address'']', writeback: true}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: Save, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
+          name: button_save_email_options
+          layout_properties: {row: NBLODT, width_xs: 4, col_xs: 4, width: 87.1667}
+          event_bindings: {click: button_save_email_options_click}
 is_package: true
