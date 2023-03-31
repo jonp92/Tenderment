@@ -116,11 +116,11 @@ components:
           event_bindings: {click: button_git_pull_click}
         - type: Label
           properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-            visible: true, text: 'Line to Tail:', font_size: null, font: '', spacing_above: small,
+            visible: true, text: 'Lines to Tail:', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: ''}
           name: label_lines_tail
-          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 1, width: 87.1667}
+          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 1, width: 165.271}
         - type: Label
           properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Log to Tail:', font_size: null, font: '', spacing_above: small,
