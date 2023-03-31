@@ -145,7 +145,7 @@ components:
             border: ''
             enabled: true
             foreground: ''
-            items: [tenderment_anvil, TenderSlicer]
+            items: [tenderment_anvil, TenderSlicer, anvil-app]
             visible: true
             font_size: null
             font: ''
