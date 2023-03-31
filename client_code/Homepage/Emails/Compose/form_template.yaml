@@ -3,23 +3,25 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: ''}
   name: column_panel_1
   layout_properties: {grid_position: 'OCWFWR,EAOFGK', full_width_row: false}
   components:
   - type: GridPanel
-    properties: {}
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: '', visible: true, role: null, tooltip: ''}
     name: grid_panel_1
     layout_properties: {grid_position: 'IJTBDG,BSSPLS'}
     components:
     - type: ColumnPanel
-      properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"UBZVSO":10,"ZHDOLD":50,"ZCNVLJ":10,"KZXCNE":50}',
-        spacing_below: small, background: ''}
+      properties: {role: rounded-borders, tooltip: '', border: '', foreground: '',
+        visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small,
+        col_widths: '{"UBZVSO":10,"ZHDOLD":50,"ZCNVLJ":10,"KZXCNE":50}', spacing_below: small,
+        background: ''}
       name: column_panel_2
-      layout_properties: {row: JBVITT, width_xs: 12, col_xs: 0, width: 940}
+      layout_properties: {row: JBVITT, width_xs: 12, col_xs: 0, width: 720}
       components:
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -29,7 +31,10 @@ components:
         name: label_to
         layout_properties: {grid_position: 'TQRFFC,UBZVSO'}
       - type: TextBox
-        properties: {}
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: text_box_to
         layout_properties: {grid_position: 'TQRFFC,ZHDOLD'}
         data_bindings:
@@ -42,20 +47,27 @@ components:
         name: label_subject
         layout_properties: {grid_position: 'DFNGRU,ZCNVLJ'}
       - type: TextBox
-        properties: {}
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: text_box_subject
         layout_properties: {grid_position: 'DFNGRU,KZXCNE'}
         data_bindings:
         - {property: text, code: 'self.item[''subject'']', writeback: true}
     - type: ColumnPanel
-      properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: column_panel_3
-      layout_properties: {row: BJDWKO, width_xs: 12, col_xs: 0, width: 940}
+      layout_properties: {row: BJDWKO, width_xs: 12, col_xs: 0, width: 688.4}
       components:
       - type: TextArea
-        properties: {height: 350.6667}
+        properties: {role: rounded-borders, align: left, height: 350.6667, tooltip: '',
+          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
+          spacing_below: small, italic: false, background: 'theme:Primary Overlay
+            2', bold: false, underline: false}
         name: text_area_msg_body
         layout_properties: {grid_position: 'RGCJPM,TQBRBW'}
         data_bindings:
@@ -101,4 +113,5 @@ components:
           name: button_send
           layout_properties: {row: JULQRV, width_xs: 2, col_xs: 10, width: 126.438}
           event_bindings: {click: button_send_click}
+    data_bindings: []
 is_package: true
