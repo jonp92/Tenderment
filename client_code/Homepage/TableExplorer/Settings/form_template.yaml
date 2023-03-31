@@ -12,11 +12,11 @@ components:
     name: text_box_1
     layout_properties: {grid_position: 'KOVCGO,LHOSST'}
     data_bindings:
-    - {property: text, code: 'self.item[''selected_printer'']', writeback: true}
+    - {property: text, code: 'self.item[''selected_printer'']', writeback: false}
   - type: TextBox
     properties: {}
     name: text_box_2
     layout_properties: {grid_position: 'KOVCGO,FNYVMV'}
     data_bindings:
-    - {property: text, code: 'self.item[''outgoing_email_address'']', writeback: true}
+    - {property: text, code: 'self.item[''outgoing_email_address'']', writeback: false}
 is_package: true
