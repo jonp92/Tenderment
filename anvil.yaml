@@ -97,6 +97,9 @@ db_schema:
     - name: selected_printer
       admin_ui: {width: 200}
       type: string
+    - name: outgoing_email_address
+      admin_ui: {order: 1, width: 200}
+      type: string
   received_messages:
     title: received_messages
     client: none
