@@ -53,7 +53,7 @@ def get_attachments(msg_row):
 def send_email(to, subject, msg_body, attachments):
   from_selected_address = [r['outgoing_email_address'] for r in app_tables.settings.search()]
   anvil.email.send(from_name = "Tenderment",
-                 from_address = from_selected_address[0],  
+                 from_address = '{}'.format(from_selected_address[0]),  
                  to = to,
                  subject = subject,
                  text = msg_body,
