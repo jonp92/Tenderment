@@ -1,11 +1,258 @@
-services: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
 startup: {type: form, module: Demo}
 package_name: anvil_extras
 allow_embedding: false
 name: anvil_extras
-runtime_options: {version: 2, client_version: '3', server_version: python3-full}
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 metadata: {}
 startup_form: Demo
 native_deps: {head_html: ''}
-db_schema: []
+db_schema:
+  infill:
+    title: infill
+    client: full
+    server: full
+    columns:
+    - name: infill
+      admin_ui: {width: 200}
+      type: string
+  filament:
+    title: filament
+    client: search
+    server: full
+    columns:
+    - name: filament
+      admin_ui: {width: 562.666666}
+      type: string
+  stls:
+    title: STLs
+    client: none
+    server: full
+    columns:
+    - name: id
+      admin_ui: {}
+      type: string
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+    - name: stl
+      admin_ui: {width: 200}
+      type: media
+    - name: print
+      admin_ui: {width: 200}
+      type: link_single
+      target: prints
+  settings:
+    title: Settings
+    client: full
+    server: full
+    columns:
+    - name: selected_printer
+      admin_ui: {width: 200}
+      type: string
+    - name: outgoing_email_address
+      admin_ui: {width: 200}
+      type: string
+  received_messages:
+    title: received_messages
+    client: none
+    server: full
+    columns:
+    - name: from_addr
+      admin_ui: {width: 200}
+      type: string
+    - name: to
+      admin_ui: {width: 200}
+      type: string
+    - name: subject
+      admin_ui: {width: 200}
+      type: string
+    - name: text
+      admin_ui: {width: 200}
+      type: string
+    - name: html
+      admin_ui: {width: 200}
+      type: string
+  prints:
+    title: Prints
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 463}
+      type: string
+    - name: media_object
+      admin_ui: {width: 200}
+      type: media
+    - name: uploaded
+      admin_ui: {width: 200}
+      type: string
+    - name: weight
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: time
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: status
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: id
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: gcode
+      admin_ui: {width: 200}
+      type: media
+    - name: cost
+      admin_ui: {width: 200}
+      type: number
+    - name: printer
+      admin_ui: {}
+      type: string
+    - name: quality
+      admin_ui: {}
+      type: string
+    - name: filament_type
+      admin_ui: {}
+      type: string
+  sync:
+    title: Sync
+    client: search
+    server: full
+    columns:
+    - name: last_sync
+      admin_ui: {width: 200}
+      type: string
+    - name: id
+      admin_ui: {width: 200}
+      type: string
+  users:
+    title: Users
+    client: none
+    server: full
+    columns:
+    - name: first_name
+      admin_ui: {width: 200}
+      type: string
+    - name: last_name
+      admin_ui: {width: 200}
+      type: string
+    - name: email
+      admin_ui: {width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {width: 200}
+      type: bool
+    - name: remembered_logins
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: role
+      admin_ui: {width: 200}
+      type: string
+  inventory:
+    title: Inventory
+    client: none
+    server: full
+    columns:
+    - name: id
+      admin_ui: {width: 302.4}
+      type: string
+    - name: name
+      admin_ui: {}
+      type: string
+    - name: description
+      admin_ui: {}
+      type: string
+    - name: price
+      admin_ui: {}
+      type: string
+    - name: quantity
+      admin_ui: {}
+      type: number
+    - name: sku
+      admin_ui: {}
+      type: string
+    - name: last_sync
+      admin_ui: {width: 200}
+      type: string
+    - name: print
+      admin_ui: {width: 200}
+      type: link_single
+      target: prints
+  outgoing_attachments:
+    title: outgoing_attachments
+    client: full
+    server: full
+    columns:
+    - name: attachment
+      admin_ui: {width: 200}
+      type: media
+  notes:
+    title: Notes
+    client: none
+    server: full
+    columns:
+    - name: print
+      admin_ui: {width: 200}
+      type: link_single
+      target: prints
+    - name: notes
+      admin_ui: {width: 200}
+      type: string
+    - name: user
+      admin_ui: {}
+      type: string
+    - name: date_time
+      admin_ui: {width: 200}
+      type: string
+  quality:
+    title: quality
+    client: search
+    server: full
+    columns:
+    - name: quality
+      admin_ui: {width: 200}
+      type: string
+  attachments:
+    title: attachments
+    client: none
+    server: full
+    columns:
+    - name: message
+      admin_ui: {width: 200}
+      type: link_single
+      target: received_messages
+    - name: attachment
+      admin_ui: {width: 200}
+      type: media
+  roles:
+    title: Roles
+    client: none
+    server: full
+    columns:
+    - name: role
+      admin_ui: {width: 200}
+      type: string
+  printers:
+    title: printers
+    client: search
+    server: full
+    columns:
+    - name: printers
+      admin_ui: {width: 200}
+      type: string
 renamed: true
