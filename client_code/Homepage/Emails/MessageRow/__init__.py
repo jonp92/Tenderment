@@ -14,6 +14,7 @@ class MessageRow(MessageRowTemplate):
     self.attachments = anvil.server.call('get_attachments', self.item)
     if self.attachments:
       self.image_1.source = self.attachments
+    #self.quill_html.set_html('html', sanitize=True)
 
     # Any code you write here will run before the form opens.
 

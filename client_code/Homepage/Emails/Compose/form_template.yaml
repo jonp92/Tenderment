@@ -11,17 +11,16 @@ components:
   components:
   - type: GridPanel
     properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: '', visible: true, role: null, tooltip: ''}
+      border: '', visible: true, role: rounded-borders, tooltip: ''}
     name: grid_panel_1
     layout_properties: {grid_position: 'IJTBDG,BSSPLS'}
     components:
     - type: ColumnPanel
-      properties: {role: rounded-borders, tooltip: '', border: '', foreground: '',
-        visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small,
-        col_widths: '{"UBZVSO":10,"ZHDOLD":50,"ZCNVLJ":10,"KZXCNE":50}', spacing_below: small,
-        background: ''}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"UBZVSO":10,"ZHDOLD":50,"ZCNVLJ":10,"KZXCNE":50}',
+        spacing_below: small, background: ''}
       name: column_panel_2
-      layout_properties: {row: JBVITT, width_xs: 12, col_xs: 0, width: 720}
+      layout_properties: {row: JBVITT, width_xs: 12, col_xs: 0, width: 968.666666}
       components:
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -62,21 +61,17 @@ components:
       name: column_panel_3
       layout_properties: {row: BJDWKO, width_xs: 12, col_xs: 0, width: 688.4}
       components:
-      - type: TextArea
-        properties: {role: rounded-borders, align: left, height: 350.6667, tooltip: '',
-          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
-          text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
-          spacing_below: small, italic: false, background: 'theme:Primary Overlay
-            2', bold: false, underline: false}
-        name: text_area_msg_body
-        layout_properties: {grid_position: 'RGCJPM,TQBRBW'}
-        data_bindings:
-        - {property: text, code: 'self.item[''msg_body'']', writeback: true}
       - type: GridPanel
         properties: {}
         name: grid_panel_2
         layout_properties: {grid_position: 'GMOJUC,GCAMEU'}
         components:
+        - type: form:PZZNGZOHNLUY5KYY:Quill
+          properties: {}
+          name: quill_1
+          layout_properties: {row: JULQRV, width_xs: 12, col_xs: 0, grid_position: 'GMOJUC,LJINOR'}
+          data_bindings: []
+          event_bindings: {text_change: quill_1_text_change}
         - type: FileLoader
           properties:
             role: filled-button
@@ -103,7 +98,7 @@ components:
             multiple: false
             icon: fa:upload
           name: file_loader_attach
-          layout_properties: {row: JULQRV, width_xs: 2, col_xs: 8, width: 126.438}
+          layout_properties: {row: JULQRV, width_xs: 3, col_xs: 8, width: 126.438}
           event_bindings: {change: file_loader_attach_change}
         - type: Button
           properties: {role: filled-button, align: center, tooltip: '', border: '',
