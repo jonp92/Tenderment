@@ -1,6 +1,8 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:Light Overlay 1'}
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
@@ -11,7 +13,7 @@ components:
   components:
   - type: GridPanel
     properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: '', visible: true, role: rounded-card, tooltip: ''}
+      border: none, visible: true, role: rounded-card, tooltip: ''}
     name: grid_panel_1
     layout_properties: {grid_position: 'IJTBDG,BSSPLS'}
     components:
