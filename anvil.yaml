@@ -11,9 +11,7 @@ scheduled_tasks:
     every: minute
     at: {}
   job_id: HLPGLSTT
-dependencies:
-- app_id: PZZNGZOHNLUY5KYY
-  version: {dev: false}
+dependencies: []
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
