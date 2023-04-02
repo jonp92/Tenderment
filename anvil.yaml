@@ -5,7 +5,7 @@ scheduled_tasks:
     every: minute
     at: {}
   job_id: UHEHAXNL
-- task_name: update_services_status
+- task_name: get_services_status
   time_spec:
     n: 1
     every: minute
@@ -109,7 +109,7 @@ db_schema:
       admin_ui: {order: 1, width: 200}
       type: string
   services_status:
-    client: none
+    client: search
     server: full
     columns:
     - name: tenderslicer

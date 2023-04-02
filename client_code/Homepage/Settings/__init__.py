@@ -21,6 +21,7 @@ class Settings(SettingsTemplate):
     self.text_box_outgoing_email_address.text = self.item['outgoing_email_address']
     self.button_expand_email_options.tag = 'down'
     self.button_expand_slicing_options.tag = 'down'
+    self.item['tenderslicer_status'] = [r['tenderslicer'] for r in app_tables.services_status.search()]
     
     # Any code you write here will run before the form opens.
 
