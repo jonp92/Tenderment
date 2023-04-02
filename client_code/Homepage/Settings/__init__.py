@@ -22,6 +22,8 @@ class Settings(SettingsTemplate):
     self.button_expand_slicing_options.tag = 'down'
     self.item['tenderslicer_status'] = [r['tenderslicer'] for r in app_tables.services_status.search()][0]
     self.label_tenderslicer_status_data.text = self.item['tenderslicer_status']
+    self.item['tendersystem_status'] = [r['tendersystem'] for r in app_tables.services_status.search()][0]
+    self.label_tendersystem_status_data.text = self.item['tendersystem_status']
     
     # Any code you write here will run before the form opens.
 
