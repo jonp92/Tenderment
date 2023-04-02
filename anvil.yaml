@@ -5,7 +5,15 @@ scheduled_tasks:
     every: minute
     at: {}
   job_id: UHEHAXNL
-dependencies: []
+- task_name: get_services_status
+  time_spec:
+    n: 3
+    every: minute
+    at: {}
+  job_id: HLPGLSTT
+dependencies:
+- app_id: PZZNGZOHNLUY5KYY
+  version: {dev: false}
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
@@ -100,6 +108,17 @@ db_schema:
     - name: outgoing_email_address
       admin_ui: {order: 1, width: 200}
       type: string
+  services_status:
+    client: search
+    server: full
+    columns:
+    - name: tenderslicer
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: tendersystem
+      admin_ui: {order: 1, width: 200}
+      type: string
+    title: Services_Status
   received_messages:
     title: received_messages
     client: none

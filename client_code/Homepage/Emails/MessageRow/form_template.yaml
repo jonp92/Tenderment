@@ -12,14 +12,6 @@ components:
   layout_properties: {column: GVJUYG}
   data_bindings: []
   event_bindings: {mouse_down: image_1_mouse_down}
-- type: RichText
-  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: small,
-    spacing_below: small, data: null, background: '', format: plain_text}
-  name: rich_text_html
-  layout_properties: {column: VNGTNI}
-  data_bindings:
-  - {property: content, code: 'self.item[''text'']'}
 - type: CheckBox
   properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '',
     allow_indeterminate: false, visible: true, text: '', font_size: 14, font: '',
@@ -29,4 +21,13 @@ components:
   layout_properties: {column: OHBQDV}
   data_bindings:
   - {property: text, code: 'self.item[''from_addr'']'}
+- type: TextArea
+  properties: {role: null, align: left, height: '200', tooltip: '', placeholder: '',
+    border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
+    auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_area_msg_body
+  layout_properties: {column: VNGTNI}
+  data_bindings:
+  - {property: text, code: 'self.item[''text'']', writeback: true}
 is_package: true

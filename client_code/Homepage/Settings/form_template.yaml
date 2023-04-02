@@ -1,74 +1,26 @@
 container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
+  data_bindings: []
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
-  name: column_panel_1
+  name: column_panel_main
   layout_properties: {grid_position: 'DENHQO,MQJCUW'}
   components:
   - type: GridPanel
-    properties: {}
-    name: grid_panel_1
-    layout_properties: {grid_position: 'WXKXOB,KSVBUB'}
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: none, visible: true, role: rounded-card, tooltip: ''}
+    name: grid_panel_main
+    layout_properties: {grid_position: 'MTSZVN,ZWADGF'}
     components:
     - type: ColumnPanel
-      properties: {role: outlined-card, col_widths: '{}'}
-      name: outlined_card_2
-      layout_properties: {grid_position: 'DENHQO,AYNKHV', row: RVFWHD, width_xs: 6,
-        col_xs: 0}
-      components:
-      - type: Label
-        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-          visible: true, text: Slicing Options, font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: true, icon: ''}
-        name: label_4
-        layout_properties: {grid_position: 'CEQAYU,GKIEQC'}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Printer:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_1
-        layout_properties: {grid_position: 'KUCYIS,PKYTXY'}
-      - type: DropDown
-        properties: {}
-        name: drop_down_printer
-        layout_properties: {grid_position: 'KUCYIS,YTMLXF'}
-        data_bindings:
-        - {property: selected_value, code: 'self.item[''selected_printer'']', writeback: true}
-      - type: Label
-        properties: {}
-        name: label_2
-        layout_properties: {grid_position: 'HTTARS,TJCWLF'}
-      - type: DropDown
-        properties: {}
-        name: drop_down_2
-        layout_properties: {grid_position: 'HTTARS,VNHIWQ'}
-      - type: Label
-        properties: {}
-        name: label_3
-        layout_properties: {grid_position: 'DPLNOP,KZZUYE'}
-      - type: DropDown
-        properties: {}
-        name: drop_down_3
-        layout_properties: {grid_position: 'DPLNOP,XRKWSP'}
-      - type: Button
-        properties: {role: filled-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: true, text: 'Save
-
-            ', font_size: null, font: '', spacing_above: medium, icon_align: left,
-          spacing_below: small, italic: false, background: '', bold: false, underline: false,
-          icon: 'fa:floppy-o'}
-        name: button_slicing_options_save
-        layout_properties: {row: LBHVIR, width_xs: 4, col_xs: 4, width: 99.9875, grid_position: 'FMYIFT,LPAMHA'}
-        event_bindings: {click: button_slicing_options_save_click}
-    - type: ColumnPanel
-      properties: {role: outlined-card, col_widths: '{}'}
-      name: outlined_card_1
-      layout_properties: {grid_position: 'AOZXIW,DCRZGJ', row: RVFWHD, width_xs: 6,
-        col_xs: 6}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: outlined_card_tools
+      layout_properties: {grid_position: 'AOZXIW,DCRZGJ', row: ACKELO, width_xs: 6,
+        col_xs: 0, width: 438.666666}
       components:
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -79,16 +31,16 @@ components:
         layout_properties: {grid_position: 'SIYGUC,NRXRWI'}
       - type: GridPanel
         properties: {}
-        name: grid_panel_2
+        name: grid_panel_tools_container
         layout_properties: {grid_position: 'GDEMVD,BAIIAV'}
         components:
         - type: Button
-          properties: {role: filled-button, align: center, tooltip: '', border: '',
+          properties: {role: filled-button, align: right, tooltip: '', border: '',
             enabled: true, foreground: '', visible: true, text: Table Explorer, font_size: null,
             font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: false, underline: false, icon: 'fa:table'}
           name: button_table_explorer
-          layout_properties: {row: WPEEOF, width_xs: 5, col_xs: 1, width: 165.271}
+          layout_properties: {row: WPEEOF, width_xs: 6, col_xs: 0, width: 197.5}
           event_bindings: {click: button_table_explorer_click}
         - type: Button
           properties: {role: filled-button, align: center, tooltip: '', border: '',
@@ -96,15 +48,15 @@ components:
             font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: false, underline: false, icon: 'fa:envelope'}
           name: button_test_email
-          layout_properties: {row: WPEEOF, width_xs: 5, col_xs: 6, width: 165.271}
+          layout_properties: {row: WPEEOF, width_xs: 5, col_xs: 6, width: 159.583}
           event_bindings: {click: button_test_email_click}
         - type: Button
-          properties: {role: filled-button, align: center, tooltip: '', border: '',
+          properties: {role: filled-button, align: right, tooltip: '', border: '',
             enabled: true, foreground: '', visible: true, text: Restart Server, font_size: null,
             font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: false, underline: false, icon: 'fa:power-off'}
           name: button_restart_server
-          layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 1, width: 165.271}
+          layout_properties: {row: QJYFVF, width_xs: 6, col_xs: 0, width: 197.5}
           event_bindings: {click: button_restart_server_click}
         - type: Button
           properties: {role: filled-button, align: center, tooltip: '', border: '',
@@ -112,22 +64,22 @@ components:
             font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: false, underline: false, icon: 'fa:git'}
           name: button_git_pull
-          layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 6, width: 165.271}
+          layout_properties: {row: QJYFVF, width_xs: 5, col_xs: 6, width: 159.583}
           event_bindings: {click: button_git_pull_click}
         - type: Label
           properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Lines to Tail:', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
+            icon_align: left, spacing_below: small, italic: true, background: '',
             bold: false, underline: false, icon: ''}
           name: label_lines_tail
-          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 1, width: 165.271}
+          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 1, width: 165.833}
         - type: Label
           properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Log to Tail:', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
+            icon_align: left, spacing_below: small, italic: true, background: '',
             bold: false, underline: false, icon: ''}
           name: label_log
-          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 6, width: 165.271}
+          layout_properties: {row: EUEOKF, width_xs: 5, col_xs: 6, width: 159.583}
         - type: TextBox
           properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '50',
             border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
@@ -167,14 +119,135 @@ components:
           layout_properties: {row: VCDYWN, width_xs: 6, col_xs: 3, width: 165.271}
           event_bindings: {click: button_tail_anvil_log_click}
     - type: ColumnPanel
-      properties: {role: outlined-card, col_widths: '{"NRXRWI":70,"XHRUSD":10}'}
-      name: outlined_card_1_copy
-      layout_properties: {grid_position: 'JXGLNO,UXZGYJ', row: QTFNRT, width_xs: 6,
-        col_xs: 6}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"XEAQPY":20,"CZGVFB":40,"HEXOSV":20,"MOKAJI":40}',
+        spacing_below: small, background: ''}
+      name: column_panel_service_status
+      layout_properties: {row: ACKELO, width_xs: 6, col_xs: 0, width: 345}
       components:
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Email Options:', font_size: null, font: '', spacing_above: small,
+          visible: true, text: System Services Status, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: true, underline: true, icon: ''}
+        name: label_5
+        layout_properties: {grid_position: 'GKTQOQ,PKCBYE'}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'TenderSlicer:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_tenderslicer_status
+        layout_properties: {grid_position: 'RCROAQ,XEAQPY'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_tenderslicer_status_data
+        layout_properties: {grid_position: 'RCROAQ,CZGVFB'}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'TenderSystem:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_tendersystem_status
+        layout_properties: {grid_position: 'ZSGPEQ,HEXOSV'}
+      - type: Label
+        properties: {}
+        name: label_tendersystem_status_data
+        layout_properties: {grid_position: 'ZSGPEQ,MOKAJI'}
+      - type: Spacer
+        properties: {height: 166}
+        name: spacer_1
+        layout_properties: {grid_position: 'FPCJCJ,HWITFK'}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"GKIEQC":70,"VZVBXP":10}',
+        spacing_below: small, background: ''}
+      name: outlined_card_2
+      layout_properties: {grid_position: 'DENHQO,AYNKHV', row: RVFWHD, width_xs: 6,
+        col_xs: 0, width: 440}
+      components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Slicing Options, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: true, icon: ''}
+        name: label_4
+        layout_properties: {grid_position: 'CEQAYU,GKIEQC'}
+      - type: Button
+        properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: 'fa:angle-down'}
+        name: button_expand_slicing_options
+        layout_properties: {grid_position: 'CEQAYU,VZVBXP'}
+        event_bindings: {click: button_expand_slicing_options_click}
+      - type: ColumnPanel
+        properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ICVZQD":15,"CVBUBU":45,"JBXFNQ":15,"QJOCUQ":45,"ZVTSBP":15,"PJJHVP":45}',
+          spacing_below: small, background: ''}
+        name: column_panel_slice_options_container
+        layout_properties: {grid_position: 'WJXYVC,HRWYYP'}
+        components:
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: 'Printer:', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: true, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_1
+          layout_properties: {grid_position: 'HYHADU,ICVZQD'}
+        - type: DropDown
+          properties: {}
+          name: drop_down_printer
+          layout_properties: {grid_position: 'HYHADU,CVBUBU'}
+          data_bindings:
+          - {property: selected_value, code: 'self.item[''selected_printer'']', writeback: true}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: Future Option, font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: true, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_2
+          layout_properties: {grid_position: 'WDRDOZ,JBXFNQ'}
+        - type: DropDown
+          properties: {}
+          name: drop_down_2
+          layout_properties: {grid_position: 'WDRDOZ,QJOCUQ'}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: Future Option, font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: true, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_3
+          layout_properties: {grid_position: 'NETKGX,ZVTSBP'}
+        - type: DropDown
+          properties: {}
+          name: drop_down_3
+          layout_properties: {grid_position: 'NETKGX,PJJHVP'}
+        - type: Button
+          properties: {role: filled-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: 'Save
+
+              ', font_size: null, font: '', spacing_above: medium, icon_align: left,
+            spacing_below: small, italic: false, background: '', bold: false, underline: false,
+            icon: 'fa:floppy-o'}
+          name: button_slicing_options_save
+          layout_properties: {row: LBHVIR, width_xs: 4, col_xs: 4, width: 99.9875,
+            grid_position: 'HUTMXI,YLTSEL'}
+          event_bindings: {click: button_slicing_options_save_click}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"NRXRWI":70,"XHRUSD":10}',
+        spacing_below: small, background: ''}
+      name: outlined_card_email_options
+      layout_properties: {grid_position: 'JXGLNO,UXZGYJ', row: RVFWHD, width_xs: 6,
+        col_xs: 6, width: 438.666666}
+      components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Email Options, font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: true, icon: ''}
         name: label_email_options
@@ -218,4 +291,8 @@ components:
           name: button_save_email_options
           layout_properties: {row: NBLODT, width_xs: 4, col_xs: 4, width: 87.1667}
           event_bindings: {click: button_save_email_options_click}
+        - type: Spacer
+          properties: {height: 61}
+          name: spacer_2
+          layout_properties: {row: TUUEAJ, width_xs: 6, col_xs: 3}
 is_package: true

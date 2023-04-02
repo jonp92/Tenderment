@@ -53,7 +53,7 @@ roles:
   components: [DataGrid]
   display_in_toolbox: false
 - name: rounded-card
-  components: [RepeatingPanel]
+  components: [RepeatingPanel, GridPanel]
 - {name: border-bottom, components: null}
 - {name: rounded-borders, components: null}
 color_scheme:

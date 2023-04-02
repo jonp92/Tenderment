@@ -29,6 +29,11 @@ class Compose(ComposeTemplate):
     """This method is called when a new file is loaded into this FileLoader"""
     app_tables.outgoing_attachments.add_row(attachment=file)
 
+  def quill_1_text_change(self, **event_args):
+    """This method is called when the quill text changes"""
+    self.item['msg_body'] = self.quill_1.get_html()
+
+
     
     
     
