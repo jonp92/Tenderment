@@ -1,8 +1,7 @@
 container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
-  data_bindings:
-  - {property: item, code: 'self.item[''tenderslicer_status'']'}
+  data_bindings: []
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
@@ -207,11 +206,11 @@ components:
           visible: true, text: Tenderslicer, font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
-        name: label_5
+        name: label_tenderslicer_status
         layout_properties: {grid_position: 'RCROAQ,XEAQPY'}
       - type: Label
         properties: {}
-        name: label_6
+        name: label_tenderslicer_status_data
         layout_properties: {grid_position: 'RCROAQ,CZGVFB'}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,

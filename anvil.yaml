@@ -7,7 +7,7 @@ scheduled_tasks:
   job_id: UHEHAXNL
 - task_name: get_services_status
   time_spec:
-    n: 1
+    n: 3
     every: minute
     at: {}
   job_id: HLPGLSTT

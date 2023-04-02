@@ -12,16 +12,16 @@ from .TestEmail import TestEmail
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-
     self.init_components(**properties)
-    self.drop_down_printer.items = [r['printers'] for r in app_tables.printers.search()][0]
+    self.drop_down_printer.items = [r['printers'] for r in app_tables.printers.search()]
     self.item['selected_printer'] = [r['selected_printer'] for r in app_tables.settings.search()][0]
-    self.drop_down_printer.selected_value = self.item['selected_printer']
     self.item['outgoing_email_address'] = [r['outgoing_email_address'] for r in app_tables.settings.search()][0]
+    self.drop_down_printer.selected_value = self.item['selected_printer']
     self.text_box_outgoing_email_address.text = self.item['outgoing_email_address']
     self.button_expand_email_options.tag = 'down'
     self.button_expand_slicing_options.tag = 'down'
-    #self.item['tenderslicer_status'] = [r['tenderslicer'] for r in app_tables.services_status.search()]
+    self.item['tenderslicer_status'] = [r['tenderslicer'] for r in app_tables.services_status.search()][0]
+    self.label_tenderslicer_status_data.text = self.item['tenderslicer_status']
     
     # Any code you write here will run before the form opens.
 
