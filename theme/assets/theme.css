@@ -1096,6 +1096,11 @@ input[disabled] ~ span {
   #background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
   border-bottom: none;
 
+  .anvil-role-center-data-grid.anvil-data-grid .data-grid-child-panel div.data-row-col {
+  border-left: 1px solid %color:Surface Variant%;
+  /*border-bottom: 1px solid %color:Surface Variant%;*/
+}
+
 /*Plots*/
 
 div.plot-container.plotly svg.main-svg {
