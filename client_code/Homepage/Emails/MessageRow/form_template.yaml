@@ -22,10 +22,10 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''from_addr'']'}
 - type: TextArea
-  properties: {role: null, align: left, height: '200', tooltip: '', placeholder: '',
-    border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
-    auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
-    background: '', bold: false, underline: false}
+  properties: {role: outlined, align: left, height: '200', tooltip: '', placeholder: '',
+    border: '', enabled: false, foreground: 'theme:On Secondary Container', visible: true,
+    text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false}
   name: text_area_msg_body
   layout_properties: {column: VNGTNI}
   data_bindings:

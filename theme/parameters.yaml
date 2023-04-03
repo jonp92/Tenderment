@@ -56,6 +56,7 @@ roles:
   components: [RepeatingPanel, GridPanel]
 - {name: border-bottom, components: null}
 - {name: rounded-borders, components: null}
+- {name: center-data-grid}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

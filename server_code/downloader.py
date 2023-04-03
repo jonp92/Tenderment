@@ -1,5 +1,3 @@
-import anvil.email
-import anvil.secrets
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -9,9 +7,12 @@ import anvil.server
 @anvil.server.callable
 def get_gcode_download(id):
   print_row = app_tables.prints.get_by_id(id)
-  return anvil.BlobMedia(content_type="application/octet-stream", content=print_row['gcode'].get_bytes(), name=f"{print_row['name']}.gcode")
+  if not stl_row:
+    raise Exception("Unable to locate print.")
+  else:  
+    return anvil.BlobMedia(content_type="application/octet-stream", content=print_row['gcode'].get_bytes(), name=f"{print_row['name']}.gcode")
 
-@anvil.server.callable()
+@anvil.server.callable
 def get_stl_download(print_row):
   stl_row = app_tables.stls.get(print=print_row)
   if not stl_row:
