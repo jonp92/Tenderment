@@ -57,5 +57,5 @@ def send_email(to, subject, msg_body, attachments):
                  from_address = '{}'.format(from_selected_address[0]),  
                  to = to,
                  subject = subject,
-                 html = msg_body,
+                 text = msg_body,
                  attachments= attachments)
