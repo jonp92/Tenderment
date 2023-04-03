@@ -32,11 +32,12 @@ def handle_incoming_emails(msg):
               html=msg.html
             )
   for a in msg.attachments:
-    app_tables.attachments.add_row(message=msg_row, attachment=a)
+    app_tables.attachments.add_row(message=msg_row, attachment=a, filename=a.name)
   for header, a in msg.inline_attachments.items():
     app_tables.attachments.add_row(
       message=msg_row,
-      attachment=a
+      attachment=a,
+      filename=a.name
     )  
     
 @anvil.server.callable(require_user=authorization())

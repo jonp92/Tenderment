@@ -19,3 +19,14 @@ def get_stl_download(print_row):
     raise Exception("No .stl file has been linked to this print")
   else:
    return anvil.BlobMedia(content_type="application/octet-stream", content=stl_row['stl'].get_bytes(), name=f"{stl_row['name']}")
+
+@anvil.server.callable
+def get_email_attachments(email_row):
+  attachments_row = app_tables.attachments.get(message=email_row)
+  if not attachments_row:
+    raise Exception("Unable to locate any attachments.")
+  else:
+    if not attachments_row['filename']:
+      attachments_row['filename'] = 'none'
+    return anvil.BlobMedia(content_type="application/octet-stream", content=attachments_row['attachment'].get_bytes(), name=attachments_row['filename'])
+  

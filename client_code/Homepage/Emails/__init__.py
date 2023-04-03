@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .Compose import Compose
+import anvil.media
 
 class Emails(EmailsTemplate):
   def __init__(self, **properties):
@@ -35,6 +36,16 @@ class Emails(EmailsTemplate):
   def button_compose_click(self, **event_args):
     """This method is called when the button is clicked"""
     alert(Compose(), large=True, buttons=[])
+
+  def button_download_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    for r in self.repeating_panel_1.get_components():
+    # Step through all the components that make up the row.
+      for c in r.get_components():
+        if type(c) is CheckBox:
+          if c.checked == True:
+            anvil.media.download(anvil.server.call('get_email_attachments', r.item))
+
 
     
 
