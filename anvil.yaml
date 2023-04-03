@@ -110,22 +110,22 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: outgoing_email_address
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: string
   services_status:
+    title: Services_Status
     client: search
     server: full
     columns:
     - name: tenderslicer
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: tendersystem
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: string
-    - name: Column2
-      admin_ui: {order: 2, width: 200}
-      type: string
-    title: Services_Status
+    - name: printer_power_status
+      admin_ui: {width: 200}
+      type: simpleObject
   received_messages:
     title: received_messages
     client: none
@@ -264,13 +264,13 @@ db_schema:
       type: link_single
       target: prints
   outgoing_attachments:
+    title: outgoing_attachments
     client: full
     server: full
     columns:
     - name: attachment
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: media
-    title: outgoing_attachments
   notes:
     title: Notes
     client: none
@@ -309,6 +309,9 @@ db_schema:
     - name: attachment
       admin_ui: {width: 200}
       type: media
+    - name: filename
+      admin_ui: {}
+      type: string
   roles:
     title: Roles
     client: none

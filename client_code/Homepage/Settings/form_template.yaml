@@ -120,18 +120,26 @@ components:
           event_bindings: {click: button_tail_anvil_log_click}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"XEAQPY":20,"CZGVFB":40,"HEXOSV":20,"MOKAJI":40}',
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"XEAQPY":20,"CZGVFB":40,"HEXOSV":20,"MOKAJI":40,"JZILPU":20,"IORMJW":40,"PKCBYE":50,"SFKWMA":10}',
         spacing_below: small, background: ''}
       name: column_panel_service_status
       layout_properties: {row: ACKELO, width_xs: 6, col_xs: 0, width: 345}
       components:
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-          visible: true, text: System Services Status, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: true, underline: true, icon: ''}
+          visible: true, text: System Status, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: true, icon: ''}
         name: label_5
         layout_properties: {grid_position: 'GKTQOQ,PKCBYE'}
+      - type: Button
+        properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: 'fa:refresh'}
+        name: button_refresh_statuses
+        layout_properties: {grid_position: 'GKTQOQ,SFKWMA'}
+        event_bindings: {click: button_refresh_statuses_click}
       - type: Label
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
           visible: true, text: 'TenderSlicer:', font_size: null, font: '', spacing_above: small,
@@ -157,8 +165,19 @@ components:
         properties: {}
         name: label_tendersystem_status_data
         layout_properties: {grid_position: 'ZSGPEQ,MOKAJI'}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'Printer Power:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_printer_power
+        layout_properties: {grid_position: 'DIKKYP,JZILPU'}
+      - type: Label
+        properties: {}
+        name: label_printer_power_status
+        layout_properties: {grid_position: 'DIKKYP,IORMJW'}
       - type: Spacer
-        properties: {height: 166}
+        properties: {height: 120}
         name: spacer_1
         layout_properties: {grid_position: 'FPCJCJ,HWITFK'}
     - type: ColumnPanel
