@@ -11,6 +11,12 @@ scheduled_tasks:
     every: minute
     at: {}
   job_id: HLPGLSTT
+- task_name: get_printer_status
+  time_spec:
+    n: 2
+    every: minute
+    at: {}
+  job_id: QLIAJNCY
 dependencies: []
 services:
 - source: /runtime/services/tables.yml
@@ -115,6 +121,9 @@ db_schema:
       type: string
     - name: tendersystem
       admin_ui: {order: 1, width: 200}
+      type: string
+    - name: Column2
+      admin_ui: {order: 2, width: 200}
       type: string
     title: Services_Status
   received_messages:
