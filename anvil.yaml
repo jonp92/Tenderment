@@ -126,6 +126,9 @@ db_schema:
     - name: printer_power_status
       admin_ui: {width: 200}
       type: simpleObject
+    - name: job_status
+      admin_ui: {order: 3, width: 200}
+      type: simpleObject
   received_messages:
     title: received_messages
     client: none
