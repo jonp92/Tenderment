@@ -24,8 +24,7 @@ class Settings(SettingsTemplate):
       self.drop_down_printer.selected_value = self.item['selected_printer']
     else:
       self.item['outgoing_email_address'] = ''
-      self.item['selected_printer'] = 'Unable to locate any printers'
-      self.drop_down_printer.placeholder = self.item['selected_printer']
+      self.drop_down_printer.placeholder = 'Unable to locate any printers'
     self.text_box_outgoing_email_address.text = self.item['outgoing_email_address']
     self.button_expand_email_options.tag = 'down'
     self.button_expand_slicing_options.tag = 'down'
