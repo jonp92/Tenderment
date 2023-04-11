@@ -36,27 +36,18 @@ class Homepage(HomepageTemplate):
     if not self.form_session or self.form_session == 'Homepage':
       self.form_session = 'Homepage'
       self.plot_1.data, self.label_print_count.text = anvil.server.call('plot_prints_pie')
-    elif self.form_session == 'Print':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Print(), full_width_row=True)
-    elif self.form_session == 'Inventory':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Inventory()) 
-    elif self.form_session == 'Settings':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Settings())  
-    elif self.form_session == 'Upload':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Upload())
-    elif self.form_session == 'Users':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Users(), full_width_row=True)
-    elif self.form_session == 'TableExplorer':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(TableExplorer(), full_width_row=True)    
-    elif self.form_session == 'Emails':
-      self.column_panel_2.clear()
-      self.column_panel_2.add_component(Emails(), full_width_row=True)   
+    else:
+      forms = {'Print': {'form': Print(), 'full_width': True},
+              'Inventory': {'form': Inventory(), 'full_width': True},
+              'Settings': {'form': Settings(), 'full_width': True},
+              'Upload': {'form': Upload(), 'full_width': True},
+              'Users': {'form': Users(), 'full_width': False},
+              'TableExplorer': {'form': TableExplorer(), 'full_width': False},
+              'Emails': {'form': Emails(), 'full_width': False}}
+      if self.form_session in forms:
+          form_info = forms[self.form_session]
+          self.column_panel_2.clear()
+          self.column_panel_2.add_component(form_info['form'], full_width_row=form_info['full_width'])
 
   def link_current_user_click(self, **event_args):
     """This method is called when the link is clicked"""
