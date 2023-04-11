@@ -45,7 +45,7 @@ class Homepage(HomepageTemplate):
               'Upload': {'form': Upload, 'full_width': True},
               'Users': {'form': Users, 'full_width': False},
               'TableExplorer': {'form': TableExplorer, 'full_width': False},
-              'Emails': {'form': Emails, 'full_width': False}}
+              'Emails': {'form': Emails, 'full_width': True}}
       if self.form_session in forms:
           form_info = forms[self.form_session]
           self.column_panel_2.clear()
