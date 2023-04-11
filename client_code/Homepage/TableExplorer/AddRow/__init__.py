@@ -10,6 +10,8 @@ from .... import table_vars
 class AddRow(AddRowTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    columns = table_vars.selected_table.list_columns()
+    print(columns)
     self.init_components(**properties)
     
     # Any code you write here will run before the form opens.
