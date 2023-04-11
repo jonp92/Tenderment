@@ -97,7 +97,7 @@ components:
             border: ''
             enabled: true
             foreground: ''
-            items: [tenderment_anvil, TenderSlicer, anvil-app]
+            items: [TenderSlicer, anvil-app]
             visible: true
             font_size: null
             font: ''
@@ -109,7 +109,7 @@ components:
             underline: false
             include_placeholder: false
           name: drop_down_log_selected
-          layout_properties: {row: RMOGFQ, width_xs: 5, col_xs: 6, width: 165.271}
+          layout_properties: {row: RMOGFQ, width_xs: 5, col_xs: 6, width: 159.578125}
         - type: Button
           properties: {role: filled-button, align: center, tooltip: '', border: '',
             enabled: true, foreground: '', visible: true, text: Tail Log, font_size: null,
