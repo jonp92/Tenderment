@@ -10,13 +10,16 @@ from .... import table_vars
 class AddRow(AddRowTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    columns = table_vars.selected_table.list_columns()
-    print(columns)
+    self.columns = table_vars.selected_table.list_columns()
     self.init_components(**properties)
     
     # Any code you write here will run before the form opens.
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
-    table_vars.selected_table.add_row()
+    for item in self.columns:
+      column_name = item['name']
+      column_data = 'some data'  # Replace this with your actual data
+      table_vars.selected_table.add_row(**{column_name: column_data})
     self.parent.raise_event('x-new-row')
+
