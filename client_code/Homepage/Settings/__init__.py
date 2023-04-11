@@ -12,15 +12,18 @@ from .TestEmail import TestEmail
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.item['selected_printer'] = ''
+    #self.item['selected_printer'] = ''
     self.init_components(**properties)
     self.refresh_data()
     self.drop_down_printer.items = [r['printers'] for r in app_tables.printers.search()]
     if app_tables.settings.get():
       self.item['outgoing_email_address'] = [r['outgoing_email_address'] for r in app_tables.settings.search()][0]
+      self.drop_down_printer.selected_value = self.item['selected_printer']
+
     else:
       self.item['outgoing_email_address'] = ''
-    self.drop_down_printer.selected_value = self.item['selected_printer']
+      self.item['selected_printer'] = None
+      self.drop_down_printer.selected_value = self.item['selected_printer']
     self.text_box_outgoing_email_address.text = self.item['outgoing_email_address']
     self.button_expand_email_options.tag = 'down'
     self.button_expand_slicing_options.tag = 'down'
