@@ -10,11 +10,13 @@ from .Settings import Settings
 from .Users import Users
 from .TableExplorer import TableExplorer
 from .Emails import Emails
+from .. import globals
 def error_handler(err):
   alert(str(err), title="An error has occurred", large=True, dismissible=False)
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
+    globals.initial_install()
     self.user = anvil.users.get_user()
     set_default_error_handling(error_handler)
     self.item['version'] = "v0.5.8"
