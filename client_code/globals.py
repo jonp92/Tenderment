@@ -6,6 +6,8 @@ from anvil.tables import app_tables
 
 selected_table = ''
 
-def check_if_settings_exists():
+def initial_install():
+  if len(app_tables.services_status.search()) == 0:
+    app_tables.services_status.add_row(job_status={}, printer_power_status={}, tenderslicer='Unknown', tendersystem='Unknown')
   if len(app_tables.settings.search()) == 0:
     app_tables.settings.add_row(outgoing_email_address='', selected_printer='')

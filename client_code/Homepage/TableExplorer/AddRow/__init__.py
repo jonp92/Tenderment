@@ -5,12 +5,12 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .... import table_vars
+from .... import globals
 
 class AddRow(AddRowTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.columns = table_vars.selected_table.list_columns()
+    self.columns = globals.selected_table.list_columns()
     self.init_components(**properties)
     
     # Any code you write here will run before the form opens.
@@ -20,6 +20,6 @@ class AddRow(AddRowTemplate):
     for item in self.columns:
       column_name = item['name']
       column_data = 'some data'  # Replace this with your actual data
-      table_vars.selected_table.add_row(**{column_name: column_data})
+      globals.selected_table.add_row(**{column_name: column_data})
     self.parent.raise_event('x-new-row')
 

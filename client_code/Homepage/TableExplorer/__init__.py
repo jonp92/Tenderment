@@ -12,8 +12,7 @@ from .Settings import Settings
 from .TableView import TableView
 from .AddRow import AddRow
 from .Email_Table import Email_Table
-from ... import table_vars
-
+from ... import globals
 class TableExplorer(TableExplorerTemplate):
   def __init__(self, **properties):
     self.repeating_panel_table.set_event_handler('x-refresh-stl-table', self.refresh_stl_table)
@@ -40,7 +39,7 @@ class TableExplorer(TableExplorerTemplate):
             self.data_grid_table.columns = columns
             self.repeating_panel_table.item_template = table_info['template']
             self.repeating_panel_table.items = table_info['table'].search()
-            table_vars.selected_table = table_info['table']
+            globals.selected_table = table_info['table']
         else:
             client_table = anvil.server.call(table_info['func'])
             columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in client_table.list_columns()]
