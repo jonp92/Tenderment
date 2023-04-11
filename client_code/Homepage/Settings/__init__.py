@@ -16,7 +16,7 @@ class Settings(SettingsTemplate):
     self.init_components(**properties)
     self.refresh_data()
     self.drop_down_printer.items = [r['printers'] for r in app_tables.printers.search()]
-    if [r['outgoing_email_address'] for r in app_tables.settings.search()][0]:
+    if [r['outgoing_email_address'] for r in app_tables.settings.get()]:
       self.item['outgoing_email_address'] = [r['outgoing_email_address'] for r in app_tables.settings.search()][0]
     else:
       self.item['outgoing_email_address'] = ''
@@ -97,7 +97,7 @@ class Settings(SettingsTemplate):
     self.refresh_data_bindings()
 
   def refresh_data(self, **event_args):
-    if [r['selected_printer'] for r in app_tables.settings.search()][0]:
+    if [r['selected_printer'] for r in app_tables.settings.get()]:
       self.item['tendersystem_status'] = [r['tendersystem'] for r in app_tables.services_status.search()][0]
       self.item['tenderslicer_status'] = [r['tenderslicer'] for r in app_tables.services_status.search()][0]
       self.item['printer_power'] = [r['printer_power_status'] for r in app_tables.services_status.search()][0]
