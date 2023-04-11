@@ -21,7 +21,6 @@ class Settings(SettingsTemplate):
     if app_tables.settings.get():
       self.item['outgoing_email_address'] = [r['outgoing_email_address'] for r in app_tables.settings.search()][0]
       self.drop_down_printer.selected_value = self.item['selected_printer']
-
     else:
       self.item['outgoing_email_address'] = ''
       self.item['selected_printer'] = None
