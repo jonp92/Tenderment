@@ -19,7 +19,7 @@ class AddRow(AddRowTemplate):
     """This method is called when the button is clicked"""
     for item in self.columns:
       column_name = item['name']
-      column_data = 'some data'  # Replace this with your actual data
+      column_data = self.text_box_new_row.text
       globals.selected_table.add_row(**{column_name: column_data})
     self.parent.raise_event('x-new-row')
 
