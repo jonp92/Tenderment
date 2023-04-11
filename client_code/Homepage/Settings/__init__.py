@@ -12,6 +12,7 @@ from .TestEmail import TestEmail
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    self.item['selected_printer'] = ''
     self.init_components(**properties)
     self.refresh_data()
     self.drop_down_printer.items = [r['printers'] for r in app_tables.printers.search()]
