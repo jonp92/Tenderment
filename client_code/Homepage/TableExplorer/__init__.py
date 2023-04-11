@@ -12,6 +12,7 @@ from .Settings import Settings
 from .TableView import TableView
 from .AddRow import AddRow
 from .Email_Table import Email_Table
+from ... import table_vars
 
 class TableExplorer(TableExplorerTemplate):
   def __init__(self, **properties):
@@ -19,7 +20,6 @@ class TableExplorer(TableExplorerTemplate):
     self.repeating_panel_table.set_event_handler('x-new-row', self.new_row_added)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
     # Any code you write here will run before the form opens.
 
   def drop_down_selected_table_change(self, **event_args):
@@ -27,50 +27,28 @@ class TableExplorer(TableExplorerTemplate):
     if self.data_grid_table.visible == False:
       self.data_grid_table.visible = True
     self.repeating_panel_table.items = None
-    if self.item['selected_table'] == 'Infill':
-      columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in app_tables.infill.list_columns()]
-      self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = Infill
-      self.repeating_panel_table.items = app_tables.infill.search()
-      self.data_grid_table.columns = self.data_grid_table.columns
-      self.refresh_data_bindings()
-    elif self.item['selected_table'] == 'Quality':
-      columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in app_tables.quality.list_columns()]
-      self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = Quality
-      self.repeating_panel_table.items = app_tables.quality.search()
-      self.data_grid_table.columns = self.data_grid_table.columns
-      self.refresh_data_bindings()
-    elif self.item['selected_table'] == 'Printers':
-      columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in app_tables.printers.list_columns()]
-      self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = Printers
-      self.repeating_panel_table.items = app_tables.printers.search()      
-      self.data_grid_table.columns = self.data_grid_table.columns
-      self.refresh_data_bindings()
-    elif self.item['selected_table'] == 'STLs':
-      client_table = anvil.server.call('get_stl_data')
-      columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in client_table.list_columns()]
-      self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = TableView
-      self.repeating_panel_table.items = client_table.search()
-      self.data_grid_table.columns = self.data_grid_table.columns
-      self.refresh_data_bindings()
-    elif self.item['selected_table'] == 'Settings':
-      columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in app_tables.settings.list_columns()]
-      self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = Settings
-      self.repeating_panel_table.items = app_tables.settings.search()
-      self.data_grid_table.columns = self.data_grid_table.columns
-      self.refresh_data_bindings()
-    elif self.item['selected_table'] == 'Emails':
-      client_table = anvil.server.call('get_email_data')
-      columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in client_table.list_columns()]
-      self.data_grid_table.columns = columns
-      self.repeating_panel_table.item_template = Email_Table
-      self.repeating_panel_table.items = client_table.search()
-      self.data_grid_table.columns = self.data_grid_table.columns
-      self.refresh_data_bindings()      
+    tables = {'Infill': {'table': app_tables.infill, 'template': Infill},
+          'Quality': {'table': app_tables.quality, 'template': Quality},
+          'Printers': {'table': app_tables.printers, 'template': Printers},
+          'STLs': {'table': None, 'template': TableView, 'func': 'get_stl_data'},
+          'Settings': {'table': app_tables.settings, 'template': Settings},
+          'Emails': {'table': None, 'template': Email_Table, 'func': 'get_email_data'}}
+    if self.item['selected_table'] in tables:
+        table_info = tables[self.item['selected_table']]
+        if table_info['table'] is not None:
+            columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in table_info['table'].list_columns()]
+            self.data_grid_table.columns = columns
+            self.repeating_panel_table.item_template = table_info['template']
+            self.repeating_panel_table.items = table_info['table'].search()
+            table_vars.selected_table = table_info['table']
+        else:
+            client_table = anvil.server.call(table_info['func'])
+            columns = [{'id': d['id'], 'title': d['name'], 'data_key': d['name']} for d in client_table.list_columns()]
+            self.data_grid_table.columns = columns
+            self.repeating_panel_table.item_template = table_info['template']
+            self.repeating_panel_table.items = client_table.search()
+        self.data_grid_table.columns = self.data_grid_table.columns
+        self.refresh_data_bindings()    
     
   def refresh_stl_table(self, **event_args):
     client_table = anvil.server.call('get_stl_data')
