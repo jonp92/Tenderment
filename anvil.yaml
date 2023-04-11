@@ -36,8 +36,8 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, smtp_host: smtp-relay.gmail.com, smtp_port: 587,
-    smtp_encryption: starttls, smtp_user: jonathan@badjholdings.com, smtp_password: MiBL5GOQ4MxjvRJiIrNJwd9pGr9L4CTy+kHpSSS1p/Q4PTrEPaRiuc67fc/J6zLnNO5zT++mifNgWpuGl8etpwbDts3heAySp0nMg+83o0/TBX7o2RpPxl2MNm1CjSvBMrkiZbl93mugrjFQEsh4XINU6116PMnBiWCQkKD6hWqBBtXipNyKwo6fGY0=}
+  server_config: {custom_smtp: false, smtp_host: '', smtp_port: 587, smtp_encryption: starttls,
+    smtp_user: '', smtp_password: sa9xAVGwDC7hhEP2VgGWBBqZ0t5B3uKjy7cW9sbnr1W+Cm8XOiyHqVEb7i/caWW/1Y+rl8n3qAyu0H/O4QVXEssW0NjvnUxZfnSf6vKgtNmk6WHAxjqx9KAJqt7ZVol7jEMRx/mKTSbL+p7au7V7/o+8SCRQf3MGaxaAvjsEh7xC7bnwuF9QB0LTxvrkYFjlqCU=}
 startup: {type: form, module: Login}
 package_name: Tenderment
 allow_embedding: false
