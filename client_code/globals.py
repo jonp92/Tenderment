@@ -12,4 +12,4 @@ def initial_install():
   if len(app_tables.settings.search()) == 0:
     app_tables.settings.add_row(outgoing_email_address='', selected_printer='')
   if len(app_tables.sync.search()) == 0:
-    app_tables.sync.add_row(last_sync='never')
+    app_tables.sync.add_row(last_sync='never', id='products')
