@@ -12,6 +12,8 @@ class AddRow(AddRowTemplate):
     # Set Form properties and Data Bindings.
     self.columns = globals.selected_table.list_columns()
     self.init_components(**properties)
+    for column in self.columns:
+      self.data_row_panel_1.add_component(TextBox())
     
     # Any code you write here will run before the form opens.
 
