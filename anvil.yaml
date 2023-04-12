@@ -192,7 +192,7 @@ db_schema:
       type: string
   sync:
     title: Sync
-    client: search
+    client: full
     server: full
     columns:
     - name: last_sync
