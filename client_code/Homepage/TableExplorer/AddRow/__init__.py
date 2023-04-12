@@ -19,11 +19,11 @@ class AddRow(AddRowTemplate):
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
-    components = self.get_components()
-    print(components)
+    components = self.data_row_panel_1.get_components()
     for item in self.columns:
       column_name = item['name']
-      column_data = self.text_box_new_row.text
+      for text in components:
+        column_data = text.text
       globals.selected_table.add_row(**{column_name: column_data})
     self.parent.raise_event('x-new-row')
 
