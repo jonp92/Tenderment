@@ -17,6 +17,8 @@ class AddRow(AddRowTemplate):
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
+    components = self.get_components()
+    print(components)
     for item in self.columns:
       column_name = item['name']
       column_data = self.text_box_new_row.text
