@@ -14,7 +14,7 @@ def authorization():
 @anvil.server.callable(require_user=authorization())
 def get_gcode_download(id):
   print_row = app_tables.prints.get_by_id(id)
-  if not stl_row:
+  if not print_row:
     raise Exception("Unable to locate print.")
   else:  
     return anvil.BlobMedia(content_type="application/octet-stream", content=print_row['gcode'].get_bytes(), name=f"{print_row['name']}.gcode")
